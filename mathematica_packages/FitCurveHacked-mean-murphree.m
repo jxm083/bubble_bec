@@ -29,26 +29,40 @@ Redistribute::usage="Redistribute[value_,array_] Takes aramp fraction value_ and
 
 (* ::Input::Initialization:: *)
 SetAttributes[BinaryFreqSearch,HoldAll];
-BinaryFreqSearch[trap1_,trap2_,\[Omega]i_,\[Omega]f_,rampin_,nramps_:8,position_:1,fraction_:-3,round_:-5]:=Module[{
+BinaryFreqSearch[trap1_,trap2_,\[Omega]i_,\[Omega]f_,rampin_,nramps_:8,position_:1,fraction_:-3,round_:-5,modelForm_:"SackettTanh"]:=Module[{
 newramp=rampin,
 model,ramp,
 lower=0,
 upper=1,
 \[Delta],nr0,diff,head,foot
 },
-model[t_]:=(\[Omega]i+\[Omega]f)/2+(\[Omega]f-\[Omega]i)/2 Tanh[5(2(t/2)^(1/4) -1)]/Tanh[5];
+If[modelForm=="SackettTanh",
+model[t_]:=(\[Omega]i+\[Omega]f)/2+(\[Omega]f-\[Omega]i)/2 Tanh[5(2(t/2)^(1/4) -1)]/Tanh[5],
+(* ELSE: *)
+If[modelForm=="CorgierSin",
+model[t_]:=Module[{tau=2*Pi*t},
+\[Omega]i+((\[Omega]f-\[Omega]i)/(12*Pi))*(6*tau-8*Sin[tau]+Sin[2*tau])],
+(* ELSE: *)
+Print["The specified modelForm has not yet been implemented. Please choose either SackettTanh or CorgierSin."];
+Return[];
+]];
 ramp:=Prepend[Table[{Sum[#[[1,i]],{i,n}],Sum[#[[2,i]],{i,n}],#[[2,n]]/#[[1,n]]},{n,nramps}]&[newramp],{0.,0.,0.}](*builds an array of (cumulative time, cumulative ramp fraction, and ramp slope)*);
 \[Delta]:=GeometricMean[SingleTrapFrequency[trap1,trap2,newramp,nramps,position+1]]-model[ramp[[position+1,1]]];
 nr0=newramp[[2,position]];
 upper=1-ramp[[position,2]];
 (*Print[\[Delta],ramp];*)
 While[Abs[\[Delta]]>10.^fraction*model[ramp[[position+1,1]]],
+Print[{newramp[[2,position]],\[Delta],10.^round,model[ramp[[position+1,1]]],upper,lower}];
+If[(upper==newramp[[2,position]]Or lower==newramp[[2,position]]),
+Print["Fitting algorithm stalled. Increasing precision."];
+round=round-1;
+];
 If[\[Delta]<0,
 upper=newramp[[2,position]];
 newramp[[2,position]]=Round[(upper+lower)/2,10.^round],
+(* ELSE: *)
 lower=newramp[[2,position]];
 newramp[[2,position]]=Round[(upper+lower)/2,10.^round];
-Print[{newramp[[2,position]],\[Delta],10.^round}];
 ]
 ];
 diff=newramp[[2,position]]-nr0;
@@ -107,7 +121,7 @@ GuessTimes::usage="GuessTimes[trap1_,trap2_,nramps_:8,round_:\!\(\*SuperscriptBo
 
 
 (* ::Input::Initialization:: *)
-FitCurveHacked[trap1_,trap2_,rampin_,nramps_:8,fraction_:-3,round_:-5]:=Module[{
+FitCurveHacked[trap1_,trap2_,rampin_,nramps_:8,fraction_:-3,round_:-5,modelForm_:"SackettTanh"]:=Module[{
 points=nramps,
 ramp=rampin,
 newramp,
@@ -119,7 +133,7 @@ totalTime=0.
 {\[Omega]i,\[Omega]f}=FindTrapEndpoints[trap1,trap2];
 \[Omega]f=0.9899925293586265*\[Omega]f;
 While[position<points,
-{pointTime,newramp}=Timing[BinaryFreqSearch[trap1,trap2,\[Omega]i,\[Omega]f,ramp,points,position,fraction,round][[1]]];
+{pointTime,newramp}=Timing[BinaryFreqSearch[trap1,trap2,\[Omega]i,\[Omega]f,ramp,points,position,fraction,round,modelForm][[1]]];
 totalTime+=pointTime;
 Print["Completed point "<>ToString[position]<>" of "<>ToString[points-1]<>" in "<>ToString[pointTime]<>" s (Total time: "<>ToString[totalTime/60]<>" min)."];
 position++;
