@@ -47,7 +47,7 @@ model[t_]:=Module[{tau=2*Pi*t},
 Print["The specified modelForm has not yet been implemented. Please choose either SackettTanh or CorgierSin."];
 Return[];
 ]];
-Print["\[Omega]f="<>ToString@\[Omega]f];
+
 ramp:=Prepend[Table[{Sum[#[[1,i]],{i,n}],Sum[#[[2,i]],{i,n}],#[[2,n]]/#[[1,n]]},{n,nramps}]&[newramp],{0.,0.,0.}](*builds an array of (cumulative time, cumulative ramp fraction, and ramp slope)*);
 \[Delta]:=GeometricMean[SingleTrapFrequency[trap1,trap2,newramp,nramps,position+1]]-model[ramp[[position+1,1]]];
 freqMean:=\[Delta]+model[ramp[[position+1,1]]];
