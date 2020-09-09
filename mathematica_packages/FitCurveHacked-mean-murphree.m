@@ -34,7 +34,8 @@ newramp=rampin,
 model,ramp,
 lower=0,
 upper=1,
-\[Delta],nr0,diff,head,foot
+roundTemp=round,
+\[Delta],nr0,diff,head,foot,freqMean
 },
 If[modelForm=="SackettTanh",
 model[t_]:=(\[Omega]i+\[Omega]f)/2+(\[Omega]f-\[Omega]i)/2 Tanh[5(2(t/2)^(1/4) -1)]/Tanh[5],
@@ -46,23 +47,25 @@ model[t_]:=Module[{tau=2*Pi*t},
 Print["The specified modelForm has not yet been implemented. Please choose either SackettTanh or CorgierSin."];
 Return[];
 ]];
+Print["\[Omega]f="<>ToString@\[Omega]f];
 ramp:=Prepend[Table[{Sum[#[[1,i]],{i,n}],Sum[#[[2,i]],{i,n}],#[[2,n]]/#[[1,n]]},{n,nramps}]&[newramp],{0.,0.,0.}](*builds an array of (cumulative time, cumulative ramp fraction, and ramp slope)*);
 \[Delta]:=GeometricMean[SingleTrapFrequency[trap1,trap2,newramp,nramps,position+1]]-model[ramp[[position+1,1]]];
+freqMean:=\[Delta]+model[ramp[[position+1,1]]];
 nr0=newramp[[2,position]];
 upper=1-ramp[[position,2]];
-(*Print[\[Delta],ramp];*)
+
 While[Abs[\[Delta]]>10.^fraction*model[ramp[[position+1,1]]],
-Print[{newramp[[2,position]],\[Delta],10.^round,model[ramp[[position+1,1]]],upper,lower}];
-If[(upper==newramp[[2,position]]Or lower==newramp[[2,position]]),
+Print[{newramp[[2,position]],\[Delta],10.^fraction*model[ramp[[position+1,1]]],model[ramp[[position+1,1]]],freqMean,upper,lower}];
+If[(upper-lower)<=10.^roundTemp,
 Print["Fitting algorithm stalled. Increasing precision."];
-round=round-1;
+roundTemp=roundTemp-1;
 ];
 If[\[Delta]<0,
 upper=newramp[[2,position]];
-newramp[[2,position]]=Round[(upper+lower)/2,10.^round],
+newramp[[2,position]]=Round[(upper+lower)/2,10.^roundTemp];,
 (* ELSE: *)
 lower=newramp[[2,position]];
-newramp[[2,position]]=Round[(upper+lower)/2,10.^round];
+newramp[[2,position]]=Round[(upper+lower)/2,10.^roundTemp];
 ]
 ];
 diff=newramp[[2,position]]-nr0;
@@ -131,7 +134,7 @@ pointTime,
 totalTime=0.
 },
 {\[Omega]i,\[Omega]f}=FindTrapEndpoints[trap1,trap2];
-\[Omega]f=0.9899925293586265*\[Omega]f;
+(*\[Omega]f=0.9899925293586265*\[Omega]f;*)
 While[position<points,
 {pointTime,newramp}=Timing[BinaryFreqSearch[trap1,trap2,\[Omega]i,\[Omega]f,ramp,points,position,fraction,round,modelForm][[1]]];
 totalTime+=pointTime;
