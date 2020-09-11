@@ -407,13 +407,13 @@ e1=DMatrix0[[1,1]];
 e2=DMatrix0[[1,2]];
 e3=DMatrix0[[1,3]];
 Return[
- {{\[Phi],(180/Pi)ArcTan[e1[[2]]/e1[[1]]]//Round,
+ {{\[Phi],(180/Pi)ArcTan[e1[[2]],e1[[1]]]//Round,
 \[Theta],(180/Pi)ArcCos[e1[[3]]/Sqrt[e1[[1]]^2+e1[[2]]^2+e1[[3]]^2]]//Round},
 
-{\[Phi],(180/Pi)ArcTan[e2[[2]]/e2[[1]]]//Round,
+{\[Phi],(180/Pi)ArcTan[e2[[2]],e2[[1]]]//Round,
 \[Theta],(180/Pi)ArcCos[e2[[3]]/Sqrt[e2[[1]]^2+e2[[2]]^2+e2[[3]]^2]]//Round},
 
-{\[Phi],(180/Pi)ArcTan[e3[[2]]/e3[[1]]]//Round,
+{\[Phi],(180/Pi)ArcTan[e3[[2]],e3[[1]]]//Round,
 \[Theta],(180/Pi)ArcCos[e3[[3]]/Sqrt[e3[[1]]^2+e3[[2]]^2+e3[[3]]^2]]//Round},
 
 
