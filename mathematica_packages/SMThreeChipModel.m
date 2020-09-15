@@ -276,7 +276,7 @@ Return[10^-3/(2 hw) {ArcTan[(dxPlus dy1)/(z0 Sqrt[dxPlus^2+dy1^2+z0^2])]+ArcTan[
 ];
 
 
-(* ::Subsection::Closed:: *)
+(* ::Subsection:: *)
 (*Chip magnetic field*)
 
 
