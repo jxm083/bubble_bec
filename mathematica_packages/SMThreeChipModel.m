@@ -422,6 +422,40 @@ Diagonal[Sqrt[\[Mu]B Abs[DMatrixDiag]/mRb]/(2\[Pi]) ]}(* in Hz *)
 ];
 
 
+(* A couple of functions to help visualize the trap directions: *)
+
+
+defineVector[polarAngle_,azimuthalAngle_,length_]:=Module[
+{th=polarAngle*Pi/180,
+ph=azimuthalAngle*Pi/180,
+x,y,z},
+x=length*Cos[ph]*Sin[th];
+y=length*Sin[ph]*Sin[th];
+z=length*Cos[th];
+Return[{x,y,z}];
+];
+
+
+defineVector::usage=
+"defineVector[polarAngle_,azimuthalAngle_,length_]";
+
+
+trapAxesArrows[chipTrapFrequenciesOutput_]:=Module[
+{fout=chipTrapFrequenciesOutput,
+angles1,angles2,angles3,length1,length2,length3,axes,axesArrows},
+axes=defineVector[fout[[#,4]],fout[[#,2]],10^6*Sqrt[hbar/(mRb*fout[[4,#]])]]&/@{1,2,3};
+Print[MapThread[axes[[#1]].axes[[#2]]/(Norm[axes[[#1]]]*Norm[axes[[#2]]])&,{{1,1,2},{2,3,3}}]];
+axesArrows=(Arrow[{{0,0,0},axes[[#]]}]&/@{1,2,3});
+Return[axesArrows];
+];
+
+
+plotTrapAxes[trapAxesArrows_]:=Module[
+{},
+Show@MapThread[Graphics3D[{#1,Thick,#2},Axes->True,AxesLabel->{"x","y","z"}]&,{{Red,Green,Blue},trapAxesArrows}]
+];
+
+
 (* ::Section:: *)
 (*End package*)
 
