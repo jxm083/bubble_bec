@@ -1,5 +1,17 @@
 (* ::Package:: *)
 
+(* 
+Where possible, these tables are drawn from D. Aveline's document 
+CAL3A_chiptraps_v2.pdf, with the exception of ZHbC, where it is necessary to flip
+the sign of the bias field Z value in order to realize a reasonable trap.
+
+The corrected sign agress with the that of ZHbB1, which was based upon ZHbC.
+
+ZHbB1 is currently based on the definition of trap parameters, but will eventually be
+described by the values from a CAL table that implements the trap.
+*)
+
+
 (* ::Subsubsection::Closed:: *)
 (*ZZH*)
 
@@ -18,7 +30,7 @@ Zp=0.1257;
 tableZZH={AZ1selp, AZ2selp, AZ1p, AZ2p, H1pH2p, T1p, T2p, X1p, X2p, Yp, Zp};
 
 
-(* ::Subsubsection:: *)
+(* ::Subsubsection::Closed:: *)
 (*ZLHb*)
 
 
@@ -84,7 +96,7 @@ Zp=-0.05*fdec;
 tableZLHbp3={AZ1selp, AZ2selp, AZ1p, AZ2p, H1pH2p, T1p, T2p, X1p, X2p, Yp, Zp};
 
 
-(* ::Subsubsection:: *)
+(* ::Subsubsection::Closed:: *)
 (*ZHbC*)
 
 
@@ -97,7 +109,7 @@ H1pH2p=0.26;
 T1p=-0.006125;
 T2p = T1p;
 Yp=0.0677;
-Zp=0.11367;
+Zp=0.11367; (* This differs in sign from CAL3A_chiptraps_v2 *)
 
 tableZHbC={AZ1selp, AZ2selp, AZ1p, AZ2p, H1pH2p, T1p, T2p, X1p, X2p, Yp, Zp};
 
