@@ -220,7 +220,7 @@ AZ2 = currLa/maxCurrentAZ2;
 H1pH2 = currH/maxCurrentH1pH2;
 
 (* As is setting the values of the bias fields: *)
-T1 = fieldBiasX/(biasXCalib*maxCurrentBiasX*(-1));
+T1 = fieldBiasX/(biasXCalib*maxCurrentBiasX(**(-1)*));
 T2 = T1;
 Y = fieldBiasY/(biasYCalib*maxCurrentBiasY);
 Z = fieldBiasZ/(biasZCalib*maxCurrentBiasZ);
