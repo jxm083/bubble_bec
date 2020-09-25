@@ -178,7 +178,7 @@ fieldBiasX, fieldBiasY, fieldBiasZ},
 {currLa, currZa, currLb, currZb, currH, currBiasX, currBiasY, currBiasZ} = 
 convertCALTableToCurrents[table];
 
-fieldBiasX = currBiasX*biasXCalib*(-1); (* The origin of this negative one factor is undetermined and troubling. *)
+fieldBiasX = currBiasX*biasXCalib(**(-1)*); (* The origin of this negative one factor is undetermined and troubling. *)
 fieldBiasY = currBiasY*biasYCalib;
 fieldBiasZ = currBiasZ*biasZCalib;
 
@@ -379,10 +379,12 @@ xs=OptionValue[minimizationRegion][[1]],
 ys=OptionValue[minimizationRegion][[2]],
 zs=OptionValue[minimizationRegion][[3]]
 },
+Return[
 NMinimize[{ChipTrapABField[x,y,z,Ila,Iza,Ilb,Izb,Ih,Bx,By,Bz],
 xs[[1]]<x<xs[[2]],
 ys[[1]]<y<ys[[2]],
-zs[[1]]>z>zs[[2]]},{x,y,z}][[2]];
+zs[[1]]>z>zs[[2]]},{x,y,z}][[2]]
+];
 ];
 (* These bounds may need to be changed for ZZH trap, whose center is >1.5 mm 
 from the center of our coordinate system. *)
