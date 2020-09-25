@@ -84,7 +84,7 @@ Zp=-0.05*fdec;
 tableZLHbp3={AZ1selp, AZ2selp, AZ1p, AZ2p, H1pH2p, T1p, T2p, X1p, X2p, Yp, Zp};
 
 
-(* ::Subsubsection::Closed:: *)
+(* ::Subsubsection:: *)
 (*ZHbC*)
 
 
@@ -94,7 +94,7 @@ AZ1p=0.;
 AZ2p=-0.914;
 H1pH2p=0.26;
 
-T1p=-0.006125;
+T1p=0.006125; (* Sign flipped in order to realize minimum above chip. *)
 T2p = T1p;
 Yp=0.0677;
 Zp=0.11367;

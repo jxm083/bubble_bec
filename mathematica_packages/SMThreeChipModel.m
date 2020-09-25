@@ -371,9 +371,19 @@ Return[Sqrt[VecField.VecField]]
 (*Position of trap minimum*)
 
 
-z0AB[Ila_, Iza_, Ilb_, Izb_, Ih_, Bx_, By_, Bz_]:=
+z0AB[Ila_, Iza_, Ilb_, Izb_, Ih_, Bx_, By_, Bz_,
+OptionsPattern[minimizationRegion->{{-0.4 mm,0.4 mm},{-0.4 mm,1.5 mm},{2.5 mm,20 \[Mu]m}}]]:=
+Module[
+{
+xs=OptionValue[minimizationRegion][[1]],
+ys=OptionValue[minimizationRegion][[2]],
+zs=OptionValue[minimizationRegion][[3]]
+},
 NMinimize[{ChipTrapABField[x,y,z,Ila,Iza,Ilb,Izb,Ih,Bx,By,Bz],
--.4 mm<x<.4mm,-.4mm<y<1.5mm,2500\[Mu]m>z>20\[Mu]m},{x,y,z}][[2]];
+xs[[1]]<x<xs[[2]],
+ys[[1]]<y<ys[[2]],
+zs[[1]]>z>zs[[2]]},{x,y,z}][[2]];
+];
 (* These bounds may need to be changed for ZZH trap, whose center is >1.5 mm 
 from the center of our coordinate system. *)
 
