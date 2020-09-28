@@ -73,6 +73,27 @@ it returns the trap principle axis as well in the form
 {{eVec1,\!\(\*SubscriptBox[\(\[Omega]\), \(1\)]\)},{eVec2,\!\(\*SubscriptBox[\(\[Omega]\), \(2\)]\)},{eVec3,\!\(\*SubscriptBox[\(\[Omega]\), \(3\)]\)}}.";
 
 
+plotTrapPrincAxes[trap1_,trap2_,rampin_]:=Module[
+{nramps=Length@rampin[[1]],
+eVecIndex,
+characVtime,
+vec2Plot,vec3Plot},
+characVtime=Table[SingleTrapCharacteristics[trap1,trap2,rampin,nramps,n],{n,nramps}];
+eVecIndex=2;
+vec2Plot=ListPlot[Table[Abs@characVtime[[All,eVecIndex,1,vecComp]],{vecComp,Range[3]}],PlotMarkers->"OpenMarkers"];
+eVecIndex=3;
+vec3Plot=ListPlot[Table[Abs@characVtime[[All,eVecIndex,1,vecComp]],{vecComp,Range[3]}]];
+Show[vec2Plot,vec3Plot]
+];
+
+
+plotTrapPrincAxes::usage = 
+"plotTrapPrincAxes[trap1_,trap2_,rampin_] plots the components of the second and third
+principle axes of the trap as a function of time. Discontinuties in this plot indicate
+that the program has changed which principle axis it is labeling 2 and which one it is 
+labeling 3";
+
+
 (* ::Input::Initialization:: *)
 RampList[trap1_,trap2_,rampin_,npoints_,nramps_:3,OptionsPattern[full->True]]:=Block[{
 deltatrap=#1-#2&[trap1,trap2],
