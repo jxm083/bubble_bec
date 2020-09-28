@@ -36,7 +36,7 @@ ramp=Prepend[Table[{Sum[#[[1,i]],{i,n}],Sum[#[[2,i]],{i,n}],#[[2,n]]/#[[1,n]]},{
 ramplist,freq
 },
 ramplist=Append[Prepend[Table[{t,Piecewise[Table[{#3-(#1[[n-1,2]]+#1[[n,3]]*(t-#1[[n-1,1]]))*#2,#1[[n-1,1]]<t<=#1[[n,1]]},{n,2,nramps+1}]&[ramp,deltatrap,trap1]]},{t,#[[2;;Length[#]-1,1]]&[ramp]}],{0.,trap1}],{1.,trap2}];(*generates the piecewise ramp and finds the values of each parameter at every point, not including zero or since those are the input traps*)
-freq=ChipTrapFrequencies[#[[2,1]],#[[2,2]],#[[2,3]],#[[2,4]],#[[2,5]],#[[2,6]]][[4]]&[ramplist[[position]]]
+freq=ChipTrapABFrequencies[#[[2,1]],#[[2,2]],#[[2,3]],#[[2,4]],#[[2,5]],#[[2,6]],#[[2,7]],#[[2,8]]][[4]]&[ramplist[[position]]]
 ]
 
 
