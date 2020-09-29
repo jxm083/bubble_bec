@@ -96,7 +96,7 @@ Zp=-0.05*fdec;
 tableZLHbp3={AZ1selp, AZ2selp, AZ1p, AZ2p, H1pH2p, T1p, T2p, X1p, X2p, Yp, Zp};
 
 
-(* ::Subsubsection::Closed:: *)
+(* ::Subsubsection:: *)
 (*ZHbC*)
 
 
@@ -114,8 +114,22 @@ Zp=0.11367; (* This differs in sign from CAL3A_chiptraps_v2 *)
 tableZHbC={AZ1selp, AZ2selp, AZ1p, AZ2p, H1pH2p, T1p, T2p, X1p, X2p, Yp, Zp};
 
 
-(* ::Subsubsection::Closed:: *)
+(* ::Subsubsection:: *)
 (*ZHbB1*)
+
+
+AZ1selp=1;
+AZ2selp=0;
+AZ1p=0.;
+AZ2p=-0.742857;
+H1pH2p=0.52;
+
+T1p=0.006;
+T2p = T1p;
+Yp=0.142384;
+Zp=0.100095;
+
+tableZHbB1={AZ1selp, AZ2selp, AZ1p, AZ2p, H1pH2p, T1p, T2p, X1p, X2p, Yp, Zp};
 
 
 (* These values currently come from Nathan's bubble-4a notebook. They will (hopefully)
