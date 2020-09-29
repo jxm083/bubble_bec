@@ -56,24 +56,24 @@ SingleTrapFrequency::usage=
 "SingleTrapFrequency[trap1_,trap2_,rampin_,nramps_:3,position_:1] is much like MovingTrap, but only outputs the 3 trap frequencies at a point, chosen by position_.";
 
 
-SingleTrapCharacteristics[trap1_,trap2_,rampin_,nramps_:3,position_:1]:=Block[{
+(*SingleTrapCharacteristics[trap1_,trap2_,rampin_,nramps_:3,position_:1]:=Block[{
 deltatrap=#1-#2&[trap1,trap2],
 ramp=Prepend[Table[{Sum[#[[1,i]],{i,n}],Sum[#[[2,i]],{i,n}],#[[2,n]]/#[[1,n]]},{n,nramps}]&[rampin],{0.,0.,0.}],(*builds an array of (cumulative time, cumulative ramp fraction, and ramp slope)*)
 ramplist,freq
 },
 ramplist=Append[Prepend[Table[{t,Piecewise[Table[{#3-(#1[[n-1,2]]+#1[[n,3]]*(t-#1[[n-1,1]]))*#2,#1[[n-1,1]]<t<=#1[[n,1]]},{n,2,nramps+1}]&[ramp,deltatrap,trap1]]},{t,#[[2;;Length[#]-1,1]]&[ramp]}],{0.,trap1}],{1.,trap2}];(*generates the piecewise ramp and finds the values of each parameter at every point, not including zero or since those are the input traps*)
-freq=ChipTrapFrequenciesRawPrincipleAxes[#[[2,1]],#[[2,2]],#[[2,3]],#[[2,4]],#[[2,5]],#[[2,6]]]&[ramplist[[position]]]
-]
+freq=(ChipTrapABFrequencies@@#)&[ramplist[[position]]]
+]*)
 
 
-SingleTrapCharacteristics::usage=
+(*SingleTrapCharacteristics::usage=
 "SingleTrapCharacteristics[trap1_,trap2_,rampin_,nramps_:3,position_:1] is
 defined identically to SingleTrapFrequency except instead of returning just the frequencies
 it returns the trap principle axis as well in the form
-{{eVec1,\!\(\*SubscriptBox[\(\[Omega]\), \(1\)]\)},{eVec2,\!\(\*SubscriptBox[\(\[Omega]\), \(2\)]\)},{eVec3,\!\(\*SubscriptBox[\(\[Omega]\), \(3\)]\)}}.";
+{{eVec1,\!\(\*SubscriptBox[\(\[Omega]\), \(1\)]\)},{eVec2,\!\(\*SubscriptBox[\(\[Omega]\), \(2\)]\)},{eVec3,\!\(\*SubscriptBox[\(\[Omega]\), \(3\)]\)}}."*);
 
 
-plotTrapPrincAxes[trap1_,trap2_,rampin_]:=Module[
+(*plotTrapPrincAxes[trap1_,trap2_,rampin_]:=Module[
 {nramps=Length@rampin[[1]],
 eVecIndex,
 characVtime,
@@ -84,14 +84,14 @@ vec2Plot=ListPlot[Table[Abs@characVtime[[All,eVecIndex,1,vecComp]],{vecComp,Rang
 eVecIndex=3;
 vec3Plot=ListPlot[Table[Abs@characVtime[[All,eVecIndex,1,vecComp]],{vecComp,Range[3]}]];
 Show[vec2Plot,vec3Plot]
-];
+];*)
 
 
-plotTrapPrincAxes::usage = 
+(*plotTrapPrincAxes::usage = 
 "plotTrapPrincAxes[trap1_,trap2_,rampin_] plots the components of the second and third
 principle axes of the trap as a function of time. Discontinuties in this plot indicate
 that the program has changed which principle axis it is labeling 2 and which one it is 
-labeling 3";
+labeling 3";*)
 
 
 (* ::Input::Initialization:: *)
@@ -162,3 +162,37 @@ If[OptionValue[frequency]&&OptionValue[trapposition],
 (* ::Input::Initialization:: *)
 ExpansionPlot::usage=
 "ExpansionPlot[movingtrap_,npoints_,ramp_:{{},{}},OptionsPattern[{axis\[Rule]'z',trap\[Rule]'1',usemodel\[Rule]False,frequency\[Rule]True,trapposition\[Rule]True,gridlines\[Rule]False,size\[Rule]Medium}]] takes the output of MovingTrap, a number of plot points, and optionally the axis to look at and the trap number, both of which must be in quotations. The axis defaults to z and the trap number (used only for chart labeling) defaults to 1. The output is two data sets plotted on independent axes in a single plot showing the trap position and trap frequency over the ramp.";
+
+
+plotTrapParametersVT[trap1_,trap2_,rampin_,npoints_,nramps_:3,
+OptionsPattern[rampDuration->1]]:=Module[
+{
+tTot=OptionValue[rampDuration],
+tUnit=If[OptionValue[rampDuration]==1, "", "ms"],
+deltatrap=trap1-trap2,
+ramp=Prepend[Table[{Sum[#[[1,i]],{i,n}],Sum[#[[2,i]],{i,n}],#[[2,n]]/#[[1,n]]},{n,nramps}]&[rampin],{0,0,0}],
+ramplist,
+listValueK,
+colors={Red,Orange,Yellow,Green,Blue,Purple},
+labels={"I_Lb [A]","I_Zb [A]","I_H [A]","B_X [G]","B_Y [G]","B_Z [G]"}
+},
+
+ramplist=Prepend[Drop[Table[{t,Piecewise[Table[{#3-(#1[[n-1,2]]+#1[[n,3]]*(t-#1[[n-1,1]]))*#2,#1[[n-1,1]]<t<=#1[[n,1]]},{n,2,nramps+1}]&[ramp,deltatrap,trap1]]},{t,0.,1.,1./npoints}],1],{0.,trap1}];
+
+listValueK[k_]:=({#[[1]]*tTot,#[[2,k]]}&/@ramplist);
+
+Show[
+MapThread[
+ListPlot[listValueK[#1],PlotStyle->#2,PlotLegends->{#3},Frame->True,FrameLabel->{"time ["<>tUnit<>"]","trap parameter"}]&,{{3,4,5,6,7,8},colors,labels}],
+PlotRange->All]
+];
+
+
+plotTrapParametersVT::usage = 
+"plotTrapParametersVT[trap1_,trap2_,rampin_,npoints_,nramps_:3,OptionsPattern[rampDuration\[Rule]500]]
+takes as inputs the trap parameters for the final and initial traps (trap1 and trap2
+ [{currLa, currZa, currLb, currZb, currH, fieldBiasX, fieldBiasY, fieldBiasZ}]),
+rampin [{{time1,{currLb, currZb, ....}}, {time2, {....}}, ...}], and the number of points 
+in rampin. The duration of the ramp in ms can be entered optionally as the pattern
+rampDuration, otherwise the plot is displayed as a function of relative time.
+";
