@@ -178,7 +178,7 @@ fieldBiasX, fieldBiasY, fieldBiasZ},
 {currLa, currZa, currLb, currZb, currH, currBiasX, currBiasY, currBiasZ} = 
 convertCALTableToCurrents[table];
 
-fieldBiasX = currBiasX*biasXCalib(**(-1)*); (* The origin of this negative one factor is undetermined and troubling. *)
+fieldBiasX = currBiasX*biasXCalib*(-1); (* The origin of this negative one factor is undetermined and troubling. *)
 fieldBiasY = currBiasY*biasYCalib;
 fieldBiasZ = currBiasZ*biasZCalib;
 
@@ -220,7 +220,7 @@ AZ2 = currLa/maxCurrentAZ2;
 H1pH2 = currH/maxCurrentH1pH2;
 
 (* As is setting the values of the bias fields: *)
-T1 = fieldBiasX/(biasXCalib*maxCurrentBiasX(**(-1)*));
+T1 = fieldBiasX/(biasXCalib*maxCurrentBiasX*(-1));
 T2 = T1;
 Y = fieldBiasY/(biasYCalib*maxCurrentBiasY);
 Z = fieldBiasZ/(biasZCalib*maxCurrentBiasZ);
