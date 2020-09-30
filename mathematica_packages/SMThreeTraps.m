@@ -30,7 +30,7 @@ Zp=0.1257;
 tableZZH={AZ1selp, AZ2selp, AZ1p, AZ2p, H1pH2p, T1p, T2p, X1p, X2p, Yp, Zp};
 
 
-(* ::Subsubsection::Closed:: *)
+(* ::Subsubsection:: *)
 (*ZLHb*)
 
 
@@ -40,7 +40,7 @@ AZ1p=0.243;
 AZ2p=-0.686;
 H1pH2p=0.46;
 
-T1p=-0.0275;
+T1p=0.0275; (* Opposite sign relative to the value in CAL3A_chiptraps_v2.pdf *)
 T2p = T1p;
 Yp=0.85;
 Zp=-0.05;
@@ -56,7 +56,7 @@ AZ1p=0.243;
 AZ2p=-0.686;
 H1pH2p=0.46;
 
-T1p=-0.0275*fdec;
+T1p=0.0275*fdec; (* Opposite sign relative to the value in CAL3A_chiptraps_v2.pdf *)
 T2p = T1p;
 Yp=0.85*fdec;
 Zp=-0.05*fdec;
@@ -72,7 +72,7 @@ AZ1p=0.243;
 AZ2p=-0.686;
 H1pH2p=0.46;
 
-T1p=-0.0275*fdec;
+T1p=0.0275*fdec; (* Opposite sign relative to the value in CAL3A_chiptraps_v2.pdf *)
 T2p = T1p;
 Yp=0.85*fdec;
 Zp=-0.05*fdec;
@@ -88,7 +88,7 @@ AZ1p=0.243;
 AZ2p=-0.686;
 H1pH2p=0.46;
 
-T1p=-0.0275*fdec;
+T1p=0.0275*fdec; (* Opposite sign relative to the value in CAL3A_chiptraps_v2.pdf *)
 T2p = T1p;
 Yp=0.85*fdec;
 Zp=-0.05*fdec;
@@ -106,7 +106,7 @@ AZ1p=0.;
 AZ2p=-0.914;
 H1pH2p=0.26;
 
-T1p=-0.006125;
+T1p=0.006125; (* Opposite sign relative to the value in CAL3A_chiptraps_v2.pdf *)
 T2p = T1p;
 Yp=0.0677;
 Zp=0.11367; (* This differs in sign from CAL3A_chiptraps_v2 *)
