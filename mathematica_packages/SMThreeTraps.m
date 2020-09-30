@@ -12,129 +12,151 @@ described by the values from a CAL table that implements the trap.
 *)
 
 
-(* ::Subsubsection::Closed:: *)
+(* ::Subsubsection:: *)
 (*ZZH*)
 
 
-AZ1selp=0;
-AZ2selp=0;
-AZ1p=0.57;
-AZ2p=-0.57;
-H1pH2p=0.4;
+With[{
+AZ1selp=0,
+AZ2selp=0,
+AZ1p=0.57,
+AZ2p=-0.57,
+H1pH2p=0.4,
 
-T1p=0.0047;
-T2p = T1p;
-Yp=0;
-Zp=0.1257;
-
+T1p=0.0047, (* Opposite sign relative to the value in CAL3A_chiptraps_v2.pdf *)
+Yp=0,
+Zp=0.1257
+},
+With[{T2p = T1p},
 tableZZH={AZ1selp, AZ2selp, AZ1p, AZ2p, H1pH2p, T1p, T2p, X1p, X2p, Yp, Zp};
+];];
 
 
 (* ::Subsubsection:: *)
 (*ZLHb*)
 
 
-AZ1selp=1;
-AZ2selp=0;
-AZ1p=0.243;
-AZ2p=-0.686;
-H1pH2p=0.46;
+(* N.B. according to CAL3A_chiptraps_v2.pdf, only the x and y bias field parameters are 
+multiplied by fdec; this was not the case for our slosh data, however. *)
 
-T1p=0.0275; (* Opposite sign relative to the value in CAL3A_chiptraps_v2.pdf *)
-T2p = T1p;
-Yp=0.85;
-Zp=-0.05;
 
+With[{
+AZ1selp=1,
+AZ2selp=0,
+AZ1p=0.243,
+AZ2p=-0.686,
+H1pH2p=0.46,
+
+T1p=0.0275, (* Opposite sign relative to the value in CAL3A_chiptraps_v2.pdf *)
+Yp=0.85,
+Zp=-0.05
+},
+With[{T2p=T1p},
 tableZLHb={AZ1selp, AZ2selp, AZ1p, AZ2p, H1pH2p, T1p, T2p, X1p, X2p, Yp, Zp};
+];];
 
 
-fdec=0.2
+(* See note about fdec above. *)
+With[{
+fdec=0.2,
 
-AZ1selp=1;
-AZ2selp=0;
-AZ1p=0.243;
-AZ2p=-0.686;
-H1pH2p=0.46;
+AZ1selp=tableZLHb[[1]],
+AZ2selp=tableZLHb[[2]],
+AZ1p=tableZLHb[[3]],
+AZ2p=tableZLHb[[4]],
+H1pH2p=tableZLHb[[5]],
 
-T1p=0.0275*fdec; (* Opposite sign relative to the value in CAL3A_chiptraps_v2.pdf *)
-T2p = T1p;
-Yp=0.85*fdec;
-Zp=-0.05*fdec;
-
+T1p=tableZLHb[[6]]*fdec, (* Opposite sign relative to the value in CAL3A_chiptraps_v2.pdf *)
+Yp=tableZLHb[[10]]*fdec,
+Zp=tableZLHb[[11]]*fdec
+},
+With[{T2p=T1p},
 tableZLHbp2={AZ1selp, AZ2selp, AZ1p, AZ2p, H1pH2p, T1p, T2p, X1p, X2p, Yp, Zp};
+];];
 
 
-fdec=0.25
+(* See note about fdec above. *)
+With[{
+fdec=0.25,
 
-AZ1selp=1;
-AZ2selp=0;
-AZ1p=0.243;
-AZ2p=-0.686;
-H1pH2p=0.46;
+AZ1selp=tableZLHb[[1]],
+AZ2selp=tableZLHb[[2]],
+AZ1p=tableZLHb[[3]],
+AZ2p=tableZLHb[[4]],
+H1pH2p=tableZLHb[[5]],
 
-T1p=0.0275*fdec; (* Opposite sign relative to the value in CAL3A_chiptraps_v2.pdf *)
-T2p = T1p;
-Yp=0.85*fdec;
-Zp=-0.05*fdec;
-
+T1p=tableZLHb[[6]]*fdec, (* Opposite sign relative to the value in CAL3A_chiptraps_v2.pdf *)
+Yp=tableZLHb[[10]]*fdec,
+Zp=tableZLHb[[11]]*fdec
+},
+With[{T2p=T1p},
 tableZLHbp25={AZ1selp, AZ2selp, AZ1p, AZ2p, H1pH2p, T1p, T2p, X1p, X2p, Yp, Zp};
+];];
 
 
-fdec=0.3
+(* See note about fdec above. *)
+With[{
+fdec=0.3,
 
-AZ1selp=1;
-AZ2selp=0;
-AZ1p=0.243;
-AZ2p=-0.686;
-H1pH2p=0.46;
+AZ1selp=tableZLHb[[1]],
+AZ2selp=tableZLHb[[2]],
+AZ1p=tableZLHb[[3]],
+AZ2p=tableZLHb[[4]],
+H1pH2p=tableZLHb[[5]],
 
-T1p=0.0275*fdec; (* Opposite sign relative to the value in CAL3A_chiptraps_v2.pdf *)
-T2p = T1p;
-Yp=0.85*fdec;
-Zp=-0.05*fdec;
-
+T1p=tableZLHb[[6]]*fdec, (* Opposite sign relative to the value in CAL3A_chiptraps_v2.pdf *)
+Yp=tableZLHb[[10]]*fdec,
+Zp=tableZLHb[[11]]*fdec
+},
+With[{T2p=T1p},
 tableZLHbp3={AZ1selp, AZ2selp, AZ1p, AZ2p, H1pH2p, T1p, T2p, X1p, X2p, Yp, Zp};
+];];
 
 
 (* ::Subsubsection:: *)
 (*ZHbC*)
 
 
-AZ1selp=1;
-AZ2selp=0;
-AZ1p=0.;
-AZ2p=-0.914;
-H1pH2p=0.26;
+With[{
+AZ1selp=1,
+AZ2selp=0,
+AZ1p=0.,
+AZ2p=-0.914,
+H1pH2p=0.26,
 
-T1p=0.006125; (* Opposite sign relative to the value in CAL3A_chiptraps_v2.pdf *)
-T2p = T1p;
-Yp=0.0677;
-Zp=0.11367; (* This differs in sign from CAL3A_chiptraps_v2 *)
-
+T1p=0.006125, (* Opposite sign relative to the value in CAL3A_chiptraps_v2.pdf *)
+Yp=0.0677,
+Zp=0.11367 (* This differs in sign from CAL3A_chiptraps_v2 *)
+},
+With[{T2p=T1p},
 tableZHbC={AZ1selp, AZ2selp, AZ1p, AZ2p, H1pH2p, T1p, T2p, X1p, X2p, Yp, Zp};
+];];
 
 
 (* ::Subsubsection:: *)
 (*ZHbB1*)
 
 
-AZ1selp=1;
-AZ2selp=0;
-AZ1p=0.;
-AZ2p=-0.742857;
-H1pH2p=0.52;
+(* These values are taken from the table 700msZHB1_example1.xlsx sent by Dave in 
+September 2020. *)
+With[{
+AZ1selp=1,
+AZ2selp=0,
+AZ1p=0.,
+AZ2p=-0.742857,
+H1pH2p=0.52,
 
-T1p=0.006;
-T2p = T1p;
-Yp=0.142384;
-Zp=0.100095;
-
+T1p=0.006,
+Yp=0.142384,
+Zp=0.100095
+},
+With[{T2p=T1p},
 tableZHbB1={AZ1selp, AZ2selp, AZ1p, AZ2p, H1pH2p, T1p, T2p, X1p, X2p, Yp, Zp};
+];];
 
 
-(* These values currently come from Nathan's bubble-4a notebook. They will (hopefully)
-be replaced by the table values from a sample SM3 Table ramping into ZHbB1,
-once we get one. *)
+(* These values come from Nathan's bubble-4a notebook, upon which the 
+now-official is based.*)
 With[
 {
 currLa=0,
@@ -149,25 +171,22 @@ Bz1 = (0.3003)*(-10.3675)
 },
 trapZHBates={currLa,currZa,currLb,currZb,currH,Bx1,By1,Bz1};
 tableZHBates=convertTrapParametersToCALTable[trapZHBates];
-]
+];
 
 
 (* This trap was created accidentally when D. Aveline made a table that ramped the bias
 coils to ZHbB1 parameters but not the chip currents. *)
-AZ1selp=1;
-AZ2selp=0;
-AZ1p=0.243;
-AZ2p=-0.686;
-H1pH2p=0.46;
+With[{
+AZ1selp=1,
+AZ2selp=0,
+AZ1p=0.243,
+AZ2p=-0.686,
+H1pH2p=0.46,
 
-T1p=-0.006;
-T2p = T1p;
-Yp=0.142384;
-Zp=0.100095;
-
+T1p=-0.006,
+Yp=0.142384,
+Zp=0.100095
+},
+With[{T2p=T1p},
 tableZHbB1Err={AZ1selp, AZ2selp, AZ1p, AZ2p, H1pH2p, T1p, T2p, X1p, X2p, Yp, Zp};
-
-
-(* Clear the variables that are internal to this package to prevent variables
-from being renamed unexpectedly. *)
-ClearAll[AZ1selp, AZ2selp, AZ1p, AZ2p, H1pH2p, T1p, T2p, X1p, X2p, Yp, Zp];
+];];
