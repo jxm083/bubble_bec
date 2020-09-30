@@ -57,9 +57,8 @@ tableZLHb={AZ1selp, AZ2selp, AZ1p, AZ2p, H1pH2p, T1p, T2p, X1p, X2p, Yp, Zp};
 
 
 (* See note about fdec above. *)
+With[{fdec=0.2},
 With[{
-fdec=0.2,
-
 AZ1selp=tableZLHb[[1]],
 AZ2selp=tableZLHb[[2]],
 AZ1p=tableZLHb[[3]],
@@ -72,13 +71,12 @@ Zp=tableZLHb[[11]]*fdec
 },
 With[{T2p=T1p},
 tableZLHbp2={AZ1selp, AZ2selp, AZ1p, AZ2p, H1pH2p, T1p, T2p, X1p, X2p, Yp, Zp};
-];];
+];];];
 
 
 (* See note about fdec above. *)
+With[{fdec=0.25},
 With[{
-fdec=0.25,
-
 AZ1selp=tableZLHb[[1]],
 AZ2selp=tableZLHb[[2]],
 AZ1p=tableZLHb[[3]],
@@ -91,13 +89,12 @@ Zp=tableZLHb[[11]]*fdec
 },
 With[{T2p=T1p},
 tableZLHbp25={AZ1selp, AZ2selp, AZ1p, AZ2p, H1pH2p, T1p, T2p, X1p, X2p, Yp, Zp};
-];];
+];];];
 
 
 (* See note about fdec above. *)
+With[{fdec=0.3},
 With[{
-fdec=0.3,
-
 AZ1selp=tableZLHb[[1]],
 AZ2selp=tableZLHb[[2]],
 AZ1p=tableZLHb[[3]],
@@ -110,7 +107,7 @@ Zp=tableZLHb[[11]]*fdec
 },
 With[{T2p=T1p},
 tableZLHbp3={AZ1selp, AZ2selp, AZ1p, AZ2p, H1pH2p, T1p, T2p, X1p, X2p, Yp, Zp};
-];];
+];];];
 
 
 (* ::Subsubsection:: *)
