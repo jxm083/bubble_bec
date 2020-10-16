@@ -291,8 +291,10 @@ YGrad=YYGrad;
 Hoffset = -425 \[Mu]m;
 WireWidth = 50 \[Mu]m; (*half-width*)
 
-ChipTrapABVecField[x_,y_,z_,Ila_,Iza_,Ilb_,Izb_,Ih_,Bx_,By_,Bz_]:=Module[
+ChipTrapABVecField[x_,y_,z_,Ila_,Iza_,Ilb_,Izb_,Ih_,Bx_,By_,Bz_,
+OptionsPattern[backgroundBField->Null]]:=Module[
 {VecField,
+b0,
 ZLength,LLength,LegLength,deltaL,
 ZAMainyc,ZAMainx0,ZAMainx1,
 ZALeg1xc,ZALeg1y0,ZALeg1y1,
@@ -306,6 +308,12 @@ ZBLeg2xc,ZBLeg2y0,ZBLeg2y1,
 LBMainyc,LBMainx0,LBMainx1,
 LBLeg1xc,LBLeg1y0,LBLeg1y1,
 LBLeg2xc,LBLeg2y0,LBLeg2y1},
+
+If[OptionValue[backgroundBField]==Null,
+(* THEN: *)
+b0[xp_,yp_,zp_]:={0,0,0};
+];
+
 ZLength=11.55mm;
 LLength=5.875mm;
 LegLength=5mm;
@@ -352,13 +360,15 @@ Iza FatXwire[x,y,z,WireWidth,ZAMainyc,ZAMainx0,ZAMainx1](* main section of ZA wi
 +Ih FatYwire[x,y,z-Hoffset,200\[Mu]m,-1.5mm,5mm,-5mm] (* first leg of H *)
 +Ih FatYwire[x,y,z-Hoffset,200\[Mu]m,1.5mm,5mm,-5mm] (* second leg of H *)
 
-+{Bx,By,Bz}+{100 XGrad x , 100 YGrad y ,100 ZGrad z+100ZYGrad y});(* Bias fields and field gradients *)
++{Bx,By,Bz} + b0[x,y,z]);(* Bias fields and background field *)
 Return[VecField]
 ];
 
 
-ChipTrapABField[x_,y_,z_,Ila_,Iza_,Ilb_,Izb_,Ih_,Bx_,By_,Bz_]:=Module[
-{VecField=ChipTrapABVecField[x, y, z, Ila, Iza, Ilb, Izb, Ih, Bx, By, Bz]},
+ChipTrapABField[x_,y_,z_,Ila_,Iza_,Ilb_,Izb_,Ih_,Bx_,By_,Bz_,
+OptionsPattern[backgroundBField->Null]]:=Module[
+{VecField=ChipTrapABVecField[x, y, z, Ila, Iza, Ilb, Izb, Ih, Bx, By, Bz,
+backgroundBField->OptionValue[backgroundBField]]},
 Return[Sqrt[VecField.VecField]]
 ];
 
