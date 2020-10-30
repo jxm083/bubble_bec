@@ -1,51 +1,5 @@
 (* ::Package:: *)
 
-(*BeginPackage["SMThreeChipModel`"]*)
-
-
-(* ::Section:: *)
-(*Chip trap*)
-
-
-(* ::Subsection::Closed:: *)
-(*Chip magnetic field*)
-
-
-ChipTrapABVecField::usage = 
-"ChipTrapABVecField[x_,y_,z_,Ila_,Iza_,Ilb_,Izb_,Ih_,Bx_,By_,Bz_]";
-
-
-ChipTrapABField::usage = 
-"ChipTrapABField[x_,y_,z_,Ila_,Iza_,Ilb_,Izb_,Ih_,Bx_,By_,Bz_]";
-
-
-(* ::Subsection:: *)
-(*Chip magnetic trap characterization*)
-
-
-(* ::Subsubsection::Closed:: *)
-(*Position of trap minimum*)
-
-
-z0AB::usage = 
-"z0AB[Ila_, Iza_, Ilb_, Izb_, Ih_, Bx_, By_, Bz_]";
-
-
-(* ::Subsubsection::Closed:: *)
-(*Trap frequencies and principle axes*)
-
-
-ChipTrapABFrequencies::usage=
-"ChipTrapABFrequencies[Ila_,Iza_,Ilb_,Izb_,Ih_,Bx_,By_,Bz_]";
-
-
-(* ::Section:: *)
-(*Begin private*)
-
-
-(*Begin["`Private`"]*)
-
-
 (* ::Section::Closed:: *)
 (*Units and constants*)
 
@@ -74,7 +28,7 @@ gJ = 2.00233113;
 nKPerHz = 1*^9(h/kb);
 
 
-(* ::Section:: *)
+(* ::Section::Closed:: *)
 (*CAL Table values to currents and magnetic fields*)
 
 
@@ -476,11 +430,3 @@ plotTrapAxes[trapAxesArrows_]:=Module[
 {},
 Show@MapThread[Graphics3D[{#1,Thick,#2},Axes->True,AxesLabel->{"x","y","z"}]&,{{Red,Green,Blue},trapAxesArrows}]
 ];
-
-
-(* ::Section:: *)
-(*End package*)
-
-
-(*End[]
-EndPackage[]*)
