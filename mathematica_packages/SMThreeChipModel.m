@@ -494,7 +494,9 @@ d[z_,z0_,r_,a_]:=(4\[Alpha][r,a])/Q[z,z0,r,a];
 Bz[z_,z0_,r_,a_]:=B[a]*(1/(\[Pi]*\[Sqrt]Q[z,z0,r,a]))*((EllipticE[d[z,z0,r,a]])((1-\[Alpha][r,a]^2-\[Beta][z,z0,a]^2)/(Q[z,z0,r,a]-4\[Alpha][r,a]))+EllipticK[d[z,z0,r,a]]);
 
 Br[z_,z0_,r_,a_]:=B[a]*(\[Gamma][z,z0,r]/(\[Pi]*\[Sqrt]Q[z,z0,r,a]))*((EllipticE[d[z,z0,r,a]])*((1+\[Alpha][r,a]^2+\[Beta][z,z0,a]^2)/(Q[z,z0,r,a]-4\[Alpha][r,a]))-EllipticK[d[z,z0,r,a]]); (* When on-axis, Br=0*)
-Bmag[z_,z0_,r_,a_]:=\[Sqrt]((Bz[z,z0,r,a])^2+(Br[z,z0,r,a])^2); (*magnitude of total magnetic field*)
+
+(*magnitude of total magnetic field*)
+Bmag[z_,z0_,r_,a_]:=Evaluate[\[Sqrt]((Bz[z,z0,r,a])^2+(Br[z,z0,r,a])^2)];
 
 RFUnitVec[x_,y_,z_]:=Evaluate[{
 Br[z,LoopOriginZ,Sqrt[x^2+y^2],LoopRadius] x/Sqrt[x^2+y^2],
@@ -508,3 +510,9 @@ MagFracC=Compile[{x,y,z},Evaluate[MagFrac[x,y,z]]];
 MagFracC2[x_?NumericQ,y_?NumericQ,z_?NumericQ]:=MagFracC[x,y,z];
 MagFracSimple[x_,y_,z_]:=Bmag[z,LoopOriginZ,Sqrt[x^2+y^2], LoopRadius]/Bmag[z1,LoopOriginZ,1*^-10, LoopRadius]
 ];
+
+(*
+(* Check Bmag against a simpler analytic form of the potential in a limiting case. *)
+Btest[z_,z0_,a_]:=(\[Mu]0 (*i=*)1(**)/2) a^2/(a^2 + (z-z0)^2)^1.5;
+Plot[Bmag[z,0,1*^-10,.005]-Btest[z,0,.005],{z,0,.01},Frame\[Rule]True]
+*)
