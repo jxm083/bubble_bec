@@ -1,6 +1,6 @@
 (* ::Package:: *)
 
-(* ::Section::Closed:: *)
+(* ::Section:: *)
 (*Units and constants*)
 
 
@@ -26,6 +26,42 @@ Ahfs =  3.417341305*^9;
 gI= -.0009951414 ;
 gJ = 2.00233113;
 nKPerHz = 1*^9(h/kb);
+
+
+(* ::Section:: *)
+(*Atom model: Breit--Rabi Zeeman-shift formulae*)
+
+
+Clear[ZeemanShift];
+
+Block[
+{
+k = ((gJ-gI)\[Mu]B/Ahfs/h/2),
+\[CapitalXi],
+Field
+},
+
+\[CapitalXi][Field_]:= If[Field>= 1/k, -1,1];
+
+ZeemanShift[Field_]= {
+-Ahfs-2gI \[Mu]B Field/h+\[CapitalXi][Field]Ahfs Sqrt[1- 2k Field+k^2 Field^2],
+-Ahfs-gI \[Mu]B Field/h+Ahfs Sqrt[1- k Field+k^2 Field^2],
+-Ahfs+Ahfs Sqrt[1+k^2 Field^2],
+-Ahfs+ gI \[Mu]B Field/h+Ahfs Sqrt[1+k  Field+k^2 Field^2],
+-Ahfs+ 2 gI \[Mu]B Field/h+ Ahfs Sqrt[1+2k  Field+k^2 Field^2]
+} ;(* F=2, m= -2, -1, 0, +1, +2 *)
+
+ZeemanShiftC = Compile[{Field},Evaluate[ZeemanShift[Field]]];
+];
+
+(* A plot to check that the energy shifts have the right form: *)
+(*Plot[{ZeemanShift[Field]/1*^6,0, gF(\[Mu]B/h/1*^6) Field,-gF(\[Mu]B/h/1*^6) Field},
+{Field,0,5000 Gauss},
+FrameLabel\[Rule]{"B (Tesla)","MHz"},
+PlotStyle\[Rule]{Blue,Dashed,Dashed,Dashed},
+FrameTicksStyle\[Rule]Directive[Black,FontFamily\[Rule]"Century Gothic"],
+FrameStyle\[Rule]Directive[Black,15,FontFamily\[Rule]"Century Gothic"],
+AspectRatio\[Rule]1,PlotRange\[Rule]All,Axes\[Rule]False]*)
 
 
 (* ::Section::Closed:: *)
@@ -200,7 +236,7 @@ terms of Gauss. It returns a list of CAL Table values of the form
 where presently T1=T2 and X1 and X2 are left undefined.";
 
 
-(* ::Section:: *)
+(* ::Section::Closed:: *)
 (*Chip trap*)
 
 

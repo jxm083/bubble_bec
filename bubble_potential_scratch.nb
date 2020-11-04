@@ -10,14 +10,16 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     23949,        617]
-NotebookOptionsPosition[     21849,        583]
-NotebookOutlinePosition[     22253,        599]
-CellTagsIndexPosition[     22210,        596]
+NotebookDataLength[    102910,       2439]
+NotebookOptionsPosition[     97778,       2352]
+NotebookOutlinePosition[     98182,       2368]
+CellTagsIndexPosition[     98139,       2365]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
 Notebook[{
+
+Cell[CellGroupData[{
 Cell[BoxData[{
  RowBox[{"packageDirectory", "=", 
   RowBox[{"FileNameJoin", "@", 
@@ -44,17 +46,26 @@ Cell[BoxData[{
   "\[IndentingNewLine]", "]"}]}], "Input",
  CellChangeTimes->{{3.8052064070135355`*^9, 3.805206414756811*^9}, {
   3.8052065541413965`*^9, 3.805206568892821*^9}},
- CellLabel->
-  "In[190]:=",ExpressionUUID->"44e7bef5-4e74-428d-b94b-c4d2f64e3323"],
+ CellLabel->"In[1]:=",ExpressionUUID->"44e7bef5-4e74-428d-b94b-c4d2f64e3323"],
+
+Cell[BoxData["\<\"C:\\\\Users\\\\josep\\\\forschung\\\\modeling\\\\bubble_bec\
+\\\\mathematica_packages\"\>"], "Output",
+ CellChangeTimes->{3.8133312376618385`*^9, 3.8134023605370164`*^9},
+ CellLabel->"Out[1]=",ExpressionUUID->"38c138d2-c195-4901-ab5f-c670ea55857d"],
+
+Cell[BoxData["\<\"C:\\\\Users\\\\josep\\\\forschung\\\\modeling\\\\bubble_bec\
+\\\\output\"\>"], "Output",
+ CellChangeTimes->{3.8133312376618385`*^9, 3.8134023605881395`*^9},
+ CellLabel->"Out[2]=",ExpressionUUID->"52cc2681-2a17-4702-97ba-b232bc0f1c3a"]
+}, Open  ]],
 
 Cell[BoxData[{
  RowBox[{"Get", "[", "\"\<SMThreeChipModel.m\>\"", 
   "]"}], "\[IndentingNewLine]", 
  RowBox[{"Get", "[", "\"\<SMThreeTraps.m\>\"", "]"}]}], "Input",
  CellChangeTimes->{{3.8052064646207533`*^9, 3.8052064753900905`*^9}, {
-  3.811869593632167*^9, 
-  3.8118696180139513`*^9}},ExpressionUUID->"fc491b3b-4120-4bb8-9f74-\
-54db2491a55a"],
+  3.811869593632167*^9, 3.8118696180139513`*^9}},
+ CellLabel->"In[4]:=",ExpressionUUID->"fc491b3b-4120-4bb8-9f74-54db2491a55a"],
 
 Cell[CellGroupData[{
 
@@ -98,8 +109,7 @@ Cell[BoxData[
  CellChangeTimes->{{3.808839372069669*^9, 3.808839600288083*^9}, {
    3.808841604273555*^9, 3.8088416251375055`*^9}, {3.808843561776226*^9, 
    3.8088435672925835`*^9}, 3.8088436882052665`*^9},
- CellLabel->
-  "In[323]:=",ExpressionUUID->"ec9ce0f5-687f-4134-bb56-093beca4bfb5"],
+ CellLabel->"In[6]:=",ExpressionUUID->"ec9ce0f5-687f-4134-bb56-093beca4bfb5"],
 
 Cell[BoxData[
  RowBox[{
@@ -184,8 +194,7 @@ Cell[BoxData[
   3.808840895294125*^9}, {3.8088435770079327`*^9, 3.808843656846203*^9}, {
   3.8088437380024076`*^9, 3.8088438558995914`*^9}, {3.80884393844829*^9, 
   3.808844043566152*^9}, {3.80884407503624*^9, 3.8088440970185027`*^9}},
- CellLabel->
-  "In[324]:=",ExpressionUUID->"cc4fb2ba-d8b0-4e4b-9f58-2d5bee87c723"],
+ CellLabel->"In[7]:=",ExpressionUUID->"cc4fb2ba-d8b0-4e4b-9f58-2d5bee87c723"],
 
 Cell[BoxData[{
  RowBox[{
@@ -241,8 +250,7 @@ Cell[BoxData[{
      RowBox[{"(", 
       RowBox[{"-", "10.3675"}], ")"}], " ", "1.09"}]}], ";"}], 
   "   "}]}], "Input",
- CellLabel->
-  "In[325]:=",ExpressionUUID->"6f3ac47b-41a8-4ec3-abc2-0a53f4d6488a"],
+ CellLabel->"In[8]:=",ExpressionUUID->"6f3ac47b-41a8-4ec3-abc2-0a53f4d6488a"],
 
 Cell[BoxData[
  RowBox[{
@@ -321,8 +329,9 @@ Cell[BoxData[
     "]"}]}], ";"}]], "Input",
  CellChangeTimes->{{3.809275612425268*^9, 3.809275613449168*^9}, {
   3.809275656338853*^9, 3.8092756685616627`*^9}},
- CellLabel->
-  "In[346]:=",ExpressionUUID->"a98eb557-6d78-4967-921f-9c818c3c3794"],
+ CellLabel->"In[18]:=",ExpressionUUID->"a98eb557-6d78-4967-921f-9c818c3c3794"],
+
+Cell[CellGroupData[{
 
 Cell[BoxData[
  RowBox[{"ChipTrapABFrequencies", "@@", 
@@ -330,8 +339,28 @@ Cell[BoxData[
    RowBox[{
    "0", ",", "0", ",", "CurrL", ",", "CurrZ", ",", "CurrH", ",", "Bx1", ",", 
     "By1", ",", "Bz1"}], "}"}]}]], "Input",
- CellLabel->
-  "In[335]:=",ExpressionUUID->"91fca718-94cb-47a7-bbc0-6d8775b11529"],
+ CellLabel->"In[19]:=",ExpressionUUID->"91fca718-94cb-47a7-bbc0-6d8775b11529"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"\[Phi]", ",", "176", ",", "\[Theta]", ",", "88"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\[Phi]", ",", 
+     RowBox[{"-", "87"}], ",", "\[Theta]", ",", "16"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\[Phi]", ",", 
+     RowBox[{"-", "95"}], ",", "\[Theta]", ",", "106"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+    "118.31875020850603`", ",", "881.3692867332207`", ",", 
+     "840.9142026802364`"}], "}"}]}], "}"}]], "Output",
+ CellChangeTimes->{3.8134023626375127`*^9},
+ CellLabel->"Out[19]=",ExpressionUUID->"3f16d690-34f5-4feb-b2c1-bc5fc80d4e75"]
+}, Open  ]],
+
+Cell[CellGroupData[{
 
 Cell[BoxData[
  RowBox[{"arrowsDirect", "=", 
@@ -342,8 +371,31 @@ Cell[BoxData[
      "By1", ",", "Bz1"}], "}"}]}]}]], "Input",
  CellChangeTimes->{{3.8092756323238773`*^9, 3.80927563356295*^9}, {
   3.8092756745574303`*^9, 3.8092756775522594`*^9}},
- CellLabel->
-  "In[347]:=",ExpressionUUID->"e7976be1-b1e2-46a6-9c36-eefdc9660281"],
+ CellLabel->"In[20]:=",ExpressionUUID->"e7976be1-b1e2-46a6-9c36-eefdc9660281"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"-", "0.9962271032629744`"}], ",", "0.07777067200440672`", ",", 
+     "0.03851339118081176`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"0.015173725216238332`", ",", 
+     RowBox[{"-", "0.280853394142375`"}], ",", "0.9596307253635481`"}], "}"}],
+    ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"-", "0.0854477430206634`"}], ",", 
+     RowBox[{"-", "0.9565945293459976`"}], ",", 
+     RowBox[{"-", "0.2786136924811554`"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+    "118.31875020850603`", ",", "881.3692867332207`", ",", 
+     "840.9142026802364`"}], "}"}]}], "}"}]], "Output",
+ CellChangeTimes->{3.8134023643777027`*^9},
+ CellLabel->"Out[20]=",ExpressionUUID->"42ae7ac6-2966-454b-90f5-47eada76adae"]
+}, Open  ]],
 
 Cell[BoxData[
  RowBox[{
@@ -424,20 +476,181 @@ Cell[BoxData[
   3.809276362641657*^9}, {3.809276417529293*^9, 3.809276444142691*^9}, {
   3.8092768287464323`*^9, 3.8092768487967186`*^9}, {3.8092774698542457`*^9, 
   3.809277545384736*^9}},
- CellLabel->
-  "In[369]:=",ExpressionUUID->"7b82fd99-7436-40c2-a0a2-c9afab2ab7a5"],
+ CellLabel->"In[21]:=",ExpressionUUID->"7b82fd99-7436-40c2-a0a2-c9afab2ab7a5"],
+
+Cell[CellGroupData[{
 
 Cell[BoxData[
  RowBox[{"plotDirectArrows", "@", "arrowsDirect"}]], "Input",
  CellChangeTimes->{{3.8092761613778024`*^9, 3.8092761692976055`*^9}},
+ CellLabel->"In[22]:=",ExpressionUUID->"58bf2716-25dc-43b7-a8fb-8102451942df"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData["0.`"], "Print",
+ CellChangeTimes->{3.813402364480236*^9},
  CellLabel->
-  "In[370]:=",ExpressionUUID->"58bf2716-25dc-43b7-a8fb-8102451942df"],
+  "During evaluation of \
+In[22]:=",ExpressionUUID->"fa523b95-c807-486f-a4d5-8a89ac508cb7"],
+
+Cell[BoxData["0.`"], "Print",
+ CellChangeTimes->{3.8134023645027065`*^9},
+ CellLabel->
+  "During evaluation of \
+In[22]:=",ExpressionUUID->"8347b2a8-dedb-439d-90c5-39186c0ce23b"],
+
+Cell[BoxData["1.6653345369377348`*^-16"], "Print",
+ CellChangeTimes->{3.813402364517781*^9},
+ CellLabel->
+  "During evaluation of \
+In[22]:=",ExpressionUUID->"d64a2e25-2d59-4851-9736-faa0b076bdf8"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"Arrow", "[", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"0", ",", "0", ",", "0"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"-", "0.008419858234703993`"}], ",", "0.0006572979503870362`",
+         ",", "0.0003255053921119174`"}], "}"}]}], "}"}], "]"}], ",", 
+   RowBox[{"Arrow", "[", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"0", ",", "0", ",", "0"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"0.000017216081209817814`", ",", 
+        RowBox[{"-", "0.0003186557534621532`"}], ",", 
+        "0.0010887952868432731`"}], "}"}]}], "}"}], "]"}], ",", 
+   RowBox[{"Arrow", "[", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"0", ",", "0", ",", "0"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"-", "0.00010161291454980397`"}], ",", 
+        RowBox[{"-", "0.0011375649576342685`"}], ",", 
+        RowBox[{"-", "0.0003313223769953381`"}]}], "}"}]}], "}"}], "]"}]}], 
+  "}"}]], "Print",
+ CellChangeTimes->{3.813402364528367*^9},
+ CellLabel->
+  "During evaluation of \
+In[22]:=",ExpressionUUID->"efa1d4dd-51ee-4d92-903c-71f418dbd7eb"]
+}, Open  ]],
+
+Cell[BoxData[
+ Graphics3DBox[{
+   {RGBColor[1, 0, 0], 
+    Arrow3DBox[{{0, 0, 0}, {-0.008419858234703993, 0.0006572979503870362, 
+      0.0003255053921119174}}]}, 
+   {RGBColor[0, 1, 0], 
+    Arrow3DBox[{{0, 0, 0}, {0.000017216081209817814`, -0.0003186557534621532, 
+      0.0010887952868432731`}}]}, 
+   {RGBColor[0, 0, 1], 
+    Arrow3DBox[{{0, 0, 
+      0}, {-0.00010161291454980397`, -0.0011375649576342685`, \
+-0.0003313223769953381}}]}},
+  Axes->True,
+  AxesLabel->{
+    FormBox["\"x\"", TraditionalForm], 
+    FormBox["\"y\"", TraditionalForm], 
+    FormBox["\"z\"", TraditionalForm]}]], "Output",
+ CellChangeTimes->{3.813402364543727*^9},
+ CellLabel->"Out[22]=",ExpressionUUID->"6b2c3f7c-b9fb-4197-b1e8-6d09b9797df0"]
+}, Open  ]],
+
+Cell[CellGroupData[{
 
 Cell[BoxData[
  RowBox[{"plotDirectArrows", "@", "arrowsDirect"}]], "Input",
  CellChangeTimes->{{3.809275872143323*^9, 3.809275878727845*^9}},
+ CellLabel->"In[23]:=",ExpressionUUID->"ceadd9e2-a43b-4b81-bfd5-45242895b69f"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData["0.`"], "Print",
+ CellChangeTimes->{3.8134023645997257`*^9},
  CellLabel->
-  "In[349]:=",ExpressionUUID->"ceadd9e2-a43b-4b81-bfd5-45242895b69f"],
+  "During evaluation of \
+In[23]:=",ExpressionUUID->"e2fcf2e0-a07e-4ef3-9cb3-5972deeb84e5"],
+
+Cell[BoxData["0.`"], "Print",
+ CellChangeTimes->{3.8134023646232076`*^9},
+ CellLabel->
+  "During evaluation of \
+In[23]:=",ExpressionUUID->"2b911dca-dc5b-4c09-9468-dca9cd349d64"],
+
+Cell[BoxData["1.6653345369377348`*^-16"], "Print",
+ CellChangeTimes->{3.813402364627871*^9},
+ CellLabel->
+  "During evaluation of \
+In[23]:=",ExpressionUUID->"e66e7e6b-225d-433f-b728-c0ced49e3748"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"Arrow", "[", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"0", ",", "0", ",", "0"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"-", "0.008419858234703993`"}], ",", "0.0006572979503870362`",
+         ",", "0.0003255053921119174`"}], "}"}]}], "}"}], "]"}], ",", 
+   RowBox[{"Arrow", "[", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"0", ",", "0", ",", "0"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"0.000017216081209817814`", ",", 
+        RowBox[{"-", "0.0003186557534621532`"}], ",", 
+        "0.0010887952868432731`"}], "}"}]}], "}"}], "]"}], ",", 
+   RowBox[{"Arrow", "[", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"0", ",", "0", ",", "0"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"-", "0.00010161291454980397`"}], ",", 
+        RowBox[{"-", "0.0011375649576342685`"}], ",", 
+        RowBox[{"-", "0.0003313223769953381`"}]}], "}"}]}], "}"}], "]"}]}], 
+  "}"}]], "Print",
+ CellChangeTimes->{3.8134023646317654`*^9},
+ CellLabel->
+  "During evaluation of \
+In[23]:=",ExpressionUUID->"20563c76-5033-4994-8b23-6086b2f95d07"]
+}, Open  ]],
+
+Cell[BoxData[
+ Graphics3DBox[{
+   {RGBColor[1, 0, 0], 
+    Arrow3DBox[{{0, 0, 0}, {-0.008419858234703993, 0.0006572979503870362, 
+      0.0003255053921119174}}]}, 
+   {RGBColor[0, 1, 0], 
+    Arrow3DBox[{{0, 0, 0}, {0.000017216081209817814`, -0.0003186557534621532, 
+      0.0010887952868432731`}}]}, 
+   {RGBColor[0, 0, 1], 
+    Arrow3DBox[{{0, 0, 
+      0}, {-0.00010161291454980397`, -0.0011375649576342685`, \
+-0.0003313223769953381}}]}},
+  Axes->True,
+  AxesLabel->{
+    FormBox["\"x\"", TraditionalForm], 
+    FormBox["\"y\"", TraditionalForm], 
+    FormBox["\"z\"", TraditionalForm]}]], "Output",
+ CellChangeTimes->{3.8134023646317654`*^9},
+ CellLabel->"Out[23]=",ExpressionUUID->"800d4a23-6ebf-466b-84ce-b8c0d1cd6fdd"]
+}, Open  ]],
+
+Cell[CellGroupData[{
 
 Cell[BoxData[
  RowBox[{"arraws", "=", 
@@ -453,8 +666,56 @@ Cell[BoxData[
   3.8088403830428443`*^9}, {3.8088404560523314`*^9, 3.808840459183053*^9}, {
   3.8088411192509413`*^9, 3.8088411244046526`*^9}, {3.80884688293964*^9, 
   3.8088468869027166`*^9}, {3.8088480193025184`*^9, 3.80884806143184*^9}},
+ CellLabel->"In[24]:=",ExpressionUUID->"d36d73a7-3016-40a7-8570-3ef681a30f0a"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"-", "0.000023731001143714667`"}], ",", "0.007146505132847446`", 
+   ",", 
+   RowBox[{"-", "0.0025785689260175346`"}]}], "}"}]], "Print",
+ CellChangeTimes->{3.8134023662869096`*^9},
  CellLabel->
-  "In[377]:=",ExpressionUUID->"d36d73a7-3016-40a7-8570-3ef681a30f0a"],
+  "During evaluation of \
+In[24]:=",ExpressionUUID->"69317c27-d248-454c-b92d-d6ccfcf8c0c1"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"Arrow", "[", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"0", ",", "0", ",", "0"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"-", "2.477593679762376`"}], ",", "0.17325022731717366`", ",",
+         "0.08673074953198065`"}], "}"}]}], "}"}], "]"}], ",", 
+   RowBox[{"Arrow", "[", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"0", ",", "0", ",", "0"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"0.013135300267443018`", ",", 
+        RowBox[{"-", "0.2506364598374332`"}], ",", "0.875272741062111`"}], 
+       "}"}]}], "}"}], "]"}], ",", 
+   RowBox[{"Arrow", "[", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"0", ",", "0", ",", "0"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"-", "0.07809846967913124`"}], ",", 
+        RowBox[{"-", "0.8926695931980911`"}], ",", 
+        RowBox[{"-", "0.256946646420689`"}]}], "}"}]}], "}"}], "]"}]}], 
+  "}"}]], "Output",
+ CellChangeTimes->{3.8134023662918997`*^9},
+ CellLabel->"Out[24]=",ExpressionUUID->"55547c9b-5284-4442-bc68-0a2348e23d1a"]
+}, Open  ]],
+
+Cell[CellGroupData[{
 
 Cell[BoxData[
  RowBox[{"nathansArrows", "=", 
@@ -466,8 +727,1312 @@ Cell[BoxData[
       "CurrL", ",", "CurrZ", ",", "CurrH", ",", "Bx1", ",", "By1", ",", 
        "Bz1"}], "}"}]}], ")"}]}]}]], "Input",
  CellChangeTimes->{{3.809273880673338*^9, 3.809273921396231*^9}},
+ CellLabel->"In[25]:=",ExpressionUUID->"5e81dcb3-c665-436a-ae28-403d4ea7f4ca"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Part", "partd", 
+   "\"Part specification \
+\\!\\(\\*RowBox[{RowBox[{\\\"ChipTrapFrequencies\\\", \\\"[\\\", \
+RowBox[{\\\"0.85`\\\", \\\",\\\", \\\"2.4`\\\", \\\",\\\", \\\"2.3`\\\", \
+\\\",\\\", RowBox[{\\\"-\\\", \\\"9.295`\\\"}], \\\",\\\", \\\"35.20527552`\\\
+\", \\\",\\\", \\\"1.69508625`\\\"}], \\\"]\\\"}], \\\"\[LeftDoubleBracket]\\\
+\", RowBox[{\\\"1\\\", \\\",\\\", \\\"4\\\"}], \
+\\\"\[RightDoubleBracket]\\\"}]\\) is longer than depth of object.\"", 2, 25, 
+   1, 31253989609859788972, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.8134023664168425`*^9},
  CellLabel->
-  "In[343]:=",ExpressionUUID->"5e81dcb3-c665-436a-ae28-403d4ea7f4ca"],
+  "During evaluation of \
+In[25]:=",ExpressionUUID->"992e1b6b-1549-4d72-8fe3-184703154a00"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Part", "partd", 
+   "\"Part specification \
+\\!\\(\\*RowBox[{RowBox[{\\\"ChipTrapFrequencies\\\", \\\"[\\\", \
+RowBox[{\\\"0.85`\\\", \\\",\\\", \\\"2.4`\\\", \\\",\\\", \\\"2.3`\\\", \
+\\\",\\\", RowBox[{\\\"-\\\", \\\"9.295`\\\"}], \\\",\\\", \\\"35.20527552`\\\
+\", \\\",\\\", \\\"1.69508625`\\\"}], \\\"]\\\"}], \\\"\[LeftDoubleBracket]\\\
+\", RowBox[{\\\"1\\\", \\\",\\\", \\\"2\\\"}], \
+\\\"\[RightDoubleBracket]\\\"}]\\) is longer than depth of object.\"", 2, 25, 
+   2, 31253989609859788972, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.8134023665820265`*^9},
+ CellLabel->
+  "During evaluation of \
+In[25]:=",ExpressionUUID->"c781d38b-1b9e-4fe2-afa3-bfedd2483331"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Part", "partd", 
+   "\"Part specification \
+\\!\\(\\*RowBox[{RowBox[{\\\"ChipTrapFrequencies\\\", \\\"[\\\", \
+RowBox[{\\\"0.85`\\\", \\\",\\\", \\\"2.4`\\\", \\\",\\\", \\\"2.3`\\\", \
+\\\",\\\", RowBox[{\\\"-\\\", \\\"9.295`\\\"}], \\\",\\\", \\\"35.20527552`\\\
+\", \\\",\\\", \\\"1.69508625`\\\"}], \\\"]\\\"}], \\\"\[LeftDoubleBracket]\\\
+\", RowBox[{\\\"4\\\", \\\",\\\", \\\"1\\\"}], \
+\\\"\[RightDoubleBracket]\\\"}]\\) is longer than depth of object.\"", 2, 25, 
+   3, 31253989609859788972, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.8134023665939307`*^9},
+ CellLabel->
+  "During evaluation of \
+In[25]:=",ExpressionUUID->"31ecb3a4-ab4e-4c1c-9b9a-951ba9d6bde1"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "General", "stop", 
+   "\"Further output of \\!\\(\\*StyleBox[RowBox[{\\\"Part\\\", \\\"::\\\", \
+\\\"partd\\\"}], \\\"MessageName\\\"]\\) will be suppressed during this \
+calculation.\"", 2, 25, 4, 31253989609859788972, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.8134023665989313`*^9},
+ CellLabel->
+  "During evaluation of \
+In[25]:=",ExpressionUUID->"74fa64e2-4004-4fe4-91fc-6a0f0e06781f"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{"730.7375840643692`", " ", 
+       RowBox[{"Cos", "[", 
+        RowBox[{
+         FractionBox["1", "180"], " ", "\[Pi]", " ", 
+         RowBox[{
+          RowBox[{"ChipTrapFrequencies", "[", 
+           RowBox[{"0.85`", ",", "2.4`", ",", "2.3`", ",", 
+            RowBox[{"-", "9.295`"}], ",", "35.20527552`", ",", 
+            "1.69508625`"}], "]"}], "\[LeftDoubleBracket]", 
+          RowBox[{"1", ",", "4"}], "\[RightDoubleBracket]"}]}], "]"}], " ", 
+       RowBox[{"Cos", "[", 
+        RowBox[{
+         FractionBox["1", "180"], " ", "\[Pi]", " ", 
+         RowBox[{
+          RowBox[{"ChipTrapFrequencies", "[", 
+           RowBox[{"0.85`", ",", "2.4`", ",", "2.3`", ",", 
+            RowBox[{"-", "9.295`"}], ",", "35.20527552`", ",", 
+            "1.69508625`"}], "]"}], "\[LeftDoubleBracket]", 
+          RowBox[{"2", ",", "4"}], "\[RightDoubleBracket]"}]}], "]"}], " ", 
+       SqrtBox[
+        FractionBox["1", 
+         RowBox[{
+          RowBox[{"ChipTrapFrequencies", "[", 
+           RowBox[{"0.85`", ",", "2.4`", ",", "2.3`", ",", 
+            RowBox[{"-", "9.295`"}], ",", "35.20527552`", ",", 
+            "1.69508625`"}], "]"}], "\[LeftDoubleBracket]", 
+          RowBox[{"4", ",", "1"}], "\[RightDoubleBracket]"}]]], " ", 
+       SqrtBox[
+        FractionBox["1", 
+         RowBox[{
+          RowBox[{"ChipTrapFrequencies", "[", 
+           RowBox[{"0.85`", ",", "2.4`", ",", "2.3`", ",", 
+            RowBox[{"-", "9.295`"}], ",", "35.20527552`", ",", 
+            "1.69508625`"}], "]"}], "\[LeftDoubleBracket]", 
+          RowBox[{"4", ",", "2"}], "\[RightDoubleBracket]"}]]]}], "+", 
+      RowBox[{"730.7375840643692`", " ", 
+       RowBox[{"Cos", "[", 
+        RowBox[{
+         FractionBox["1", "180"], " ", "\[Pi]", " ", 
+         RowBox[{
+          RowBox[{"ChipTrapFrequencies", "[", 
+           RowBox[{"0.85`", ",", "2.4`", ",", "2.3`", ",", 
+            RowBox[{"-", "9.295`"}], ",", "35.20527552`", ",", 
+            "1.69508625`"}], "]"}], "\[LeftDoubleBracket]", 
+          RowBox[{"1", ",", "2"}], "\[RightDoubleBracket]"}]}], "]"}], " ", 
+       RowBox[{"Cos", "[", 
+        RowBox[{
+         FractionBox["1", "180"], " ", "\[Pi]", " ", 
+         RowBox[{
+          RowBox[{"ChipTrapFrequencies", "[", 
+           RowBox[{"0.85`", ",", "2.4`", ",", "2.3`", ",", 
+            RowBox[{"-", "9.295`"}], ",", "35.20527552`", ",", 
+            "1.69508625`"}], "]"}], "\[LeftDoubleBracket]", 
+          RowBox[{"2", ",", "2"}], "\[RightDoubleBracket]"}]}], "]"}], " ", 
+       SqrtBox[
+        FractionBox["1", 
+         RowBox[{
+          RowBox[{"ChipTrapFrequencies", "[", 
+           RowBox[{"0.85`", ",", "2.4`", ",", "2.3`", ",", 
+            RowBox[{"-", "9.295`"}], ",", "35.20527552`", ",", 
+            "1.69508625`"}], "]"}], "\[LeftDoubleBracket]", 
+          RowBox[{"4", ",", "1"}], "\[RightDoubleBracket]"}]]], " ", 
+       SqrtBox[
+        FractionBox["1", 
+         RowBox[{
+          RowBox[{"ChipTrapFrequencies", "[", 
+           RowBox[{"0.85`", ",", "2.4`", ",", "2.3`", ",", 
+            RowBox[{"-", "9.295`"}], ",", "35.20527552`", ",", 
+            "1.69508625`"}], "]"}], "\[LeftDoubleBracket]", 
+          RowBox[{"4", ",", "2"}], "\[RightDoubleBracket]"}]]], " ", 
+       RowBox[{"Sin", "[", 
+        RowBox[{
+         FractionBox["1", "180"], " ", "\[Pi]", " ", 
+         RowBox[{
+          RowBox[{"ChipTrapFrequencies", "[", 
+           RowBox[{"0.85`", ",", "2.4`", ",", "2.3`", ",", 
+            RowBox[{"-", "9.295`"}], ",", "35.20527552`", ",", 
+            "1.69508625`"}], "]"}], "\[LeftDoubleBracket]", 
+          RowBox[{"1", ",", "4"}], "\[RightDoubleBracket]"}]}], "]"}], " ", 
+       RowBox[{"Sin", "[", 
+        RowBox[{
+         FractionBox["1", "180"], " ", "\[Pi]", " ", 
+         RowBox[{
+          RowBox[{"ChipTrapFrequencies", "[", 
+           RowBox[{"0.85`", ",", "2.4`", ",", "2.3`", ",", 
+            RowBox[{"-", "9.295`"}], ",", "35.20527552`", ",", 
+            "1.69508625`"}], "]"}], "\[LeftDoubleBracket]", 
+          RowBox[{"2", ",", "4"}], "\[RightDoubleBracket]"}]}], "]"}]}], "+", 
+      RowBox[{"730.7375840643692`", " ", 
+       SqrtBox[
+        FractionBox["1", 
+         RowBox[{
+          RowBox[{"ChipTrapFrequencies", "[", 
+           RowBox[{"0.85`", ",", "2.4`", ",", "2.3`", ",", 
+            RowBox[{"-", "9.295`"}], ",", "35.20527552`", ",", 
+            "1.69508625`"}], "]"}], "\[LeftDoubleBracket]", 
+          RowBox[{"4", ",", "1"}], "\[RightDoubleBracket]"}]]], " ", 
+       SqrtBox[
+        FractionBox["1", 
+         RowBox[{
+          RowBox[{"ChipTrapFrequencies", "[", 
+           RowBox[{"0.85`", ",", "2.4`", ",", "2.3`", ",", 
+            RowBox[{"-", "9.295`"}], ",", "35.20527552`", ",", 
+            "1.69508625`"}], "]"}], "\[LeftDoubleBracket]", 
+          RowBox[{"4", ",", "2"}], "\[RightDoubleBracket]"}]]], " ", 
+       RowBox[{"Sin", "[", 
+        RowBox[{
+         FractionBox["1", "180"], " ", "\[Pi]", " ", 
+         RowBox[{
+          RowBox[{"ChipTrapFrequencies", "[", 
+           RowBox[{"0.85`", ",", "2.4`", ",", "2.3`", ",", 
+            RowBox[{"-", "9.295`"}], ",", "35.20527552`", ",", 
+            "1.69508625`"}], "]"}], "\[LeftDoubleBracket]", 
+          RowBox[{"1", ",", "2"}], "\[RightDoubleBracket]"}]}], "]"}], " ", 
+       RowBox[{"Sin", "[", 
+        RowBox[{
+         FractionBox["1", "180"], " ", "\[Pi]", " ", 
+         RowBox[{
+          RowBox[{"ChipTrapFrequencies", "[", 
+           RowBox[{"0.85`", ",", "2.4`", ",", "2.3`", ",", 
+            RowBox[{"-", "9.295`"}], ",", "35.20527552`", ",", 
+            "1.69508625`"}], "]"}], "\[LeftDoubleBracket]", 
+          RowBox[{"1", ",", "4"}], "\[RightDoubleBracket]"}]}], "]"}], " ", 
+       RowBox[{"Sin", "[", 
+        RowBox[{
+         FractionBox["1", "180"], " ", "\[Pi]", " ", 
+         RowBox[{
+          RowBox[{"ChipTrapFrequencies", "[", 
+           RowBox[{"0.85`", ",", "2.4`", ",", "2.3`", ",", 
+            RowBox[{"-", "9.295`"}], ",", "35.20527552`", ",", 
+            "1.69508625`"}], "]"}], "\[LeftDoubleBracket]", 
+          RowBox[{"2", ",", "2"}], "\[RightDoubleBracket]"}]}], "]"}], " ", 
+       RowBox[{"Sin", "[", 
+        RowBox[{
+         FractionBox["1", "180"], " ", "\[Pi]", " ", 
+         RowBox[{
+          RowBox[{"ChipTrapFrequencies", "[", 
+           RowBox[{"0.85`", ",", "2.4`", ",", "2.3`", ",", 
+            RowBox[{"-", "9.295`"}], ",", "35.20527552`", ",", 
+            "1.69508625`"}], "]"}], "\[LeftDoubleBracket]", 
+          RowBox[{"2", ",", "4"}], "\[RightDoubleBracket]"}]}], "]"}]}]}], 
+     ")"}], "/", 
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{"\[Sqrt]", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"730.7375840643692`", " ", 
+          SuperscriptBox[
+           RowBox[{"Abs", "[", 
+            RowBox[{
+             RowBox[{"Cos", "[", 
+              RowBox[{
+               FractionBox["1", "180"], " ", "\[Pi]", " ", 
+               RowBox[{
+                RowBox[{"ChipTrapFrequencies", "[", 
+                 RowBox[{"0.85`", ",", "2.4`", ",", "2.3`", ",", 
+                  RowBox[{"-", "9.295`"}], ",", "35.20527552`", ",", 
+                  "1.69508625`"}], "]"}], "\[LeftDoubleBracket]", 
+                RowBox[{"1", ",", "4"}], "\[RightDoubleBracket]"}]}], "]"}], 
+             " ", 
+             SqrtBox[
+              FractionBox["1", 
+               RowBox[{
+                RowBox[{"ChipTrapFrequencies", "[", 
+                 RowBox[{"0.85`", ",", "2.4`", ",", "2.3`", ",", 
+                  RowBox[{"-", "9.295`"}], ",", "35.20527552`", ",", 
+                  "1.69508625`"}], "]"}], "\[LeftDoubleBracket]", 
+                RowBox[{"4", ",", "1"}], "\[RightDoubleBracket]"}]]]}], "]"}],
+            "2"]}], "+", 
+         RowBox[{"730.7375840643692`", " ", 
+          SuperscriptBox[
+           RowBox[{"Abs", "[", 
+            RowBox[{
+             RowBox[{"Cos", "[", 
+              RowBox[{
+               FractionBox["1", "180"], " ", "\[Pi]", " ", 
+               RowBox[{
+                RowBox[{"ChipTrapFrequencies", "[", 
+                 RowBox[{"0.85`", ",", "2.4`", ",", "2.3`", ",", 
+                  RowBox[{"-", "9.295`"}], ",", "35.20527552`", ",", 
+                  "1.69508625`"}], "]"}], "\[LeftDoubleBracket]", 
+                RowBox[{"1", ",", "2"}], "\[RightDoubleBracket]"}]}], "]"}], 
+             " ", 
+             SqrtBox[
+              FractionBox["1", 
+               RowBox[{
+                RowBox[{"ChipTrapFrequencies", "[", 
+                 RowBox[{"0.85`", ",", "2.4`", ",", "2.3`", ",", 
+                  RowBox[{"-", "9.295`"}], ",", "35.20527552`", ",", 
+                  "1.69508625`"}], "]"}], "\[LeftDoubleBracket]", 
+                RowBox[{"4", ",", "1"}], "\[RightDoubleBracket]"}]]], " ", 
+             RowBox[{"Sin", "[", 
+              RowBox[{
+               FractionBox["1", "180"], " ", "\[Pi]", " ", 
+               RowBox[{
+                RowBox[{"ChipTrapFrequencies", "[", 
+                 RowBox[{"0.85`", ",", "2.4`", ",", "2.3`", ",", 
+                  RowBox[{"-", "9.295`"}], ",", "35.20527552`", ",", 
+                  "1.69508625`"}], "]"}], "\[LeftDoubleBracket]", 
+                RowBox[{"1", ",", "4"}], "\[RightDoubleBracket]"}]}], "]"}]}],
+             "]"}], "2"]}], "+", 
+         RowBox[{"730.7375840643692`", " ", 
+          SuperscriptBox[
+           RowBox[{"Abs", "[", 
+            RowBox[{
+             SqrtBox[
+              FractionBox["1", 
+               RowBox[{
+                RowBox[{"ChipTrapFrequencies", "[", 
+                 RowBox[{"0.85`", ",", "2.4`", ",", "2.3`", ",", 
+                  RowBox[{"-", "9.295`"}], ",", "35.20527552`", ",", 
+                  "1.69508625`"}], "]"}], "\[LeftDoubleBracket]", 
+                RowBox[{"4", ",", "1"}], "\[RightDoubleBracket]"}]]], " ", 
+             RowBox[{"Sin", "[", 
+              RowBox[{
+               FractionBox["1", "180"], " ", "\[Pi]", " ", 
+               RowBox[{
+                RowBox[{"ChipTrapFrequencies", "[", 
+                 RowBox[{"0.85`", ",", "2.4`", ",", "2.3`", ",", 
+                  RowBox[{"-", "9.295`"}], ",", "35.20527552`", ",", 
+                  "1.69508625`"}], "]"}], "\[LeftDoubleBracket]", 
+                RowBox[{"1", ",", "2"}], "\[RightDoubleBracket]"}]}], "]"}], 
+             " ", 
+             RowBox[{"Sin", "[", 
+              RowBox[{
+               FractionBox["1", "180"], " ", "\[Pi]", " ", 
+               RowBox[{
+                RowBox[{"ChipTrapFrequencies", "[", 
+                 RowBox[{"0.85`", ",", "2.4`", ",", "2.3`", ",", 
+                  RowBox[{"-", "9.295`"}], ",", "35.20527552`", ",", 
+                  "1.69508625`"}], "]"}], "\[LeftDoubleBracket]", 
+                RowBox[{"1", ",", "4"}], "\[RightDoubleBracket]"}]}], "]"}]}],
+             "]"}], "2"]}]}], ")"}]}], " ", 
+      RowBox[{"\[Sqrt]", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"730.7375840643692`", " ", 
+          SuperscriptBox[
+           RowBox[{"Abs", "[", 
+            RowBox[{
+             RowBox[{"Cos", "[", 
+              RowBox[{
+               FractionBox["1", "180"], " ", "\[Pi]", " ", 
+               RowBox[{
+                RowBox[{"ChipTrapFrequencies", "[", 
+                 RowBox[{"0.85`", ",", "2.4`", ",", "2.3`", ",", 
+                  RowBox[{"-", "9.295`"}], ",", "35.20527552`", ",", 
+                  "1.69508625`"}], "]"}], "\[LeftDoubleBracket]", 
+                RowBox[{"2", ",", "4"}], "\[RightDoubleBracket]"}]}], "]"}], 
+             " ", 
+             SqrtBox[
+              FractionBox["1", 
+               RowBox[{
+                RowBox[{"ChipTrapFrequencies", "[", 
+                 RowBox[{"0.85`", ",", "2.4`", ",", "2.3`", ",", 
+                  RowBox[{"-", "9.295`"}], ",", "35.20527552`", ",", 
+                  "1.69508625`"}], "]"}], "\[LeftDoubleBracket]", 
+                RowBox[{"4", ",", "2"}], "\[RightDoubleBracket]"}]]]}], "]"}],
+            "2"]}], "+", 
+         RowBox[{"730.7375840643692`", " ", 
+          SuperscriptBox[
+           RowBox[{"Abs", "[", 
+            RowBox[{
+             RowBox[{"Cos", "[", 
+              RowBox[{
+               FractionBox["1", "180"], " ", "\[Pi]", " ", 
+               RowBox[{
+                RowBox[{"ChipTrapFrequencies", "[", 
+                 RowBox[{"0.85`", ",", "2.4`", ",", "2.3`", ",", 
+                  RowBox[{"-", "9.295`"}], ",", "35.20527552`", ",", 
+                  "1.69508625`"}], "]"}], "\[LeftDoubleBracket]", 
+                RowBox[{"2", ",", "2"}], "\[RightDoubleBracket]"}]}], "]"}], 
+             " ", 
+             SqrtBox[
+              FractionBox["1", 
+               RowBox[{
+                RowBox[{"ChipTrapFrequencies", "[", 
+                 RowBox[{"0.85`", ",", "2.4`", ",", "2.3`", ",", 
+                  RowBox[{"-", "9.295`"}], ",", "35.20527552`", ",", 
+                  "1.69508625`"}], "]"}], "\[LeftDoubleBracket]", 
+                RowBox[{"4", ",", "2"}], "\[RightDoubleBracket]"}]]], " ", 
+             RowBox[{"Sin", "[", 
+              RowBox[{
+               FractionBox["1", "180"], " ", "\[Pi]", " ", 
+               RowBox[{
+                RowBox[{"ChipTrapFrequencies", "[", 
+                 RowBox[{"0.85`", ",", "2.4`", ",", "2.3`", ",", 
+                  RowBox[{"-", "9.295`"}], ",", "35.20527552`", ",", 
+                  "1.69508625`"}], "]"}], "\[LeftDoubleBracket]", 
+                RowBox[{"2", ",", "4"}], "\[RightDoubleBracket]"}]}], "]"}]}],
+             "]"}], "2"]}], "+", 
+         RowBox[{"730.7375840643692`", " ", 
+          SuperscriptBox[
+           RowBox[{"Abs", "[", 
+            RowBox[{
+             SqrtBox[
+              FractionBox["1", 
+               RowBox[{
+                RowBox[{"ChipTrapFrequencies", "[", 
+                 RowBox[{"0.85`", ",", "2.4`", ",", "2.3`", ",", 
+                  RowBox[{"-", "9.295`"}], ",", "35.20527552`", ",", 
+                  "1.69508625`"}], "]"}], "\[LeftDoubleBracket]", 
+                RowBox[{"4", ",", "2"}], "\[RightDoubleBracket]"}]]], " ", 
+             RowBox[{"Sin", "[", 
+              RowBox[{
+               FractionBox["1", "180"], " ", "\[Pi]", " ", 
+               RowBox[{
+                RowBox[{"ChipTrapFrequencies", "[", 
+                 RowBox[{"0.85`", ",", "2.4`", ",", "2.3`", ",", 
+                  RowBox[{"-", "9.295`"}], ",", "35.20527552`", ",", 
+                  "1.69508625`"}], "]"}], "\[LeftDoubleBracket]", 
+                RowBox[{"2", ",", "2"}], "\[RightDoubleBracket]"}]}], "]"}], 
+             " ", 
+             RowBox[{"Sin", "[", 
+              RowBox[{
+               FractionBox["1", "180"], " ", "\[Pi]", " ", 
+               RowBox[{
+                RowBox[{"ChipTrapFrequencies", "[", 
+                 RowBox[{"0.85`", ",", "2.4`", ",", "2.3`", ",", 
+                  RowBox[{"-", "9.295`"}], ",", "35.20527552`", ",", 
+                  "1.69508625`"}], "]"}], "\[LeftDoubleBracket]", 
+                RowBox[{"2", ",", "4"}], "\[RightDoubleBracket]"}]}], "]"}]}],
+             "]"}], "2"]}]}], ")"}]}]}], ")"}]}], ",", 
+   RowBox[{
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{"730.7375840643692`", " ", 
+       RowBox[{"Cos", "[", 
+        RowBox[{
+         FractionBox["1", "180"], " ", "\[Pi]", " ", 
+         RowBox[{
+          RowBox[{"ChipTrapFrequencies", "[", 
+           RowBox[{"0.85`", ",", "2.4`", ",", "2.3`", ",", 
+            RowBox[{"-", "9.295`"}], ",", "35.20527552`", ",", 
+            "1.69508625`"}], "]"}], "\[LeftDoubleBracket]", 
+          RowBox[{"1", ",", "4"}], "\[RightDoubleBracket]"}]}], "]"}], " ", 
+       RowBox[{"Cos", "[", 
+        RowBox[{
+         FractionBox["1", "180"], " ", "\[Pi]", " ", 
+         RowBox[{
+          RowBox[{"ChipTrapFrequencies", "[", 
+           RowBox[{"0.85`", ",", "2.4`", ",", "2.3`", ",", 
+            RowBox[{"-", "9.295`"}], ",", "35.20527552`", ",", 
+            "1.69508625`"}], "]"}], "\[LeftDoubleBracket]", 
+          RowBox[{"3", ",", "4"}], "\[RightDoubleBracket]"}]}], "]"}], " ", 
+       SqrtBox[
+        FractionBox["1", 
+         RowBox[{
+          RowBox[{"ChipTrapFrequencies", "[", 
+           RowBox[{"0.85`", ",", "2.4`", ",", "2.3`", ",", 
+            RowBox[{"-", "9.295`"}], ",", "35.20527552`", ",", 
+            "1.69508625`"}], "]"}], "\[LeftDoubleBracket]", 
+          RowBox[{"4", ",", "1"}], "\[RightDoubleBracket]"}]]], " ", 
+       SqrtBox[
+        FractionBox["1", 
+         RowBox[{
+          RowBox[{"ChipTrapFrequencies", "[", 
+           RowBox[{"0.85`", ",", "2.4`", ",", "2.3`", ",", 
+            RowBox[{"-", "9.295`"}], ",", "35.20527552`", ",", 
+            "1.69508625`"}], "]"}], "\[LeftDoubleBracket]", 
+          RowBox[{"4", ",", "3"}], "\[RightDoubleBracket]"}]]]}], "+", 
+      RowBox[{"730.7375840643692`", " ", 
+       RowBox[{"Cos", "[", 
+        RowBox[{
+         FractionBox["1", "180"], " ", "\[Pi]", " ", 
+         RowBox[{
+          RowBox[{"ChipTrapFrequencies", "[", 
+           RowBox[{"0.85`", ",", "2.4`", ",", "2.3`", ",", 
+            RowBox[{"-", "9.295`"}], ",", "35.20527552`", ",", 
+            "1.69508625`"}], "]"}], "\[LeftDoubleBracket]", 
+          RowBox[{"1", ",", "2"}], "\[RightDoubleBracket]"}]}], "]"}], " ", 
+       RowBox[{"Cos", "[", 
+        RowBox[{
+         FractionBox["1", "180"], " ", "\[Pi]", " ", 
+         RowBox[{
+          RowBox[{"ChipTrapFrequencies", "[", 
+           RowBox[{"0.85`", ",", "2.4`", ",", "2.3`", ",", 
+            RowBox[{"-", "9.295`"}], ",", "35.20527552`", ",", 
+            "1.69508625`"}], "]"}], "\[LeftDoubleBracket]", 
+          RowBox[{"3", ",", "2"}], "\[RightDoubleBracket]"}]}], "]"}], " ", 
+       SqrtBox[
+        FractionBox["1", 
+         RowBox[{
+          RowBox[{"ChipTrapFrequencies", "[", 
+           RowBox[{"0.85`", ",", "2.4`", ",", "2.3`", ",", 
+            RowBox[{"-", "9.295`"}], ",", "35.20527552`", ",", 
+            "1.69508625`"}], "]"}], "\[LeftDoubleBracket]", 
+          RowBox[{"4", ",", "1"}], "\[RightDoubleBracket]"}]]], " ", 
+       SqrtBox[
+        FractionBox["1", 
+         RowBox[{
+          RowBox[{"ChipTrapFrequencies", "[", 
+           RowBox[{"0.85`", ",", "2.4`", ",", "2.3`", ",", 
+            RowBox[{"-", "9.295`"}], ",", "35.20527552`", ",", 
+            "1.69508625`"}], "]"}], "\[LeftDoubleBracket]", 
+          RowBox[{"4", ",", "3"}], "\[RightDoubleBracket]"}]]], " ", 
+       RowBox[{"Sin", "[", 
+        RowBox[{
+         FractionBox["1", "180"], " ", "\[Pi]", " ", 
+         RowBox[{
+          RowBox[{"ChipTrapFrequencies", "[", 
+           RowBox[{"0.85`", ",", "2.4`", ",", "2.3`", ",", 
+            RowBox[{"-", "9.295`"}], ",", "35.20527552`", ",", 
+            "1.69508625`"}], "]"}], "\[LeftDoubleBracket]", 
+          RowBox[{"1", ",", "4"}], "\[RightDoubleBracket]"}]}], "]"}], " ", 
+       RowBox[{"Sin", "[", 
+        RowBox[{
+         FractionBox["1", "180"], " ", "\[Pi]", " ", 
+         RowBox[{
+          RowBox[{"ChipTrapFrequencies", "[", 
+           RowBox[{"0.85`", ",", "2.4`", ",", "2.3`", ",", 
+            RowBox[{"-", "9.295`"}], ",", "35.20527552`", ",", 
+            "1.69508625`"}], "]"}], "\[LeftDoubleBracket]", 
+          RowBox[{"3", ",", "4"}], "\[RightDoubleBracket]"}]}], "]"}]}], "+", 
+      RowBox[{"730.7375840643692`", " ", 
+       SqrtBox[
+        FractionBox["1", 
+         RowBox[{
+          RowBox[{"ChipTrapFrequencies", "[", 
+           RowBox[{"0.85`", ",", "2.4`", ",", "2.3`", ",", 
+            RowBox[{"-", "9.295`"}], ",", "35.20527552`", ",", 
+            "1.69508625`"}], "]"}], "\[LeftDoubleBracket]", 
+          RowBox[{"4", ",", "1"}], "\[RightDoubleBracket]"}]]], " ", 
+       SqrtBox[
+        FractionBox["1", 
+         RowBox[{
+          RowBox[{"ChipTrapFrequencies", "[", 
+           RowBox[{"0.85`", ",", "2.4`", ",", "2.3`", ",", 
+            RowBox[{"-", "9.295`"}], ",", "35.20527552`", ",", 
+            "1.69508625`"}], "]"}], "\[LeftDoubleBracket]", 
+          RowBox[{"4", ",", "3"}], "\[RightDoubleBracket]"}]]], " ", 
+       RowBox[{"Sin", "[", 
+        RowBox[{
+         FractionBox["1", "180"], " ", "\[Pi]", " ", 
+         RowBox[{
+          RowBox[{"ChipTrapFrequencies", "[", 
+           RowBox[{"0.85`", ",", "2.4`", ",", "2.3`", ",", 
+            RowBox[{"-", "9.295`"}], ",", "35.20527552`", ",", 
+            "1.69508625`"}], "]"}], "\[LeftDoubleBracket]", 
+          RowBox[{"1", ",", "2"}], "\[RightDoubleBracket]"}]}], "]"}], " ", 
+       RowBox[{"Sin", "[", 
+        RowBox[{
+         FractionBox["1", "180"], " ", "\[Pi]", " ", 
+         RowBox[{
+          RowBox[{"ChipTrapFrequencies", "[", 
+           RowBox[{"0.85`", ",", "2.4`", ",", "2.3`", ",", 
+            RowBox[{"-", "9.295`"}], ",", "35.20527552`", ",", 
+            "1.69508625`"}], "]"}], "\[LeftDoubleBracket]", 
+          RowBox[{"1", ",", "4"}], "\[RightDoubleBracket]"}]}], "]"}], " ", 
+       RowBox[{"Sin", "[", 
+        RowBox[{
+         FractionBox["1", "180"], " ", "\[Pi]", " ", 
+         RowBox[{
+          RowBox[{"ChipTrapFrequencies", "[", 
+           RowBox[{"0.85`", ",", "2.4`", ",", "2.3`", ",", 
+            RowBox[{"-", "9.295`"}], ",", "35.20527552`", ",", 
+            "1.69508625`"}], "]"}], "\[LeftDoubleBracket]", 
+          RowBox[{"3", ",", "2"}], "\[RightDoubleBracket]"}]}], "]"}], " ", 
+       RowBox[{"Sin", "[", 
+        RowBox[{
+         FractionBox["1", "180"], " ", "\[Pi]", " ", 
+         RowBox[{
+          RowBox[{"ChipTrapFrequencies", "[", 
+           RowBox[{"0.85`", ",", "2.4`", ",", "2.3`", ",", 
+            RowBox[{"-", "9.295`"}], ",", "35.20527552`", ",", 
+            "1.69508625`"}], "]"}], "\[LeftDoubleBracket]", 
+          RowBox[{"3", ",", "4"}], "\[RightDoubleBracket]"}]}], "]"}]}]}], 
+     ")"}], "/", 
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{"\[Sqrt]", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"730.7375840643692`", " ", 
+          SuperscriptBox[
+           RowBox[{"Abs", "[", 
+            RowBox[{
+             RowBox[{"Cos", "[", 
+              RowBox[{
+               FractionBox["1", "180"], " ", "\[Pi]", " ", 
+               RowBox[{
+                RowBox[{"ChipTrapFrequencies", "[", 
+                 RowBox[{"0.85`", ",", "2.4`", ",", "2.3`", ",", 
+                  RowBox[{"-", "9.295`"}], ",", "35.20527552`", ",", 
+                  "1.69508625`"}], "]"}], "\[LeftDoubleBracket]", 
+                RowBox[{"1", ",", "4"}], "\[RightDoubleBracket]"}]}], "]"}], 
+             " ", 
+             SqrtBox[
+              FractionBox["1", 
+               RowBox[{
+                RowBox[{"ChipTrapFrequencies", "[", 
+                 RowBox[{"0.85`", ",", "2.4`", ",", "2.3`", ",", 
+                  RowBox[{"-", "9.295`"}], ",", "35.20527552`", ",", 
+                  "1.69508625`"}], "]"}], "\[LeftDoubleBracket]", 
+                RowBox[{"4", ",", "1"}], "\[RightDoubleBracket]"}]]]}], "]"}],
+            "2"]}], "+", 
+         RowBox[{"730.7375840643692`", " ", 
+          SuperscriptBox[
+           RowBox[{"Abs", "[", 
+            RowBox[{
+             RowBox[{"Cos", "[", 
+              RowBox[{
+               FractionBox["1", "180"], " ", "\[Pi]", " ", 
+               RowBox[{
+                RowBox[{"ChipTrapFrequencies", "[", 
+                 RowBox[{"0.85`", ",", "2.4`", ",", "2.3`", ",", 
+                  RowBox[{"-", "9.295`"}], ",", "35.20527552`", ",", 
+                  "1.69508625`"}], "]"}], "\[LeftDoubleBracket]", 
+                RowBox[{"1", ",", "2"}], "\[RightDoubleBracket]"}]}], "]"}], 
+             " ", 
+             SqrtBox[
+              FractionBox["1", 
+               RowBox[{
+                RowBox[{"ChipTrapFrequencies", "[", 
+                 RowBox[{"0.85`", ",", "2.4`", ",", "2.3`", ",", 
+                  RowBox[{"-", "9.295`"}], ",", "35.20527552`", ",", 
+                  "1.69508625`"}], "]"}], "\[LeftDoubleBracket]", 
+                RowBox[{"4", ",", "1"}], "\[RightDoubleBracket]"}]]], " ", 
+             RowBox[{"Sin", "[", 
+              RowBox[{
+               FractionBox["1", "180"], " ", "\[Pi]", " ", 
+               RowBox[{
+                RowBox[{"ChipTrapFrequencies", "[", 
+                 RowBox[{"0.85`", ",", "2.4`", ",", "2.3`", ",", 
+                  RowBox[{"-", "9.295`"}], ",", "35.20527552`", ",", 
+                  "1.69508625`"}], "]"}], "\[LeftDoubleBracket]", 
+                RowBox[{"1", ",", "4"}], "\[RightDoubleBracket]"}]}], "]"}]}],
+             "]"}], "2"]}], "+", 
+         RowBox[{"730.7375840643692`", " ", 
+          SuperscriptBox[
+           RowBox[{"Abs", "[", 
+            RowBox[{
+             SqrtBox[
+              FractionBox["1", 
+               RowBox[{
+                RowBox[{"ChipTrapFrequencies", "[", 
+                 RowBox[{"0.85`", ",", "2.4`", ",", "2.3`", ",", 
+                  RowBox[{"-", "9.295`"}], ",", "35.20527552`", ",", 
+                  "1.69508625`"}], "]"}], "\[LeftDoubleBracket]", 
+                RowBox[{"4", ",", "1"}], "\[RightDoubleBracket]"}]]], " ", 
+             RowBox[{"Sin", "[", 
+              RowBox[{
+               FractionBox["1", "180"], " ", "\[Pi]", " ", 
+               RowBox[{
+                RowBox[{"ChipTrapFrequencies", "[", 
+                 RowBox[{"0.85`", ",", "2.4`", ",", "2.3`", ",", 
+                  RowBox[{"-", "9.295`"}], ",", "35.20527552`", ",", 
+                  "1.69508625`"}], "]"}], "\[LeftDoubleBracket]", 
+                RowBox[{"1", ",", "2"}], "\[RightDoubleBracket]"}]}], "]"}], 
+             " ", 
+             RowBox[{"Sin", "[", 
+              RowBox[{
+               FractionBox["1", "180"], " ", "\[Pi]", " ", 
+               RowBox[{
+                RowBox[{"ChipTrapFrequencies", "[", 
+                 RowBox[{"0.85`", ",", "2.4`", ",", "2.3`", ",", 
+                  RowBox[{"-", "9.295`"}], ",", "35.20527552`", ",", 
+                  "1.69508625`"}], "]"}], "\[LeftDoubleBracket]", 
+                RowBox[{"1", ",", "4"}], "\[RightDoubleBracket]"}]}], "]"}]}],
+             "]"}], "2"]}]}], ")"}]}], " ", 
+      RowBox[{"\[Sqrt]", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"730.7375840643692`", " ", 
+          SuperscriptBox[
+           RowBox[{"Abs", "[", 
+            RowBox[{
+             RowBox[{"Cos", "[", 
+              RowBox[{
+               FractionBox["1", "180"], " ", "\[Pi]", " ", 
+               RowBox[{
+                RowBox[{"ChipTrapFrequencies", "[", 
+                 RowBox[{"0.85`", ",", "2.4`", ",", "2.3`", ",", 
+                  RowBox[{"-", "9.295`"}], ",", "35.20527552`", ",", 
+                  "1.69508625`"}], "]"}], "\[LeftDoubleBracket]", 
+                RowBox[{"3", ",", "4"}], "\[RightDoubleBracket]"}]}], "]"}], 
+             " ", 
+             SqrtBox[
+              FractionBox["1", 
+               RowBox[{
+                RowBox[{"ChipTrapFrequencies", "[", 
+                 RowBox[{"0.85`", ",", "2.4`", ",", "2.3`", ",", 
+                  RowBox[{"-", "9.295`"}], ",", "35.20527552`", ",", 
+                  "1.69508625`"}], "]"}], "\[LeftDoubleBracket]", 
+                RowBox[{"4", ",", "3"}], "\[RightDoubleBracket]"}]]]}], "]"}],
+            "2"]}], "+", 
+         RowBox[{"730.7375840643692`", " ", 
+          SuperscriptBox[
+           RowBox[{"Abs", "[", 
+            RowBox[{
+             RowBox[{"Cos", "[", 
+              RowBox[{
+               FractionBox["1", "180"], " ", "\[Pi]", " ", 
+               RowBox[{
+                RowBox[{"ChipTrapFrequencies", "[", 
+                 RowBox[{"0.85`", ",", "2.4`", ",", "2.3`", ",", 
+                  RowBox[{"-", "9.295`"}], ",", "35.20527552`", ",", 
+                  "1.69508625`"}], "]"}], "\[LeftDoubleBracket]", 
+                RowBox[{"3", ",", "2"}], "\[RightDoubleBracket]"}]}], "]"}], 
+             " ", 
+             SqrtBox[
+              FractionBox["1", 
+               RowBox[{
+                RowBox[{"ChipTrapFrequencies", "[", 
+                 RowBox[{"0.85`", ",", "2.4`", ",", "2.3`", ",", 
+                  RowBox[{"-", "9.295`"}], ",", "35.20527552`", ",", 
+                  "1.69508625`"}], "]"}], "\[LeftDoubleBracket]", 
+                RowBox[{"4", ",", "3"}], "\[RightDoubleBracket]"}]]], " ", 
+             RowBox[{"Sin", "[", 
+              RowBox[{
+               FractionBox["1", "180"], " ", "\[Pi]", " ", 
+               RowBox[{
+                RowBox[{"ChipTrapFrequencies", "[", 
+                 RowBox[{"0.85`", ",", "2.4`", ",", "2.3`", ",", 
+                  RowBox[{"-", "9.295`"}], ",", "35.20527552`", ",", 
+                  "1.69508625`"}], "]"}], "\[LeftDoubleBracket]", 
+                RowBox[{"3", ",", "4"}], "\[RightDoubleBracket]"}]}], "]"}]}],
+             "]"}], "2"]}], "+", 
+         RowBox[{"730.7375840643692`", " ", 
+          SuperscriptBox[
+           RowBox[{"Abs", "[", 
+            RowBox[{
+             SqrtBox[
+              FractionBox["1", 
+               RowBox[{
+                RowBox[{"ChipTrapFrequencies", "[", 
+                 RowBox[{"0.85`", ",", "2.4`", ",", "2.3`", ",", 
+                  RowBox[{"-", "9.295`"}], ",", "35.20527552`", ",", 
+                  "1.69508625`"}], "]"}], "\[LeftDoubleBracket]", 
+                RowBox[{"4", ",", "3"}], "\[RightDoubleBracket]"}]]], " ", 
+             RowBox[{"Sin", "[", 
+              RowBox[{
+               FractionBox["1", "180"], " ", "\[Pi]", " ", 
+               RowBox[{
+                RowBox[{"ChipTrapFrequencies", "[", 
+                 RowBox[{"0.85`", ",", "2.4`", ",", "2.3`", ",", 
+                  RowBox[{"-", "9.295`"}], ",", "35.20527552`", ",", 
+                  "1.69508625`"}], "]"}], "\[LeftDoubleBracket]", 
+                RowBox[{"3", ",", "2"}], "\[RightDoubleBracket]"}]}], "]"}], 
+             " ", 
+             RowBox[{"Sin", "[", 
+              RowBox[{
+               FractionBox["1", "180"], " ", "\[Pi]", " ", 
+               RowBox[{
+                RowBox[{"ChipTrapFrequencies", "[", 
+                 RowBox[{"0.85`", ",", "2.4`", ",", "2.3`", ",", 
+                  RowBox[{"-", "9.295`"}], ",", "35.20527552`", ",", 
+                  "1.69508625`"}], "]"}], "\[LeftDoubleBracket]", 
+                RowBox[{"3", ",", "4"}], "\[RightDoubleBracket]"}]}], "]"}]}],
+             "]"}], "2"]}]}], ")"}]}]}], ")"}]}], ",", 
+   RowBox[{
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{"730.7375840643692`", " ", 
+       RowBox[{"Cos", "[", 
+        RowBox[{
+         FractionBox["1", "180"], " ", "\[Pi]", " ", 
+         RowBox[{
+          RowBox[{"ChipTrapFrequencies", "[", 
+           RowBox[{"0.85`", ",", "2.4`", ",", "2.3`", ",", 
+            RowBox[{"-", "9.295`"}], ",", "35.20527552`", ",", 
+            "1.69508625`"}], "]"}], "\[LeftDoubleBracket]", 
+          RowBox[{"2", ",", "4"}], "\[RightDoubleBracket]"}]}], "]"}], " ", 
+       RowBox[{"Cos", "[", 
+        RowBox[{
+         FractionBox["1", "180"], " ", "\[Pi]", " ", 
+         RowBox[{
+          RowBox[{"ChipTrapFrequencies", "[", 
+           RowBox[{"0.85`", ",", "2.4`", ",", "2.3`", ",", 
+            RowBox[{"-", "9.295`"}], ",", "35.20527552`", ",", 
+            "1.69508625`"}], "]"}], "\[LeftDoubleBracket]", 
+          RowBox[{"3", ",", "4"}], "\[RightDoubleBracket]"}]}], "]"}], " ", 
+       SqrtBox[
+        FractionBox["1", 
+         RowBox[{
+          RowBox[{"ChipTrapFrequencies", "[", 
+           RowBox[{"0.85`", ",", "2.4`", ",", "2.3`", ",", 
+            RowBox[{"-", "9.295`"}], ",", "35.20527552`", ",", 
+            "1.69508625`"}], "]"}], "\[LeftDoubleBracket]", 
+          RowBox[{"4", ",", "2"}], "\[RightDoubleBracket]"}]]], " ", 
+       SqrtBox[
+        FractionBox["1", 
+         RowBox[{
+          RowBox[{"ChipTrapFrequencies", "[", 
+           RowBox[{"0.85`", ",", "2.4`", ",", "2.3`", ",", 
+            RowBox[{"-", "9.295`"}], ",", "35.20527552`", ",", 
+            "1.69508625`"}], "]"}], "\[LeftDoubleBracket]", 
+          RowBox[{"4", ",", "3"}], "\[RightDoubleBracket]"}]]]}], "+", 
+      RowBox[{"730.7375840643692`", " ", 
+       RowBox[{"Cos", "[", 
+        RowBox[{
+         FractionBox["1", "180"], " ", "\[Pi]", " ", 
+         RowBox[{
+          RowBox[{"ChipTrapFrequencies", "[", 
+           RowBox[{"0.85`", ",", "2.4`", ",", "2.3`", ",", 
+            RowBox[{"-", "9.295`"}], ",", "35.20527552`", ",", 
+            "1.69508625`"}], "]"}], "\[LeftDoubleBracket]", 
+          RowBox[{"2", ",", "2"}], "\[RightDoubleBracket]"}]}], "]"}], " ", 
+       RowBox[{"Cos", "[", 
+        RowBox[{
+         FractionBox["1", "180"], " ", "\[Pi]", " ", 
+         RowBox[{
+          RowBox[{"ChipTrapFrequencies", "[", 
+           RowBox[{"0.85`", ",", "2.4`", ",", "2.3`", ",", 
+            RowBox[{"-", "9.295`"}], ",", "35.20527552`", ",", 
+            "1.69508625`"}], "]"}], "\[LeftDoubleBracket]", 
+          RowBox[{"3", ",", "2"}], "\[RightDoubleBracket]"}]}], "]"}], " ", 
+       SqrtBox[
+        FractionBox["1", 
+         RowBox[{
+          RowBox[{"ChipTrapFrequencies", "[", 
+           RowBox[{"0.85`", ",", "2.4`", ",", "2.3`", ",", 
+            RowBox[{"-", "9.295`"}], ",", "35.20527552`", ",", 
+            "1.69508625`"}], "]"}], "\[LeftDoubleBracket]", 
+          RowBox[{"4", ",", "2"}], "\[RightDoubleBracket]"}]]], " ", 
+       SqrtBox[
+        FractionBox["1", 
+         RowBox[{
+          RowBox[{"ChipTrapFrequencies", "[", 
+           RowBox[{"0.85`", ",", "2.4`", ",", "2.3`", ",", 
+            RowBox[{"-", "9.295`"}], ",", "35.20527552`", ",", 
+            "1.69508625`"}], "]"}], "\[LeftDoubleBracket]", 
+          RowBox[{"4", ",", "3"}], "\[RightDoubleBracket]"}]]], " ", 
+       RowBox[{"Sin", "[", 
+        RowBox[{
+         FractionBox["1", "180"], " ", "\[Pi]", " ", 
+         RowBox[{
+          RowBox[{"ChipTrapFrequencies", "[", 
+           RowBox[{"0.85`", ",", "2.4`", ",", "2.3`", ",", 
+            RowBox[{"-", "9.295`"}], ",", "35.20527552`", ",", 
+            "1.69508625`"}], "]"}], "\[LeftDoubleBracket]", 
+          RowBox[{"2", ",", "4"}], "\[RightDoubleBracket]"}]}], "]"}], " ", 
+       RowBox[{"Sin", "[", 
+        RowBox[{
+         FractionBox["1", "180"], " ", "\[Pi]", " ", 
+         RowBox[{
+          RowBox[{"ChipTrapFrequencies", "[", 
+           RowBox[{"0.85`", ",", "2.4`", ",", "2.3`", ",", 
+            RowBox[{"-", "9.295`"}], ",", "35.20527552`", ",", 
+            "1.69508625`"}], "]"}], "\[LeftDoubleBracket]", 
+          RowBox[{"3", ",", "4"}], "\[RightDoubleBracket]"}]}], "]"}]}], "+", 
+      RowBox[{"730.7375840643692`", " ", 
+       SqrtBox[
+        FractionBox["1", 
+         RowBox[{
+          RowBox[{"ChipTrapFrequencies", "[", 
+           RowBox[{"0.85`", ",", "2.4`", ",", "2.3`", ",", 
+            RowBox[{"-", "9.295`"}], ",", "35.20527552`", ",", 
+            "1.69508625`"}], "]"}], "\[LeftDoubleBracket]", 
+          RowBox[{"4", ",", "2"}], "\[RightDoubleBracket]"}]]], " ", 
+       SqrtBox[
+        FractionBox["1", 
+         RowBox[{
+          RowBox[{"ChipTrapFrequencies", "[", 
+           RowBox[{"0.85`", ",", "2.4`", ",", "2.3`", ",", 
+            RowBox[{"-", "9.295`"}], ",", "35.20527552`", ",", 
+            "1.69508625`"}], "]"}], "\[LeftDoubleBracket]", 
+          RowBox[{"4", ",", "3"}], "\[RightDoubleBracket]"}]]], " ", 
+       RowBox[{"Sin", "[", 
+        RowBox[{
+         FractionBox["1", "180"], " ", "\[Pi]", " ", 
+         RowBox[{
+          RowBox[{"ChipTrapFrequencies", "[", 
+           RowBox[{"0.85`", ",", "2.4`", ",", "2.3`", ",", 
+            RowBox[{"-", "9.295`"}], ",", "35.20527552`", ",", 
+            "1.69508625`"}], "]"}], "\[LeftDoubleBracket]", 
+          RowBox[{"2", ",", "2"}], "\[RightDoubleBracket]"}]}], "]"}], " ", 
+       RowBox[{"Sin", "[", 
+        RowBox[{
+         FractionBox["1", "180"], " ", "\[Pi]", " ", 
+         RowBox[{
+          RowBox[{"ChipTrapFrequencies", "[", 
+           RowBox[{"0.85`", ",", "2.4`", ",", "2.3`", ",", 
+            RowBox[{"-", "9.295`"}], ",", "35.20527552`", ",", 
+            "1.69508625`"}], "]"}], "\[LeftDoubleBracket]", 
+          RowBox[{"2", ",", "4"}], "\[RightDoubleBracket]"}]}], "]"}], " ", 
+       RowBox[{"Sin", "[", 
+        RowBox[{
+         FractionBox["1", "180"], " ", "\[Pi]", " ", 
+         RowBox[{
+          RowBox[{"ChipTrapFrequencies", "[", 
+           RowBox[{"0.85`", ",", "2.4`", ",", "2.3`", ",", 
+            RowBox[{"-", "9.295`"}], ",", "35.20527552`", ",", 
+            "1.69508625`"}], "]"}], "\[LeftDoubleBracket]", 
+          RowBox[{"3", ",", "2"}], "\[RightDoubleBracket]"}]}], "]"}], " ", 
+       RowBox[{"Sin", "[", 
+        RowBox[{
+         FractionBox["1", "180"], " ", "\[Pi]", " ", 
+         RowBox[{
+          RowBox[{"ChipTrapFrequencies", "[", 
+           RowBox[{"0.85`", ",", "2.4`", ",", "2.3`", ",", 
+            RowBox[{"-", "9.295`"}], ",", "35.20527552`", ",", 
+            "1.69508625`"}], "]"}], "\[LeftDoubleBracket]", 
+          RowBox[{"3", ",", "4"}], "\[RightDoubleBracket]"}]}], "]"}]}]}], 
+     ")"}], "/", 
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{"\[Sqrt]", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"730.7375840643692`", " ", 
+          SuperscriptBox[
+           RowBox[{"Abs", "[", 
+            RowBox[{
+             RowBox[{"Cos", "[", 
+              RowBox[{
+               FractionBox["1", "180"], " ", "\[Pi]", " ", 
+               RowBox[{
+                RowBox[{"ChipTrapFrequencies", "[", 
+                 RowBox[{"0.85`", ",", "2.4`", ",", "2.3`", ",", 
+                  RowBox[{"-", "9.295`"}], ",", "35.20527552`", ",", 
+                  "1.69508625`"}], "]"}], "\[LeftDoubleBracket]", 
+                RowBox[{"2", ",", "4"}], "\[RightDoubleBracket]"}]}], "]"}], 
+             " ", 
+             SqrtBox[
+              FractionBox["1", 
+               RowBox[{
+                RowBox[{"ChipTrapFrequencies", "[", 
+                 RowBox[{"0.85`", ",", "2.4`", ",", "2.3`", ",", 
+                  RowBox[{"-", "9.295`"}], ",", "35.20527552`", ",", 
+                  "1.69508625`"}], "]"}], "\[LeftDoubleBracket]", 
+                RowBox[{"4", ",", "2"}], "\[RightDoubleBracket]"}]]]}], "]"}],
+            "2"]}], "+", 
+         RowBox[{"730.7375840643692`", " ", 
+          SuperscriptBox[
+           RowBox[{"Abs", "[", 
+            RowBox[{
+             RowBox[{"Cos", "[", 
+              RowBox[{
+               FractionBox["1", "180"], " ", "\[Pi]", " ", 
+               RowBox[{
+                RowBox[{"ChipTrapFrequencies", "[", 
+                 RowBox[{"0.85`", ",", "2.4`", ",", "2.3`", ",", 
+                  RowBox[{"-", "9.295`"}], ",", "35.20527552`", ",", 
+                  "1.69508625`"}], "]"}], "\[LeftDoubleBracket]", 
+                RowBox[{"2", ",", "2"}], "\[RightDoubleBracket]"}]}], "]"}], 
+             " ", 
+             SqrtBox[
+              FractionBox["1", 
+               RowBox[{
+                RowBox[{"ChipTrapFrequencies", "[", 
+                 RowBox[{"0.85`", ",", "2.4`", ",", "2.3`", ",", 
+                  RowBox[{"-", "9.295`"}], ",", "35.20527552`", ",", 
+                  "1.69508625`"}], "]"}], "\[LeftDoubleBracket]", 
+                RowBox[{"4", ",", "2"}], "\[RightDoubleBracket]"}]]], " ", 
+             RowBox[{"Sin", "[", 
+              RowBox[{
+               FractionBox["1", "180"], " ", "\[Pi]", " ", 
+               RowBox[{
+                RowBox[{"ChipTrapFrequencies", "[", 
+                 RowBox[{"0.85`", ",", "2.4`", ",", "2.3`", ",", 
+                  RowBox[{"-", "9.295`"}], ",", "35.20527552`", ",", 
+                  "1.69508625`"}], "]"}], "\[LeftDoubleBracket]", 
+                RowBox[{"2", ",", "4"}], "\[RightDoubleBracket]"}]}], "]"}]}],
+             "]"}], "2"]}], "+", 
+         RowBox[{"730.7375840643692`", " ", 
+          SuperscriptBox[
+           RowBox[{"Abs", "[", 
+            RowBox[{
+             SqrtBox[
+              FractionBox["1", 
+               RowBox[{
+                RowBox[{"ChipTrapFrequencies", "[", 
+                 RowBox[{"0.85`", ",", "2.4`", ",", "2.3`", ",", 
+                  RowBox[{"-", "9.295`"}], ",", "35.20527552`", ",", 
+                  "1.69508625`"}], "]"}], "\[LeftDoubleBracket]", 
+                RowBox[{"4", ",", "2"}], "\[RightDoubleBracket]"}]]], " ", 
+             RowBox[{"Sin", "[", 
+              RowBox[{
+               FractionBox["1", "180"], " ", "\[Pi]", " ", 
+               RowBox[{
+                RowBox[{"ChipTrapFrequencies", "[", 
+                 RowBox[{"0.85`", ",", "2.4`", ",", "2.3`", ",", 
+                  RowBox[{"-", "9.295`"}], ",", "35.20527552`", ",", 
+                  "1.69508625`"}], "]"}], "\[LeftDoubleBracket]", 
+                RowBox[{"2", ",", "2"}], "\[RightDoubleBracket]"}]}], "]"}], 
+             " ", 
+             RowBox[{"Sin", "[", 
+              RowBox[{
+               FractionBox["1", "180"], " ", "\[Pi]", " ", 
+               RowBox[{
+                RowBox[{"ChipTrapFrequencies", "[", 
+                 RowBox[{"0.85`", ",", "2.4`", ",", "2.3`", ",", 
+                  RowBox[{"-", "9.295`"}], ",", "35.20527552`", ",", 
+                  "1.69508625`"}], "]"}], "\[LeftDoubleBracket]", 
+                RowBox[{"2", ",", "4"}], "\[RightDoubleBracket]"}]}], "]"}]}],
+             "]"}], "2"]}]}], ")"}]}], " ", 
+      RowBox[{"\[Sqrt]", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"730.7375840643692`", " ", 
+          SuperscriptBox[
+           RowBox[{"Abs", "[", 
+            RowBox[{
+             RowBox[{"Cos", "[", 
+              RowBox[{
+               FractionBox["1", "180"], " ", "\[Pi]", " ", 
+               RowBox[{
+                RowBox[{"ChipTrapFrequencies", "[", 
+                 RowBox[{"0.85`", ",", "2.4`", ",", "2.3`", ",", 
+                  RowBox[{"-", "9.295`"}], ",", "35.20527552`", ",", 
+                  "1.69508625`"}], "]"}], "\[LeftDoubleBracket]", 
+                RowBox[{"3", ",", "4"}], "\[RightDoubleBracket]"}]}], "]"}], 
+             " ", 
+             SqrtBox[
+              FractionBox["1", 
+               RowBox[{
+                RowBox[{"ChipTrapFrequencies", "[", 
+                 RowBox[{"0.85`", ",", "2.4`", ",", "2.3`", ",", 
+                  RowBox[{"-", "9.295`"}], ",", "35.20527552`", ",", 
+                  "1.69508625`"}], "]"}], "\[LeftDoubleBracket]", 
+                RowBox[{"4", ",", "3"}], "\[RightDoubleBracket]"}]]]}], "]"}],
+            "2"]}], "+", 
+         RowBox[{"730.7375840643692`", " ", 
+          SuperscriptBox[
+           RowBox[{"Abs", "[", 
+            RowBox[{
+             RowBox[{"Cos", "[", 
+              RowBox[{
+               FractionBox["1", "180"], " ", "\[Pi]", " ", 
+               RowBox[{
+                RowBox[{"ChipTrapFrequencies", "[", 
+                 RowBox[{"0.85`", ",", "2.4`", ",", "2.3`", ",", 
+                  RowBox[{"-", "9.295`"}], ",", "35.20527552`", ",", 
+                  "1.69508625`"}], "]"}], "\[LeftDoubleBracket]", 
+                RowBox[{"3", ",", "2"}], "\[RightDoubleBracket]"}]}], "]"}], 
+             " ", 
+             SqrtBox[
+              FractionBox["1", 
+               RowBox[{
+                RowBox[{"ChipTrapFrequencies", "[", 
+                 RowBox[{"0.85`", ",", "2.4`", ",", "2.3`", ",", 
+                  RowBox[{"-", "9.295`"}], ",", "35.20527552`", ",", 
+                  "1.69508625`"}], "]"}], "\[LeftDoubleBracket]", 
+                RowBox[{"4", ",", "3"}], "\[RightDoubleBracket]"}]]], " ", 
+             RowBox[{"Sin", "[", 
+              RowBox[{
+               FractionBox["1", "180"], " ", "\[Pi]", " ", 
+               RowBox[{
+                RowBox[{"ChipTrapFrequencies", "[", 
+                 RowBox[{"0.85`", ",", "2.4`", ",", "2.3`", ",", 
+                  RowBox[{"-", "9.295`"}], ",", "35.20527552`", ",", 
+                  "1.69508625`"}], "]"}], "\[LeftDoubleBracket]", 
+                RowBox[{"3", ",", "4"}], "\[RightDoubleBracket]"}]}], "]"}]}],
+             "]"}], "2"]}], "+", 
+         RowBox[{"730.7375840643692`", " ", 
+          SuperscriptBox[
+           RowBox[{"Abs", "[", 
+            RowBox[{
+             SqrtBox[
+              FractionBox["1", 
+               RowBox[{
+                RowBox[{"ChipTrapFrequencies", "[", 
+                 RowBox[{"0.85`", ",", "2.4`", ",", "2.3`", ",", 
+                  RowBox[{"-", "9.295`"}], ",", "35.20527552`", ",", 
+                  "1.69508625`"}], "]"}], "\[LeftDoubleBracket]", 
+                RowBox[{"4", ",", "3"}], "\[RightDoubleBracket]"}]]], " ", 
+             RowBox[{"Sin", "[", 
+              RowBox[{
+               FractionBox["1", "180"], " ", "\[Pi]", " ", 
+               RowBox[{
+                RowBox[{"ChipTrapFrequencies", "[", 
+                 RowBox[{"0.85`", ",", "2.4`", ",", "2.3`", ",", 
+                  RowBox[{"-", "9.295`"}], ",", "35.20527552`", ",", 
+                  "1.69508625`"}], "]"}], "\[LeftDoubleBracket]", 
+                RowBox[{"3", ",", "2"}], "\[RightDoubleBracket]"}]}], "]"}], 
+             " ", 
+             RowBox[{"Sin", "[", 
+              RowBox[{
+               FractionBox["1", "180"], " ", "\[Pi]", " ", 
+               RowBox[{
+                RowBox[{"ChipTrapFrequencies", "[", 
+                 RowBox[{"0.85`", ",", "2.4`", ",", "2.3`", ",", 
+                  RowBox[{"-", "9.295`"}], ",", "35.20527552`", ",", 
+                  "1.69508625`"}], "]"}], "\[LeftDoubleBracket]", 
+                RowBox[{"3", ",", "4"}], "\[RightDoubleBracket]"}]}], "]"}]}],
+             "]"}], "2"]}]}], ")"}]}]}], ")"}]}]}], "}"}]], "Print",
+ CellChangeTimes->{3.813402366623812*^9},
+ CellLabel->
+  "During evaluation of \
+In[25]:=",ExpressionUUID->"a224e2e6-3452-402d-868d-2999d0562490"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"Arrow", "[", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"0", ",", "0", ",", "0"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"27.032158331594044`", " ", 
+         RowBox[{"Cos", "[", 
+          RowBox[{
+           FractionBox["1", "180"], " ", "\[Pi]", " ", 
+           RowBox[{
+            RowBox[{"ChipTrapFrequencies", "[", 
+             RowBox[{"0.85`", ",", "2.4`", ",", "2.3`", ",", 
+              RowBox[{"-", "9.295`"}], ",", "35.20527552`", ",", 
+              "1.69508625`"}], "]"}], "\[LeftDoubleBracket]", 
+            RowBox[{"1", ",", "2"}], "\[RightDoubleBracket]"}]}], "]"}], " ", 
+         SqrtBox[
+          FractionBox["1", 
+           RowBox[{
+            RowBox[{"ChipTrapFrequencies", "[", 
+             RowBox[{"0.85`", ",", "2.4`", ",", "2.3`", ",", 
+              RowBox[{"-", "9.295`"}], ",", "35.20527552`", ",", 
+              "1.69508625`"}], "]"}], "\[LeftDoubleBracket]", 
+            RowBox[{"4", ",", "1"}], "\[RightDoubleBracket]"}]]], " ", 
+         RowBox[{"Sin", "[", 
+          RowBox[{
+           FractionBox["1", "180"], " ", "\[Pi]", " ", 
+           RowBox[{
+            RowBox[{"ChipTrapFrequencies", "[", 
+             RowBox[{"0.85`", ",", "2.4`", ",", "2.3`", ",", 
+              RowBox[{"-", "9.295`"}], ",", "35.20527552`", ",", 
+              "1.69508625`"}], "]"}], "\[LeftDoubleBracket]", 
+            RowBox[{"1", ",", "4"}], "\[RightDoubleBracket]"}]}], "]"}]}], 
+        ",", 
+        RowBox[{"27.032158331594044`", " ", 
+         SqrtBox[
+          FractionBox["1", 
+           RowBox[{
+            RowBox[{"ChipTrapFrequencies", "[", 
+             RowBox[{"0.85`", ",", "2.4`", ",", "2.3`", ",", 
+              RowBox[{"-", "9.295`"}], ",", "35.20527552`", ",", 
+              "1.69508625`"}], "]"}], "\[LeftDoubleBracket]", 
+            RowBox[{"4", ",", "1"}], "\[RightDoubleBracket]"}]]], " ", 
+         RowBox[{"Sin", "[", 
+          RowBox[{
+           FractionBox["1", "180"], " ", "\[Pi]", " ", 
+           RowBox[{
+            RowBox[{"ChipTrapFrequencies", "[", 
+             RowBox[{"0.85`", ",", "2.4`", ",", "2.3`", ",", 
+              RowBox[{"-", "9.295`"}], ",", "35.20527552`", ",", 
+              "1.69508625`"}], "]"}], "\[LeftDoubleBracket]", 
+            RowBox[{"1", ",", "2"}], "\[RightDoubleBracket]"}]}], "]"}], " ", 
+         RowBox[{"Sin", "[", 
+          RowBox[{
+           FractionBox["1", "180"], " ", "\[Pi]", " ", 
+           RowBox[{
+            RowBox[{"ChipTrapFrequencies", "[", 
+             RowBox[{"0.85`", ",", "2.4`", ",", "2.3`", ",", 
+              RowBox[{"-", "9.295`"}], ",", "35.20527552`", ",", 
+              "1.69508625`"}], "]"}], "\[LeftDoubleBracket]", 
+            RowBox[{"1", ",", "4"}], "\[RightDoubleBracket]"}]}], "]"}]}], 
+        ",", 
+        RowBox[{"27.032158331594044`", " ", 
+         RowBox[{"Cos", "[", 
+          RowBox[{
+           FractionBox["1", "180"], " ", "\[Pi]", " ", 
+           RowBox[{
+            RowBox[{"ChipTrapFrequencies", "[", 
+             RowBox[{"0.85`", ",", "2.4`", ",", "2.3`", ",", 
+              RowBox[{"-", "9.295`"}], ",", "35.20527552`", ",", 
+              "1.69508625`"}], "]"}], "\[LeftDoubleBracket]", 
+            RowBox[{"1", ",", "4"}], "\[RightDoubleBracket]"}]}], "]"}], " ", 
+         SqrtBox[
+          FractionBox["1", 
+           RowBox[{
+            RowBox[{"ChipTrapFrequencies", "[", 
+             RowBox[{"0.85`", ",", "2.4`", ",", "2.3`", ",", 
+              RowBox[{"-", "9.295`"}], ",", "35.20527552`", ",", 
+              "1.69508625`"}], "]"}], "\[LeftDoubleBracket]", 
+            RowBox[{"4", ",", "1"}], "\[RightDoubleBracket]"}]]]}]}], "}"}]}],
+      "}"}], "]"}], ",", 
+   RowBox[{"Arrow", "[", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"0", ",", "0", ",", "0"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"27.032158331594044`", " ", 
+         RowBox[{"Cos", "[", 
+          RowBox[{
+           FractionBox["1", "180"], " ", "\[Pi]", " ", 
+           RowBox[{
+            RowBox[{"ChipTrapFrequencies", "[", 
+             RowBox[{"0.85`", ",", "2.4`", ",", "2.3`", ",", 
+              RowBox[{"-", "9.295`"}], ",", "35.20527552`", ",", 
+              "1.69508625`"}], "]"}], "\[LeftDoubleBracket]", 
+            RowBox[{"2", ",", "2"}], "\[RightDoubleBracket]"}]}], "]"}], " ", 
+         SqrtBox[
+          FractionBox["1", 
+           RowBox[{
+            RowBox[{"ChipTrapFrequencies", "[", 
+             RowBox[{"0.85`", ",", "2.4`", ",", "2.3`", ",", 
+              RowBox[{"-", "9.295`"}], ",", "35.20527552`", ",", 
+              "1.69508625`"}], "]"}], "\[LeftDoubleBracket]", 
+            RowBox[{"4", ",", "2"}], "\[RightDoubleBracket]"}]]], " ", 
+         RowBox[{"Sin", "[", 
+          RowBox[{
+           FractionBox["1", "180"], " ", "\[Pi]", " ", 
+           RowBox[{
+            RowBox[{"ChipTrapFrequencies", "[", 
+             RowBox[{"0.85`", ",", "2.4`", ",", "2.3`", ",", 
+              RowBox[{"-", "9.295`"}], ",", "35.20527552`", ",", 
+              "1.69508625`"}], "]"}], "\[LeftDoubleBracket]", 
+            RowBox[{"2", ",", "4"}], "\[RightDoubleBracket]"}]}], "]"}]}], 
+        ",", 
+        RowBox[{"27.032158331594044`", " ", 
+         SqrtBox[
+          FractionBox["1", 
+           RowBox[{
+            RowBox[{"ChipTrapFrequencies", "[", 
+             RowBox[{"0.85`", ",", "2.4`", ",", "2.3`", ",", 
+              RowBox[{"-", "9.295`"}], ",", "35.20527552`", ",", 
+              "1.69508625`"}], "]"}], "\[LeftDoubleBracket]", 
+            RowBox[{"4", ",", "2"}], "\[RightDoubleBracket]"}]]], " ", 
+         RowBox[{"Sin", "[", 
+          RowBox[{
+           FractionBox["1", "180"], " ", "\[Pi]", " ", 
+           RowBox[{
+            RowBox[{"ChipTrapFrequencies", "[", 
+             RowBox[{"0.85`", ",", "2.4`", ",", "2.3`", ",", 
+              RowBox[{"-", "9.295`"}], ",", "35.20527552`", ",", 
+              "1.69508625`"}], "]"}], "\[LeftDoubleBracket]", 
+            RowBox[{"2", ",", "2"}], "\[RightDoubleBracket]"}]}], "]"}], " ", 
+         RowBox[{"Sin", "[", 
+          RowBox[{
+           FractionBox["1", "180"], " ", "\[Pi]", " ", 
+           RowBox[{
+            RowBox[{"ChipTrapFrequencies", "[", 
+             RowBox[{"0.85`", ",", "2.4`", ",", "2.3`", ",", 
+              RowBox[{"-", "9.295`"}], ",", "35.20527552`", ",", 
+              "1.69508625`"}], "]"}], "\[LeftDoubleBracket]", 
+            RowBox[{"2", ",", "4"}], "\[RightDoubleBracket]"}]}], "]"}]}], 
+        ",", 
+        RowBox[{"27.032158331594044`", " ", 
+         RowBox[{"Cos", "[", 
+          RowBox[{
+           FractionBox["1", "180"], " ", "\[Pi]", " ", 
+           RowBox[{
+            RowBox[{"ChipTrapFrequencies", "[", 
+             RowBox[{"0.85`", ",", "2.4`", ",", "2.3`", ",", 
+              RowBox[{"-", "9.295`"}], ",", "35.20527552`", ",", 
+              "1.69508625`"}], "]"}], "\[LeftDoubleBracket]", 
+            RowBox[{"2", ",", "4"}], "\[RightDoubleBracket]"}]}], "]"}], " ", 
+         SqrtBox[
+          FractionBox["1", 
+           RowBox[{
+            RowBox[{"ChipTrapFrequencies", "[", 
+             RowBox[{"0.85`", ",", "2.4`", ",", "2.3`", ",", 
+              RowBox[{"-", "9.295`"}], ",", "35.20527552`", ",", 
+              "1.69508625`"}], "]"}], "\[LeftDoubleBracket]", 
+            RowBox[{"4", ",", "2"}], "\[RightDoubleBracket]"}]]]}]}], "}"}]}],
+      "}"}], "]"}], ",", 
+   RowBox[{"Arrow", "[", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"0", ",", "0", ",", "0"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"27.032158331594044`", " ", 
+         RowBox[{"Cos", "[", 
+          RowBox[{
+           FractionBox["1", "180"], " ", "\[Pi]", " ", 
+           RowBox[{
+            RowBox[{"ChipTrapFrequencies", "[", 
+             RowBox[{"0.85`", ",", "2.4`", ",", "2.3`", ",", 
+              RowBox[{"-", "9.295`"}], ",", "35.20527552`", ",", 
+              "1.69508625`"}], "]"}], "\[LeftDoubleBracket]", 
+            RowBox[{"3", ",", "2"}], "\[RightDoubleBracket]"}]}], "]"}], " ", 
+         SqrtBox[
+          FractionBox["1", 
+           RowBox[{
+            RowBox[{"ChipTrapFrequencies", "[", 
+             RowBox[{"0.85`", ",", "2.4`", ",", "2.3`", ",", 
+              RowBox[{"-", "9.295`"}], ",", "35.20527552`", ",", 
+              "1.69508625`"}], "]"}], "\[LeftDoubleBracket]", 
+            RowBox[{"4", ",", "3"}], "\[RightDoubleBracket]"}]]], " ", 
+         RowBox[{"Sin", "[", 
+          RowBox[{
+           FractionBox["1", "180"], " ", "\[Pi]", " ", 
+           RowBox[{
+            RowBox[{"ChipTrapFrequencies", "[", 
+             RowBox[{"0.85`", ",", "2.4`", ",", "2.3`", ",", 
+              RowBox[{"-", "9.295`"}], ",", "35.20527552`", ",", 
+              "1.69508625`"}], "]"}], "\[LeftDoubleBracket]", 
+            RowBox[{"3", ",", "4"}], "\[RightDoubleBracket]"}]}], "]"}]}], 
+        ",", 
+        RowBox[{"27.032158331594044`", " ", 
+         SqrtBox[
+          FractionBox["1", 
+           RowBox[{
+            RowBox[{"ChipTrapFrequencies", "[", 
+             RowBox[{"0.85`", ",", "2.4`", ",", "2.3`", ",", 
+              RowBox[{"-", "9.295`"}], ",", "35.20527552`", ",", 
+              "1.69508625`"}], "]"}], "\[LeftDoubleBracket]", 
+            RowBox[{"4", ",", "3"}], "\[RightDoubleBracket]"}]]], " ", 
+         RowBox[{"Sin", "[", 
+          RowBox[{
+           FractionBox["1", "180"], " ", "\[Pi]", " ", 
+           RowBox[{
+            RowBox[{"ChipTrapFrequencies", "[", 
+             RowBox[{"0.85`", ",", "2.4`", ",", "2.3`", ",", 
+              RowBox[{"-", "9.295`"}], ",", "35.20527552`", ",", 
+              "1.69508625`"}], "]"}], "\[LeftDoubleBracket]", 
+            RowBox[{"3", ",", "2"}], "\[RightDoubleBracket]"}]}], "]"}], " ", 
+         RowBox[{"Sin", "[", 
+          RowBox[{
+           FractionBox["1", "180"], " ", "\[Pi]", " ", 
+           RowBox[{
+            RowBox[{"ChipTrapFrequencies", "[", 
+             RowBox[{"0.85`", ",", "2.4`", ",", "2.3`", ",", 
+              RowBox[{"-", "9.295`"}], ",", "35.20527552`", ",", 
+              "1.69508625`"}], "]"}], "\[LeftDoubleBracket]", 
+            RowBox[{"3", ",", "4"}], "\[RightDoubleBracket]"}]}], "]"}]}], 
+        ",", 
+        RowBox[{"27.032158331594044`", " ", 
+         RowBox[{"Cos", "[", 
+          RowBox[{
+           FractionBox["1", "180"], " ", "\[Pi]", " ", 
+           RowBox[{
+            RowBox[{"ChipTrapFrequencies", "[", 
+             RowBox[{"0.85`", ",", "2.4`", ",", "2.3`", ",", 
+              RowBox[{"-", "9.295`"}], ",", "35.20527552`", ",", 
+              "1.69508625`"}], "]"}], "\[LeftDoubleBracket]", 
+            RowBox[{"3", ",", "4"}], "\[RightDoubleBracket]"}]}], "]"}], " ", 
+         SqrtBox[
+          FractionBox["1", 
+           RowBox[{
+            RowBox[{"ChipTrapFrequencies", "[", 
+             RowBox[{"0.85`", ",", "2.4`", ",", "2.3`", ",", 
+              RowBox[{"-", "9.295`"}], ",", "35.20527552`", ",", 
+              "1.69508625`"}], "]"}], "\[LeftDoubleBracket]", 
+            RowBox[{"4", ",", "3"}], "\[RightDoubleBracket]"}]]]}]}], "}"}]}],
+      "}"}], "]"}]}], "}"}]], "Output",
+ CellChangeTimes->{3.813402366671363*^9},
+ CellLabel->"Out[25]=",ExpressionUUID->"f32b4f23-cc78-407a-9f42-a680eb8ccdaa"]
+}, Open  ]],
 
 Cell[BoxData[
  RowBox[{
@@ -500,21 +2065,142 @@ Cell[BoxData[
   3.808840781968003*^9}, {3.8088409858714037`*^9, 3.808841026846407*^9}, {
   3.808841246576395*^9, 3.8088412617089543`*^9}, {3.8092775950089955`*^9, 
   3.809277630719779*^9}, {3.809292023951932*^9, 3.8092920351893654`*^9}},
- CellLabel->
-  "In[381]:=",ExpressionUUID->"91a6bbd1-9d36-4138-af24-f3ea9aadcda1"],
+ CellLabel->"In[26]:=",ExpressionUUID->"91a6bbd1-9d36-4138-af24-f3ea9aadcda1"],
+
+Cell[CellGroupData[{
 
 Cell[BoxData[
  RowBox[{"plotTrapAxes", "@", "arraws"}]], "Input",
  CellChangeTimes->{{3.808840210098936*^9, 3.808840214226655*^9}, {
   3.808840444529563*^9, 3.808840466453823*^9}},
- CellLabel->
-  "In[382]:=",ExpressionUUID->"5d6b25f4-1e3b-48aa-b563-20d6f5c5e6e4"],
+ CellLabel->"In[27]:=",ExpressionUUID->"5d6b25f4-1e3b-48aa-b563-20d6f5c5e6e4"],
+
+Cell[BoxData[
+ Graphics3DBox[{
+   {RGBColor[1, 0, 0], Thickness[Large], 
+    Arrow3DBox[{{0, 0, 0}, {-2.477593679762376, 0.17325022731717366`, 
+      0.08673074953198065}}]}, 
+   {RGBColor[0, 1, 0], Thickness[Large], 
+    Arrow3DBox[{{0, 0, 0}, {0.013135300267443018`, -0.2506364598374332, 
+      0.875272741062111}}]}, 
+   {RGBColor[0, 0, 1], Thickness[Large], 
+    Arrow3DBox[{{0, 0, 
+      0}, {-0.07809846967913124, -0.8926695931980911, -0.256946646420689}}]}},
+  Axes->True,
+  AxesLabel->{
+    FormBox["\"x\"", TraditionalForm], 
+    FormBox["\"y\"", TraditionalForm], 
+    FormBox["\"z\"", TraditionalForm]}]], "Output",
+ CellChangeTimes->{3.813402366748483*^9},
+ CellLabel->"Out[27]=",ExpressionUUID->"8e29687a-470b-48b3-a0e7-fc6bb2bc8965"]
+}, Open  ]],
+
+Cell[CellGroupData[{
 
 Cell[BoxData[
  RowBox[{"plotTrapAxes", "@", "nathansArrows"}]], "Input",
  CellChangeTimes->{{3.8092739413827496`*^9, 3.80927394634163*^9}},
- CellLabel->
-  "In[344]:=",ExpressionUUID->"a8a6a6dd-38a5-4771-b7c2-7a1e2e0ea594"],
+ CellLabel->"In[28]:=",ExpressionUUID->"a8a6a6dd-38a5-4771-b7c2-7a1e2e0ea594"],
+
+Cell[BoxData[
+ Graphics3DBox[{
+   {RGBColor[1, 0, 0], Thickness[Large], 
+    Arrow3DBox[{{0, 0, 0}, {
+      27.032158331594044` 
+       Cos[Rational[1, 180] Pi 
+         Part[$CellContext`ChipTrapFrequencies[
+           0.85, 2.4, 2.3, -9.295, 35.20527552, 1.69508625], 1, 2]] (
+         Part[$CellContext`ChipTrapFrequencies[
+           0.85, 2.4, 2.3, -9.295, 35.20527552, 1.69508625], 4, 1]^(-1))^
+        Rational[1, 2] 
+       Sin[Rational[1, 180] Pi 
+         Part[$CellContext`ChipTrapFrequencies[
+           0.85, 2.4, 2.3, -9.295, 35.20527552, 1.69508625], 1, 4]], 
+       27.032158331594044` (
+         Part[$CellContext`ChipTrapFrequencies[
+           0.85, 2.4, 2.3, -9.295, 35.20527552, 1.69508625], 4, 1]^(-1))^
+        Rational[1, 2] 
+       Sin[Rational[1, 180] Pi 
+         Part[$CellContext`ChipTrapFrequencies[
+           0.85, 2.4, 2.3, -9.295, 35.20527552, 1.69508625], 1, 2]] 
+       Sin[Rational[1, 180] Pi 
+         Part[$CellContext`ChipTrapFrequencies[
+           0.85, 2.4, 2.3, -9.295, 35.20527552, 1.69508625], 1, 4]], 
+       27.032158331594044` 
+       Cos[Rational[1, 180] Pi 
+         Part[$CellContext`ChipTrapFrequencies[
+           0.85, 2.4, 2.3, -9.295, 35.20527552, 1.69508625], 1, 4]] (
+         Part[$CellContext`ChipTrapFrequencies[
+           0.85, 2.4, 2.3, -9.295, 35.20527552, 1.69508625], 4, 1]^(-1))^
+        Rational[1, 2]}}]}, 
+   {RGBColor[0, 1, 0], Thickness[Large], 
+    Arrow3DBox[{{0, 0, 0}, {
+      27.032158331594044` 
+       Cos[Rational[1, 180] Pi 
+         Part[$CellContext`ChipTrapFrequencies[
+           0.85, 2.4, 2.3, -9.295, 35.20527552, 1.69508625], 2, 2]] (
+         Part[$CellContext`ChipTrapFrequencies[
+           0.85, 2.4, 2.3, -9.295, 35.20527552, 1.69508625], 4, 2]^(-1))^
+        Rational[1, 2] 
+       Sin[Rational[1, 180] Pi 
+         Part[$CellContext`ChipTrapFrequencies[
+           0.85, 2.4, 2.3, -9.295, 35.20527552, 1.69508625], 2, 4]], 
+       27.032158331594044` (
+         Part[$CellContext`ChipTrapFrequencies[
+           0.85, 2.4, 2.3, -9.295, 35.20527552, 1.69508625], 4, 2]^(-1))^
+        Rational[1, 2] 
+       Sin[Rational[1, 180] Pi 
+         Part[$CellContext`ChipTrapFrequencies[
+           0.85, 2.4, 2.3, -9.295, 35.20527552, 1.69508625], 2, 2]] 
+       Sin[Rational[1, 180] Pi 
+         Part[$CellContext`ChipTrapFrequencies[
+           0.85, 2.4, 2.3, -9.295, 35.20527552, 1.69508625], 2, 4]], 
+       27.032158331594044` 
+       Cos[Rational[1, 180] Pi 
+         Part[$CellContext`ChipTrapFrequencies[
+           0.85, 2.4, 2.3, -9.295, 35.20527552, 1.69508625], 2, 4]] (
+         Part[$CellContext`ChipTrapFrequencies[
+           0.85, 2.4, 2.3, -9.295, 35.20527552, 1.69508625], 4, 2]^(-1))^
+        Rational[1, 2]}}]}, 
+   {RGBColor[0, 0, 1], Thickness[Large], 
+    Arrow3DBox[{{0, 0, 0}, {
+      27.032158331594044` 
+       Cos[Rational[1, 180] Pi 
+         Part[$CellContext`ChipTrapFrequencies[
+           0.85, 2.4, 2.3, -9.295, 35.20527552, 1.69508625], 3, 2]] (
+         Part[$CellContext`ChipTrapFrequencies[
+           0.85, 2.4, 2.3, -9.295, 35.20527552, 1.69508625], 4, 3]^(-1))^
+        Rational[1, 2] 
+       Sin[Rational[1, 180] Pi 
+         Part[$CellContext`ChipTrapFrequencies[
+           0.85, 2.4, 2.3, -9.295, 35.20527552, 1.69508625], 3, 4]], 
+       27.032158331594044` (
+         Part[$CellContext`ChipTrapFrequencies[
+           0.85, 2.4, 2.3, -9.295, 35.20527552, 1.69508625], 4, 3]^(-1))^
+        Rational[1, 2] 
+       Sin[Rational[1, 180] Pi 
+         Part[$CellContext`ChipTrapFrequencies[
+           0.85, 2.4, 2.3, -9.295, 35.20527552, 1.69508625], 3, 2]] 
+       Sin[Rational[1, 180] Pi 
+         Part[$CellContext`ChipTrapFrequencies[
+           0.85, 2.4, 2.3, -9.295, 35.20527552, 1.69508625], 3, 4]], 
+       27.032158331594044` 
+       Cos[Rational[1, 180] Pi 
+         Part[$CellContext`ChipTrapFrequencies[
+           0.85, 2.4, 2.3, -9.295, 35.20527552, 1.69508625], 3, 4]] (
+         Part[$CellContext`ChipTrapFrequencies[
+           0.85, 2.4, 2.3, -9.295, 35.20527552, 1.69508625], 4, 3]^(-1))^
+        Rational[1, 2]}}]}},
+  Axes->True,
+  AxesLabel->{
+    FormBox["\"x\"", TraditionalForm], 
+    FormBox["\"y\"", TraditionalForm], 
+    FormBox["\"z\"", TraditionalForm]}]], "Output",
+ CellChangeTimes->{3.8134023668113174`*^9},
+ CellLabel->"Out[28]=",ExpressionUUID->"70f2f023-e765-4e16-afb7-40b2559120df"]
+}, Open  ]],
+
+Cell[CellGroupData[{
 
 Cell[BoxData[{
  RowBox[{
@@ -562,8 +2248,85 @@ Cell[BoxData[{
    3.8088463311751876`*^9, 3.8088463719923973`*^9}, {3.8088464694506736`*^9, 
    3.808846474696187*^9}, {3.8088487054465036`*^9, 3.8088487165984898`*^9}, 
    3.8088487637345285`*^9},
- CellLabel->
-  "In[339]:=",ExpressionUUID->"17f913e1-5647-46ad-b590-d8c6d4a2dfff"],
+ CellLabel->"In[29]:=",ExpressionUUID->"17f913e1-5647-46ad-b590-d8c6d4a2dfff"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"-", 
+       RowBox[{"Cos", "[", 
+        FractionBox["\[Pi]", "60"], "]"}]}], " ", 
+      RowBox[{"Cos", "[", 
+       FractionBox[
+        RowBox[{"2", " ", "\[Pi]"}], "45"], "]"}]}], ",", 
+     RowBox[{
+      RowBox[{"-", 
+       RowBox[{"Cos", "[", 
+        FractionBox["\[Pi]", "60"], "]"}]}], " ", 
+      RowBox[{"Sin", "[", 
+       FractionBox[
+        RowBox[{"2", " ", "\[Pi]"}], "45"], "]"}]}], ",", 
+     RowBox[{"Sin", "[", 
+      FractionBox["\[Pi]", "60"], "]"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"-", 
+       RowBox[{"Cos", "[", 
+        FractionBox[
+         RowBox[{"37", " ", "\[Pi]"}], "180"], "]"}]}], " ", 
+      RowBox[{"Sin", "[", 
+       FractionBox["\[Pi]", "30"], "]"}]}], ",", 
+     RowBox[{
+      RowBox[{"Cos", "[", 
+       FractionBox["\[Pi]", "30"], "]"}], " ", 
+      RowBox[{"Cos", "[", 
+       FractionBox[
+        RowBox[{"37", " ", "\[Pi]"}], "180"], "]"}]}], ",", 
+     RowBox[{"Sin", "[", 
+      FractionBox[
+       RowBox[{"37", " ", "\[Pi]"}], "180"], "]"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"Sin", "[", 
+       FractionBox[
+        RowBox[{"11", " ", "\[Pi]"}], "180"], "]"}], " ", 
+      RowBox[{"Sin", "[", 
+       FractionBox[
+        RowBox[{"37", " ", "\[Pi]"}], "180"], "]"}]}], ",", 
+     RowBox[{
+      RowBox[{"-", 
+       RowBox[{"Cos", "[", 
+        FractionBox[
+         RowBox[{"11", " ", "\[Pi]"}], "180"], "]"}]}], " ", 
+      RowBox[{"Sin", "[", 
+       FractionBox[
+        RowBox[{"37", " ", "\[Pi]"}], "180"], "]"}]}], ",", 
+     RowBox[{"Cos", "[", 
+      FractionBox[
+       RowBox[{"37", " ", "\[Pi]"}], "180"], "]"}]}], "}"}]}], 
+  "}"}]], "Output",
+ CellChangeTimes->{3.813402368184216*^9},
+ CellLabel->"Out[30]=",ExpressionUUID->"5727e441-1e33-43e5-be60-71a391a6497c"],
+
+Cell[BoxData[
+ Graphics3DBox[
+  InterpretationBox[
+   GeometricTransformation3DBox[
+    SphereBox[{0, 0, 
+     0}], {{{5.691677899366794, 0, 0}, {0, 3.67626444536538, 0}, {
+      0, 0, 3.5855291803647718`}}, {0, 0, 0}}],
+   Ellipsoid[{0, 0, 0}, {5.691677899366794, 3.67626444536538, 
+    3.5855291803647718`}]]]], "Output",
+ CellChangeTimes->{3.813402368186907*^9},
+ CellLabel->"Out[31]=",ExpressionUUID->"57ba4648-67ae-4b36-930d-be0786b79e59"]
+}, Open  ]],
+
+Cell[CellGroupData[{
 
 Cell[BoxData[
  RowBox[{
@@ -577,12 +2340,18 @@ Cell[BoxData[
      RowBox[{"7", ",", "8", ",", "9"}], "}"}]}], "}"}], "[", 
   RowBox[{"[", "1", "]"}], "]"}]], "Input",
  CellChangeTimes->{{3.8088483129818163`*^9, 3.808848351989073*^9}},
- CellLabel->
-  "In[342]:=",ExpressionUUID->"eaf8dc16-5378-4412-9b02-e0d79db98447"]
-}, Closed]]
+ CellLabel->"In[32]:=",ExpressionUUID->"eaf8dc16-5378-4412-9b02-e0d79db98447"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"1", ",", "2", ",", "3"}], "}"}]], "Output",
+ CellChangeTimes->{3.8134023682989807`*^9},
+ CellLabel->"Out[32]=",ExpressionUUID->"16722495-a3de-4a71-ab02-e2216f9eba04"]
+}, Open  ]]
+}, Open  ]]
 },
-WindowSize->{720., 741.75},
-WindowMargins->{{-726, Automatic}, {Automatic, 0}},
+WindowSize->{720., 745.5},
+WindowMargins->{{-1440, Automatic}, {Automatic, 0}},
 FrontEndVersion->"12.1 for Microsoft Windows (64-bit) (March 18, 2020)",
 StyleDefinitions->"Default.nb",
 ExpressionUUID->"25bc394a-2eb9-4db6-81f2-073cac0a7ee2"
@@ -598,27 +2367,80 @@ CellTagsIndex->{}
 *)
 (*NotebookFileOutline
 Notebook[{
-Cell[558, 20, 1022, 27, 122, "Input",ExpressionUUID->"44e7bef5-4e74-428d-b94b-c4d2f64e3323"],
-Cell[1583, 49, 345, 7, 47, "Input",ExpressionUUID->"fc491b3b-4120-4bb8-9f74-54db2491a55a"],
 Cell[CellGroupData[{
-Cell[1953, 60, 166, 3, 66, "Section",ExpressionUUID->"ed9e3e79-7138-45b7-bd09-c1b46e92d694"],
-Cell[2122, 65, 1533, 36, 179, "Input",ExpressionUUID->"ec9ce0f5-687f-4134-bb56-093beca4bfb5"],
-Cell[3658, 103, 3491, 84, 197, "Input",ExpressionUUID->"cc4fb2ba-d8b0-4e4b-9f58-2d5bee87c723"],
-Cell[7152, 189, 1811, 55, 235, "Input",ExpressionUUID->"6f3ac47b-41a8-4ec3-abc2-0a53f4d6488a"],
-Cell[8966, 246, 3003, 78, 366, "Input",ExpressionUUID->"a98eb557-6d78-4967-921f-9c818c3c3794"],
-Cell[11972, 326, 287, 7, 28, "Input",ExpressionUUID->"91fca718-94cb-47a7-bbc0-6d8775b11529"],
-Cell[12262, 335, 451, 10, 28, "Input",ExpressionUUID->"e7976be1-b1e2-46a6-9c36-eefdc9660281"],
-Cell[12716, 347, 3219, 80, 272, "Input",ExpressionUUID->"7b82fd99-7436-40c2-a0a2-c9afab2ab7a5"],
-Cell[15938, 429, 228, 4, 28, "Input",ExpressionUUID->"58bf2716-25dc-43b7-a8fb-8102451942df"],
-Cell[16169, 435, 224, 4, 28, "Input",ExpressionUUID->"ceadd9e2-a43b-4b81-bfd5-45242895b69f"],
-Cell[16396, 441, 757, 15, 28, "Input",ExpressionUUID->"d36d73a7-3016-40a7-8570-3ef681a30f0a"],
-Cell[17156, 458, 440, 11, 28, "Input",ExpressionUUID->"5e81dcb3-c665-436a-ae28-403d4ea7f4ca"],
-Cell[17599, 471, 1386, 32, 104, "Input",ExpressionUUID->"91a6bbd1-9d36-4138-af24-f3ea9aadcda1"],
-Cell[18988, 505, 263, 5, 28, "Input",ExpressionUUID->"5d6b25f4-1e3b-48aa-b563-20d6f5c5e6e4"],
-Cell[19254, 512, 222, 4, 28, "Input",ExpressionUUID->"a8a6a6dd-38a5-4771-b7c2-7a1e2e0ea594"],
-Cell[19479, 518, 1883, 47, 122, "Input",ExpressionUUID->"17f913e1-5647-46ad-b590-d8c6d4a2dfff"],
-Cell[21365, 567, 468, 13, 28, "Input",ExpressionUUID->"eaf8dc16-5378-4412-9b02-e0d79db98447"]
-}, Closed]]
+Cell[580, 22, 1017, 26, 122, "Input",ExpressionUUID->"44e7bef5-4e74-428d-b94b-c4d2f64e3323"],
+Cell[1600, 50, 266, 3, 32, "Output",ExpressionUUID->"38c138d2-c195-4901-ab5f-c670ea55857d"],
+Cell[1869, 55, 252, 3, 32, "Output",ExpressionUUID->"52cc2681-2a17-4702-97ba-b232bc0f1c3a"]
+}, Open  ]],
+Cell[2136, 61, 363, 6, 47, "Input",ExpressionUUID->"fc491b3b-4120-4bb8-9f74-54db2491a55a"],
+Cell[CellGroupData[{
+Cell[2524, 71, 166, 3, 66, "Section",ExpressionUUID->"ed9e3e79-7138-45b7-bd09-c1b46e92d694"],
+Cell[2693, 76, 1528, 35, 179, "Input",ExpressionUUID->"ec9ce0f5-687f-4134-bb56-093beca4bfb5"],
+Cell[4224, 113, 3486, 83, 197, "Input",ExpressionUUID->"cc4fb2ba-d8b0-4e4b-9f58-2d5bee87c723"],
+Cell[7713, 198, 1806, 54, 235, "Input",ExpressionUUID->"6f3ac47b-41a8-4ec3-abc2-0a53f4d6488a"],
+Cell[9522, 254, 2999, 77, 366, "Input",ExpressionUUID->"a98eb557-6d78-4967-921f-9c818c3c3794"],
+Cell[CellGroupData[{
+Cell[12546, 335, 283, 6, 28, "Input",ExpressionUUID->"91fca718-94cb-47a7-bbc0-6d8775b11529"],
+Cell[12832, 343, 631, 16, 70, "Output",ExpressionUUID->"3f16d690-34f5-4feb-b2c1-bc5fc80d4e75"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[13500, 364, 447, 9, 28, "Input",ExpressionUUID->"e7976be1-b1e2-46a6-9c36-eefdc9660281"],
+Cell[13950, 375, 795, 21, 70, "Output",ExpressionUUID->"42ae7ac6-2966-454b-90f5-47eada76adae"]
+}, Open  ]],
+Cell[14760, 399, 3215, 79, 272, "Input",ExpressionUUID->"7b82fd99-7436-40c2-a0a2-c9afab2ab7a5"],
+Cell[CellGroupData[{
+Cell[18000, 482, 224, 3, 28, "Input",ExpressionUUID->"58bf2716-25dc-43b7-a8fb-8102451942df"],
+Cell[CellGroupData[{
+Cell[18249, 489, 176, 4, 22, "Print",ExpressionUUID->"fa523b95-c807-486f-a4d5-8a89ac508cb7"],
+Cell[18428, 495, 178, 4, 22, "Print",ExpressionUUID->"8347b2a8-dedb-439d-90c5-39186c0ce23b"],
+Cell[18609, 501, 197, 4, 22, "Print",ExpressionUUID->"d64a2e25-2d59-4851-9736-faa0b076bdf8"],
+Cell[18809, 507, 1203, 35, 58, "Print",ExpressionUUID->"efa1d4dd-51ee-4d92-903c-71f418dbd7eb"]
+}, Open  ]],
+Cell[20027, 545, 724, 18, 204, "Output",ExpressionUUID->"6b2c3f7c-b9fb-4197-b1e8-6d09b9797df0"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[20788, 568, 220, 3, 28, "Input",ExpressionUUID->"ceadd9e2-a43b-4b81-bfd5-45242895b69f"],
+Cell[CellGroupData[{
+Cell[21033, 575, 178, 4, 22, "Print",ExpressionUUID->"e2fcf2e0-a07e-4ef3-9cb3-5972deeb84e5"],
+Cell[21214, 581, 178, 4, 22, "Print",ExpressionUUID->"2b911dca-dc5b-4c09-9468-dca9cd349d64"],
+Cell[21395, 587, 197, 4, 22, "Print",ExpressionUUID->"e66e7e6b-225d-433f-b728-c0ced49e3748"],
+Cell[21595, 593, 1205, 35, 58, "Print",ExpressionUUID->"20563c76-5033-4994-8b23-6086b2f95d07"]
+}, Open  ]],
+Cell[22815, 631, 726, 18, 204, "Output",ExpressionUUID->"800d4a23-6ebf-466b-84ce-b8c0d1cd6fdd"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[23578, 654, 753, 14, 28, "Input",ExpressionUUID->"d36d73a7-3016-40a7-8570-3ef681a30f0a"],
+Cell[24334, 670, 337, 9, 22, "Print",ExpressionUUID->"69317c27-d248-454c-b92d-d6ccfcf8c0c1"],
+Cell[24674, 681, 1152, 33, 70, "Output",ExpressionUUID->"55547c9b-5284-4442-bc68-0a2348e23d1a"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[25863, 719, 436, 10, 28, "Input",ExpressionUUID->"5e81dcb3-c665-436a-ae28-403d4ea7f4ca"],
+Cell[26302, 731, 731, 15, 42, "Message",ExpressionUUID->"992e1b6b-1549-4d72-8fe3-184703154a00"],
+Cell[27036, 748, 731, 15, 42, "Message",ExpressionUUID->"c781d38b-1b9e-4fe2-afa3-bfedd2483331"],
+Cell[27770, 765, 731, 15, 42, "Message",ExpressionUUID->"31ecb3a4-ab4e-4c1c-9b9a-951ba9d6bde1"],
+Cell[28504, 782, 451, 10, 23, "Message",ExpressionUUID->"74fa64e2-4004-4fe4-91fc-6a0f0e06781f"],
+Cell[28958, 794, 45445, 987, 4385, "Print",ExpressionUUID->"a224e2e6-3452-402d-868d-2999d0562490"],
+Cell[74406, 1783, 11313, 250, 1090, "Output",ExpressionUUID->"f32b4f23-cc78-407a-9f42-a680eb8ccdaa"]
+}, Open  ]],
+Cell[85734, 2036, 1382, 31, 104, "Input",ExpressionUUID->"91a6bbd1-9d36-4138-af24-f3ea9aadcda1"],
+Cell[CellGroupData[{
+Cell[87141, 2071, 259, 4, 28, "Input",ExpressionUUID->"5d6b25f4-1e3b-48aa-b563-20d6f5c5e6e4"],
+Cell[87403, 2077, 747, 17, 294, "Output",ExpressionUUID->"8e29687a-470b-48b3-a0e7-fc6bb2bc8965"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[88187, 2099, 218, 3, 28, "Input",ExpressionUUID->"a8a6a6dd-38a5-4771-b7c2-7a1e2e0ea594"],
+Cell[88408, 2104, 4355, 95, 418, "Output",ExpressionUUID->"70f2f023-e765-4e16-afb7-40b2559120df"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[92800, 2204, 1879, 46, 122, "Input",ExpressionUUID->"17f913e1-5647-46ad-b590-d8c6d4a2dfff"],
+Cell[94682, 2252, 1911, 61, 121, "Output",ExpressionUUID->"5727e441-1e33-43e5-be60-71a391a6497c"],
+Cell[96596, 2315, 444, 10, 341, "Output",ExpressionUUID->"57ba4648-67ae-4b36-930d-be0786b79e59"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[97077, 2330, 464, 12, 28, "Input",ExpressionUUID->"eaf8dc16-5378-4412-9b02-e0d79db98447"],
+Cell[97544, 2344, 206, 4, 32, "Output",ExpressionUUID->"16722495-a3de-4a71-ab02-e2216f9eba04"]
+}, Open  ]]
+}, Open  ]]
 }
 ]
 *)
