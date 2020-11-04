@@ -1,6 +1,6 @@
 (* ::Package:: *)
 
-(* ::Section:: *)
+(* ::Section::Closed:: *)
 (*Units and constants*)
 
 
@@ -28,7 +28,7 @@ gJ = 2.00233113;
 nKPerHz = 1*^9(h/kb);
 
 
-(* ::Section:: *)
+(* ::Section::Closed:: *)
 (*Atom model: Breit--Rabi Zeeman-shift formulae*)
 
 
@@ -465,4 +465,46 @@ Return[axesArrows];
 plotTrapAxes[trapAxesArrows_]:=Module[
 {},
 Show@MapThread[Graphics3D[{#1,Thick,#2},Axes->True,AxesLabel->{"x","y","z"}]&,{{Red,Green,Blue},trapAxesArrows}]
+];
+
+
+(* ::Section:: *)
+(*rf loop*)
+
+
+(* These values taken from D. Aveline's presentation "Microwave loop positions across various
+CAL Science Modules" SM123_uW_loop_positions_v3r.pdf. *)
+LoopRadius = 7.0 mm; (* 5.0 default from SM2 *)
+LoopOriginZ = -2.4 mm;
+
+Block[
+{
+i, \[Beta], \[Alpha], \[Gamma], B, Q, d, 
+Bz, Br
+},
+(* Definition of general expressions of a current-carrying loop's magnetic field. *)
+i =1;
+\[Beta][z_,z0_,a_]:=(z-z0)/a;
+\[Alpha][r_,a_]:=r/a;
+\[Gamma][z_,z0_,r_]:=(z-z0)/r;
+B[a_]:=i*\[Mu]0/(2a);
+Q[z_,z0_,r_,a_]:=(1+\[Alpha][r,a])^2+\[Beta][z,z0,a]^2;
+d[z_,z0_,r_,a_]:=(4\[Alpha][r,a])/Q[z,z0,r,a];
+
+Bz[z_,z0_,r_,a_]:=B[a]*(1/(\[Pi]*\[Sqrt]Q[z,z0,r,a]))*((EllipticE[d[z,z0,r,a]])((1-\[Alpha][r,a]^2-\[Beta][z,z0,a]^2)/(Q[z,z0,r,a]-4\[Alpha][r,a]))+EllipticK[d[z,z0,r,a]]);
+
+Br[z_,z0_,r_,a_]:=B[a]*(\[Gamma][z,z0,r]/(\[Pi]*\[Sqrt]Q[z,z0,r,a]))*((EllipticE[d[z,z0,r,a]])*((1+\[Alpha][r,a]^2+\[Beta][z,z0,a]^2)/(Q[z,z0,r,a]-4\[Alpha][r,a]))-EllipticK[d[z,z0,r,a]]); (* When on-axis, Br=0*)
+Bmag[z_,z0_,r_,a_]:=\[Sqrt]((Bz[z,z0,r,a])^2+(Br[z,z0,r,a])^2); (*magnitude of total magnetic field*)
+
+RFUnitVec[x_,y_,z_]:=Evaluate[{
+Br[z,LoopOriginZ,Sqrt[x^2+y^2],LoopRadius] x/Sqrt[x^2+y^2],
+Br[z,LoopOriginZ,Sqrt[x^2+y^2],LoopRadius] y/Sqrt[x^2+y^2] , 
+Bz[z,LoopOriginZ,Sqrt[x^2+y^2],LoopRadius]
+}/Bmag[z,LoopOriginZ,Sqrt[x^2+y^2],LoopRadius]];
+
+MagFrac[x_,y_,z_]:=Bmag[z,LoopOriginZ,Sqrt[x^2+y^2], LoopRadius]/Bmag[z1,LoopOriginZ,1*^-10, LoopRadius]; 
+(* Magnitude of the rf loop magnetic field at radius Sqrt[x^2+y^2] and height z, scaled by the magnitude of the same field evaluated at the trap minimum z coordinate and radius 1*^-10 (0.1 nm, effectively zero) *)
+MagFracC=Compile[{x,y,z},Evaluate[MagFrac[x,y,z]]];
+MagFracC2[x_?NumericQ,y_?NumericQ,z_?NumericQ]:=MagFracC[x,y,z];
+MagFracSimple[x_,y_,z_]:=Bmag[z,LoopOriginZ,Sqrt[x^2+y^2], LoopRadius]/Bmag[z1,LoopOriginZ,1*^-10, LoopRadius]
 ];
