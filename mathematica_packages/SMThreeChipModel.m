@@ -480,7 +480,8 @@ LoopOriginZ = -2.4 mm;
 Block[
 {
 i, \[Beta], \[Alpha], \[Gamma], B, Q, d, 
-Bz, Br
+Bz, Br, 
+z, z0, a, r, x, y
 },
 (* Definition of general expressions of a current-carrying loop's magnetic field. *)
 i =1;
