@@ -187,3 +187,38 @@ Zp=0.100095
 With[{T2p=T1p},
 tableZHbB1Err={AZ1selp, AZ2selp, AZ1p, AZ2p, H1pH2p, T1p, T2p, X1p, X2p, Yp, Zp};
 ];];
+
+
+(* This is a slight alteration of ZHbB1, moves it slightly closer to the center
+and is expected to be slightly more uniform. *)
+With[{
+AZ1selp=1,
+AZ2selp=0,
+AZ1p=0.,
+AZ2p=-0.742857,
+H1pH2p=0.52,
+
+T1p=0.00725,
+Yp=0.142384,
+Zp=0.125
+},
+With[{T2p=T1p},
+tableZHbB2={AZ1selp, AZ2selp, AZ1p, AZ2p, H1pH2p, T1p, T2p, X1p, X2p, Yp, Zp};
+];];
+
+
+(* This trap is pulled far to the center and features small bias coil currents. *)
+With[{
+AZ1selp=1,
+AZ2selp=0,
+AZ1p=0.,
+AZ2p=-0.692857,
+H1pH2p=0.52,
+
+T1p=0.006,
+Yp=0.082384,
+Zp=0.100095
+},
+With[{T2p=T1p},
+tableZHbB3={AZ1selp, AZ2selp, AZ1p, AZ2p, H1pH2p, T1p, T2p, X1p, X2p, Yp, Zp};
+];];

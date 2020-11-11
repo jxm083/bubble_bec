@@ -16,8 +16,8 @@ h = 6.62606957 10^-34;
 hbar = h /(2 \[Pi]);
 \[HBar]=hbar;
 kb = 1.3806488*^-23;
-mRb =1.443160648*^-25;
-\[Mu]B=9.27400968*^-24;
+mRb =1.443160648*^-25; (* [kg] *)
+\[Mu]B=9.27400968*^-24; (* [J/T] *)
 gfactor=1/2;
 gF = 1/2; (* not accurate to .0001 *) 
 gF= gJ (F(F+1)-Inuc(Inuc+1)+J(J+1))/(2F(F+1))+gI (F(F+1)+Inuc(Inuc+1)-J(J+1))/(2F(F+1)) /. {F->2,J->1/2};
@@ -64,7 +64,7 @@ FrameStyle\[Rule]Directive[Black,15,FontFamily\[Rule]"Century Gothic"],
 AspectRatio\[Rule]1,PlotRange\[Rule]All,Axes\[Rule]False]*)
 
 
-(* ::Section::Closed:: *)
+(* ::Section:: *)
 (*CAL Table values to currents and magnetic fields*)
 
 
@@ -89,6 +89,55 @@ printTableValues::usage =
 {AZ1sel, AZ2sel, AZ1, AZ2, H1pH2, T1, T2, X1, X2, Y, Z}
 and prints it to the notebook with the appropriate labels.
 By default X1 and X2 are not printed, but this can be changed by setting hideXs->False.";
+
+
+printTrapParameters[trapParameters_,OptionsPattern[{copyable->False, suppressAValues->False}]]:=
+Module[
+{paraLabels={"CurrLa","CurrZa","CurrLb","CurrZb","CurrH","Bx1","By1","Bz1"},
+outputStrings,
+startingIndex = 1},
+
+If[OptionValue[suppressAValues],
+(* THEN: *)
+startingIndex = 3;
+paraLabels = ReplacePart[paraLabels,{3->"CurrL", 4->"CurrZ"}];
+];
+
+If[Not@OptionValue[copyable],
+(* THEN: *)
+Print@TableForm@MapThread[{#1,#2}&,{paraLabels,trapParameters}],
+(* ELSE: *)
+(* Assemble the chip currents first. *)
+outputStrings = 
+MapThread[#1<>" = "<>ToString[#2]<>";\n"&,{paraLabels,trapParameters}][[startingIndex;;5]];
+
+(* Then make strings of the bias coil currents, making the conversion factor explicit. *)
+
+outputStrings=Append[outputStrings,paraLabels[[6]]<>
+" = ("<>ToString[trapParasNathan[[6]]/biasXCalib]<>"A)*"<>ToString[biasXCalib]<>";\n"];
+
+outputStrings=Append[outputStrings,paraLabels[[7]]<>
+" = ("<>ToString[trapParasNathan[[7]]/biasYCalib]<>"A)*"<>ToString[biasYCalib]<>";\n"];
+
+outputStrings=Append[outputStrings,paraLabels[[8]]<>
+" = ("<>ToString[trapParasNathan[[8]]/biasZCalib]<>"A)*"<>ToString[biasZCalib]<>";\n"];
+
+CellPrint@StringJoin@outputStrings;
+];
+];
+
+
+printTrapParameters::usage = 
+"printTrapParameters[trapParameters_, OptionsPattern[copyable\[Rule]False]] takes a list of 
+trap parameters of the form {CurrLa, CurrZa, CurrLb, CurrZb, CurrH, Bx1, By1, Bz1},
+where the currents are in amps and the bias magnetic field values are expressed in Gauss and
+prints the values. By default the output is just a standard output of a list in table form,
+but setting copyable->True creates output that can be easily copied and executed.
+
+Option suppressAValues allows those values pertaining to the 'A' side of the chip to be omitted.
+
+N.B. copyable->True, suppressAValues->False creates output readily incorporated into Nathan's
+code.";
 
 
 (* ::Subsection:: *)
@@ -468,7 +517,7 @@ Show@MapThread[Graphics3D[{#1,Thick,#2},Axes->True,AxesLabel->{"x","y","z"}]&,{{
 ];
 
 
-(* ::Section:: *)
+(* ::Section::Closed:: *)
 (*rf loop*)
 
 
