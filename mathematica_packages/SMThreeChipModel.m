@@ -109,7 +109,7 @@ Print@TableForm@MapThread[{#1,#2}&,{paraLabels,trapParameters}],
 (* ELSE: *)
 (* Assemble the chip currents first. *)
 outputStrings = 
-MapThread[#1<>" = "<>ToString[#2]<>";\n"&,{paraLabels,trapParameters}][[startingIndex;;5]];
+MapThread[#1<>" = "<>ToString[#2]<>"A;\n"&,{paraLabels,trapParameters}][[startingIndex;;5]];
 
 (* Then make strings of the bias coil currents, making the conversion factor explicit. *)
 
