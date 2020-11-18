@@ -114,13 +114,13 @@ MapThread[#1<>" = "<>ToString[#2]<>"A;\n"&,{paraLabels,trapParameters}][[startin
 (* Then make strings of the bias coil currents, making the conversion factor explicit. *)
 
 outputStrings=Append[outputStrings,paraLabels[[6]]<>
-" = ("<>ToString[trapParasNathan[[6]]/biasXCalib]<>"A)*"<>ToString[biasXCalib]<>";\n"];
+" = ("<>ToString[trapParameters[[6]]/biasXCalib]<>"A)*"<>ToString[biasXCalib]<>";\n"];
 
 outputStrings=Append[outputStrings,paraLabels[[7]]<>
-" = ("<>ToString[trapParasNathan[[7]]/biasYCalib]<>"A)*"<>ToString[biasYCalib]<>";\n"];
+" = ("<>ToString[trapParameters[[7]]/biasYCalib]<>"A)*"<>ToString[biasYCalib]<>";\n"];
 
 outputStrings=Append[outputStrings,paraLabels[[8]]<>
-" = ("<>ToString[trapParasNathan[[8]]/biasZCalib]<>"A)*"<>ToString[biasZCalib]<>";\n"];
+" = ("<>ToString[trapParameters[[8]]/biasZCalib]<>"A)*"<>ToString[biasZCalib]<>";\n"];
 
 CellPrint@StringJoin@outputStrings;
 ];
@@ -285,7 +285,7 @@ terms of Gauss. It returns a list of CAL Table values of the form
 where presently T1=T2 and X1 and X2 are left undefined.";
 
 
-(* ::Section::Closed:: *)
+(* ::Section:: *)
 (*Chip trap*)
 
 
