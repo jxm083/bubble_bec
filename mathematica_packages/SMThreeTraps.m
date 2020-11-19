@@ -207,6 +207,24 @@ tableZHbB2={AZ1selp, AZ2selp, AZ1p, AZ2p, H1pH2p, T1p, T2p, X1p, X2p, Yp, Zp};
 ];];
 
 
+(* This trap should fall between ZHbB1 and ZHbB2, in an effort to land it on a bright
+fringe of the HRC imaging beam. *)
+With[{
+AZ1selp = 1,
+AZ2selp = 0,
+AZ1p = 0.,
+AZ2p = -0.742857,
+H1pH2p = 0.52,
+
+T1p = 0.0064,
+Yp = 0.142384,
+Zp = 0.107095
+},
+With[{T2p=T1p},
+tableZHbB2b={AZ1selp, AZ2selp, AZ1p, AZ2p, H1pH2p, T1p, T2p, X1p, X2p, Yp, Zp};
+];];
+
+
 (* This trap is pulled far to the center and features small bias coil currents. *)
 With[{
 AZ1selp=1,
