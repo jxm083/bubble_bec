@@ -100,10 +100,13 @@ Print@TableForm@{labels, finalTable};
 
 
 printTableValues::usage = 
-"printTableValues[table_] takes a CAL Table of the form 
+"printTableValues[table_, OptionsPattern[{hideXs->True, copyable\[Rule]False}]]
+ takes a CAL Table of the form 
 {AZ1sel, AZ2sel, AZ1, AZ2, H1pH2, T1, T2, X1, X2, Y, Z}
 and prints it to the notebook with the appropriate labels.
-By default X1 and X2 are not printed, but this can be changed by setting hideXs->False.";
+By default X1 and X2 are not printed, but this can be changed by setting hideXs->False.
+The option copyable allows the output to be printed in a way amenable to being copied
+and pasted.";
 
 
 printTrapParameters[trapParameters_,OptionsPattern[{copyable->False, suppressAValues->False}]]:=
