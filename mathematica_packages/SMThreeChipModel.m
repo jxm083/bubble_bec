@@ -72,18 +72,30 @@ AspectRatio\[Rule]1,PlotRange\[Rule]All,Axes\[Rule]False]*)
 (*Functions to print CAL Tables, current values, and trap parameters*)
 
 
-printTableValues[table_, OptionsPattern[hideXs->True]] := Module[
+printTableValues[table_, OptionsPattern[{hideXs->True, copyable->False}]] := Module[
 {AZ1sel, AZ2sel, AZ1, AZ2, H1pH2, T1, T2, X1, X2, Y, Z,
 labels = {"AZ1_sel", "AZ2_sel", "AZ1", "AZ2", "H1&H2", "T1", "T2", "X1", "X2", "Y", "Z"},
-finalTable
+finalTable,
+outputStrings
 },
+
 If[OptionValue[hideXs],
 (* THEN: *)
 labels = Delete[labels, {{8}, {9}}];
 finalTable = Delete[table, {{8}, {9}}];
+,
+(* ELSE: *)
+finalTable = table;
 ];
 
+If[OptionValue[copyable],
+(* THEN: *)
+outputStrings = MapThread[#1<>" = "<>ToString[#2]<>"\n"&, {labels, finalTable}];
+CellPrint@StringJoin@outputStrings;
+,
+(* ELSE: *)
 Print@TableForm@{labels, finalTable};
+];
 ];
 
 
