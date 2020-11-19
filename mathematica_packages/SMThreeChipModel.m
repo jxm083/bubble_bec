@@ -74,14 +74,16 @@ AspectRatio\[Rule]1,PlotRange\[Rule]All,Axes\[Rule]False]*)
 
 printTableValues[table_, OptionsPattern[hideXs->True]] := Module[
 {AZ1sel, AZ2sel, AZ1, AZ2, H1pH2, T1, T2, X1, X2, Y, Z,
-labels = {"AZ1_sel", "AZ2_sel", "AZ1", "AZ2", "H1&H2", "T1", "T2", "X1", "X2", "Y", "Z"}},
+labels = {"AZ1_sel", "AZ2_sel", "AZ1", "AZ2", "H1&H2", "T1", "T2", "X1", "X2", "Y", "Z"},
+finalTable
+},
 If[OptionValue[hideXs],
 (* THEN: *)
 labels = Delete[labels, {{8}, {9}}];
-table = Delete[table, {{8}, {9}}];
+finalTable = Delete[table, {{8}, {9}}];
 ];
 
-Print@TableForm@{labels, table};
+Print@TableForm@{labels, finalTable};
 ];
 
 
