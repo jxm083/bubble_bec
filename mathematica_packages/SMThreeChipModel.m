@@ -77,10 +77,11 @@ printTableValues[table_, OptionsPattern[hideXs->True]] := Module[
 labels = {"AZ1_sel", "AZ2_sel", "AZ1", "AZ2", "H1&H2", "T1", "T2", "X1", "X2", "Y", "Z"}},
 If[OptionValue[hideXs],
 (* THEN: *)
-Print@TableForm@{labels[[1;;7]]~Join~labels[[10;;11]], table[[1;;7]]~Join~table[[10;;11]]};,
-(* ELSE: *)
-Print@TableForm@{labels, table};
+labels = Delete[labels, {{8}, {9}}];
+table = Delete[table, {{8}, {9}}];
 ];
+
+Print@TableForm@{labels, table};
 ];
 
 
