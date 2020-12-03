@@ -240,3 +240,26 @@ Zp=0.100095
 With[{T2p=T1p},
 tableZHbB3={AZ1selp, AZ2selp, AZ1p, AZ2p, H1pH2p, T1p, T2p, X1p, X2p, Yp, Zp};
 ];];
+
+
+(* ::Subsection:: *)
+(*ZZHB1*)
+
+
+(* This trap is modified from ZZH for better shell homogeneity. *)
+(* It would require a two-stage transfer ramp in order to switch the current
+to run through the second Z wire. *)
+With[
+{
+AZ1sel = 0,
+AZ2sel = 0,
+AZ1 = 0.77,
+AZ2 = -0.77,
+H1pH2 = 0.5,
+T1 = 0.,
+T2 = 0.,
+Y = 0.,
+Z = 0.2157
+},
+tableZZHB1 = {AZ1sel, AZ2sel, AZ1, AZ2, H1pH2, T1, T2, X1p, X2p, Y, Z};
+];
