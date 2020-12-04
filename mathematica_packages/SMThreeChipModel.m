@@ -90,7 +90,8 @@ finalTable = table;
 
 If[OptionValue[copyable],
 (* THEN: *)
-outputStrings = MapThread[#1<>" = "<>ToString[#2]<>"\n"&, {labels, finalTable}];
+labels[[{1,2,5}]]={"AZ1sel","AZ2sel","H1aH2"};
+outputStrings = MapThread[#1<>" = "<>ToString[#2]<>";\n"&, {labels, finalTable}];
 CellPrint@StringJoin@outputStrings;
 ,
 (* ELSE: *)
