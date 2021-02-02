@@ -417,6 +417,213 @@ Return[VecField]
 ]
 
 
+(*
+***********************************************************************************
+***************************COPIED FROM SMThreeChipModel*******************************
+*)
+
+
+printTableValues[table_, OptionsPattern[{hideXs->True, copyable->False}]] := Module[
+{AZ1sel, AZ2sel, AZ1, AZ2, H1pH2, T1, T2, X1, X2, Y, Z,
+labels = {"AZ1_sel", "AZ2_sel", "AZ1", "AZ2", "H1&H2", "T1", "T2", "X1", "X2", "Y", "Z"},
+finalTable,
+outputStrings
+},
+
+If[OptionValue[hideXs],
+(* THEN: *)
+labels = Delete[labels, {{8}, {9}}];
+finalTable = Delete[table, {{8}, {9}}];
+,
+(* ELSE: *)
+finalTable = table;
+];
+
+If[OptionValue[copyable],
+(* THEN: *)
+labels[[{1,2,5}]]={"AZ1sel","AZ2sel","H1aH2"};
+outputStrings = MapThread[#1<>" = "<>ToString[#2]<>";\n"&, {labels, finalTable}];
+CellPrint@StringJoin@outputStrings;
+,
+(* ELSE: *)
+Print@TableForm@{labels, finalTable};
+];
+];
+
+
+printTrapParameters[trapParameters_,OptionsPattern[{copyable->False, suppressAValues->False}]]:=
+Module[
+{paraLabels={"CurrLa","CurrZa","CurrLb","CurrZb","CurrH","Bx1","By1","Bz1"},
+outputStrings,
+startingIndex = 1},
+
+If[OptionValue[suppressAValues],
+(* THEN: *)
+startingIndex = 3;
+paraLabels = ReplacePart[paraLabels,{3->"CurrL", 4->"CurrZ"}];
+];
+
+If[Not@OptionValue[copyable],
+(* THEN: *)
+Print@TableForm@MapThread[{#1,#2}&,{paraLabels,trapParameters}],
+(* ELSE: *)
+(* Assemble the chip currents first. *)
+outputStrings = 
+MapThread[#1<>" = "<>ToString[#2]<>"A;\n"&,{paraLabels,trapParameters}][[startingIndex;;5]];
+
+(* Then make strings of the bias coil currents, making the conversion factor explicit. *)
+
+outputStrings=Append[outputStrings,paraLabels[[6]]<>
+" = ("<>ToString[trapParameters[[6]]/biasXCalib]<>"A)*"<>ToString[biasXCalib]<>";\n"];
+
+outputStrings=Append[outputStrings,paraLabels[[7]]<>
+" = ("<>ToString[trapParameters[[7]]/biasYCalib]<>"A)*"<>ToString[biasYCalib]<>";\n"];
+
+outputStrings=Append[outputStrings,paraLabels[[8]]<>
+" = ("<>ToString[trapParameters[[8]]/biasZCalib]<>"A)*"<>ToString[biasZCalib]<>";\n"];
+
+CellPrint@StringJoin@outputStrings;
+];
+];
+
+
+(** Current to field magnitude conversion factors for Bias **)
+biasXCalib=40.625;(*[G/A]*)
+biasYCalib=14.286;(*[G/A]*)
+biasZCalib=-10.368;(*[G/A]*)
+
+(** Max current values **)
+(* Chip *)
+maxCurrentAZ1 = 3.5; (*[A]*)
+maxCurrentAZ2 = 3.5; (*[A]*)
+maxCurrentH1pH2 = 5.; (*[A}*)
+
+(* Bias coils *)
+maxCurrentBiasX = 8.; (*[A]*)
+maxCurrentBiasY = 3.02; (*[A]*) (* In some places it is reported as 3. A *)
+maxCurrentBiasZ = 3.; (*[A]*)
+
+
+convertCALTableToCurrents[table_, OptionsPattern[verbose->False]]:=Module[
+{
+AZ1sel = table[[1]],
+AZ2sel = table[[2]],
+AZ1 = table[[3]],
+AZ2 = table[[4]],
+H1pH2 = table[[5]],
+T1 = table[[6]],
+T2 = table[[7]],
+X1 = table[[8]],
+X2 = table[[9]],
+Y = table[[10]],
+Z = table[[11]],
+currLa, currZa, currLb, currZb, currH, currBiasX, currBiasY, currBiasZ
+},
+If[AZ1sel==0,
+currZa = AZ1*maxCurrentAZ1*(-1); (* The negative one ensures that a positive AZ1 value results in a current moving in the negative x direction, the convention used to define the chip model below. *)
+currLb = 0.;,
+(*Else:*)
+currZa = 0;
+currLb = AZ1*maxCurrentAZ1;
+];
+
+If[AZ2sel==0,
+currZb = AZ2*maxCurrentAZ2*(-1); (* N.B. AZ2 only takes non-positive values, and so the current through Zb always travels in the positive x direction, if it exists. *)
+currLa = 0.;,
+(*Else:*)
+currZb = 0.;
+currLa = AZ2*maxCurrentAZ2; (* N.B. always travels in the negative x direction. *)
+];
+
+currH = H1pH2*maxCurrentH1pH2; (* Convention set by the chip model below stipulates that a postive current travels in the negative y direction. The chipdrivers_v3 document suggests (via its green arrows) that this is the convention used by the H driver as well. *)
+
+currBiasX = T1*maxCurrentBiasX;
+currBiasY = Y*maxCurrentBiasY;
+currBiasZ = Z*maxCurrentBiasZ;
+
+If[OptionValue[verbose],
+Print["I evaluated!"];
+Print[
+"I_La = "<>ToString[currLa]<>"\n"
+<>"I_Za = "<>ToString[currZa];
+];
+];
+
+Return[{currLa, currZa, currLb, currZb, currH, currBiasX, currBiasY, currBiasZ}];
+];
+
+
+convertCALTableToTrapParameters[table_]:=Module[
+{currLa, currZa, currLb, currZb, currH, currBiasX, currBiasY, currBiasZ,
+fieldBiasX, fieldBiasY, fieldBiasZ},
+
+{currLa, currZa, currLb, currZb, currH, currBiasX, currBiasY, currBiasZ} = 
+convertCALTableToCurrents[table];
+
+fieldBiasX = currBiasX*biasXCalib*(-1); (* The origin of this negative one factor is undetermined and troubling. *)
+fieldBiasY = currBiasY*biasYCalib;
+fieldBiasZ = currBiasZ*biasZCalib;
+
+Return[{currLa, currZa, currLb, currZb, currH, fieldBiasX, fieldBiasY, fieldBiasZ}];
+];
+
+
+convertTrapParametersToCALTable[trapParameters_, OptionsPattern[verbose->False]] := Module[
+{currLa, currZa, currLb, currZb, currH, currBiasX, currBiasY, currBiasZ,
+fieldBiasX, fieldBiasY, fieldBiasZ,
+currentCutoff = 10^(-9),
+AZ1sel, AZ2sel, AZ1, AZ2, H1pH2, T1, T2, X1, X2, Y, Z,
+table},
+
+(* Name the individual trap parameters *)
+{currLa, currZa, currLb, currZb, currH, fieldBiasX, fieldBiasY, fieldBiasZ} = trapParameters;
+
+(* Determine which channel of driver AZ1 is being used, 0 (Za) or 1 (Lb). *)
+If[Abs[currLb]<currentCutoff,
+(* THEN: *)
+AZ1sel = 0;
+AZ1 = (-1)*currZa/maxCurrentAZ1;,
+(* ELSE: *)
+AZ1sel = 1;
+AZ1 = currLb/maxCurrentAZ1;
+];
+
+(* Do the same for driver AZ2, where the possible channels are 0 (Zb) or 1 (La). *)
+If[Abs[currLa]<currentCutoff,
+(* THEN: *)
+AZ2sel = 0;
+AZ2 = (-1)*currZb/maxCurrentAZ2;,
+(* ELSE: *)
+AZ2sel = 1;
+AZ2 = currLa/maxCurrentAZ2;
+];
+
+(* Setting the value of driver three, H, is straight-forward: *)
+H1pH2 = currH/maxCurrentH1pH2;
+
+(* As is setting the values of the bias fields: *)
+T1 = fieldBiasX/(biasXCalib*maxCurrentBiasX*(-1));
+T2 = T1;
+Y = fieldBiasY/(biasYCalib*maxCurrentBiasY);
+Z = fieldBiasZ/(biasZCalib*maxCurrentBiasZ);
+
+table = {AZ1sel, AZ2sel, AZ1, AZ2, H1pH2, T1, T2, X1, X2, Y, Z};
+
+If[OptionValue[verbose],
+(* THEN: *)
+printTableValues[table];
+];
+
+Return[table];
+];
+
+
+(*
+***********************************************************************************
+*********************END OF COPIED FROM SMThreeChipModel*******************************
+*)
+
+
 (* A ME trapparameters object of the form
 {isotope,F,mF,D1,D2,D3}.
 *)
@@ -467,7 +674,7 @@ the currents which are for them responsible, the NOMINAL (input) bias fields are
 as elements of a list of trap parameters
 {currLa, currZa, currLb, currZb, currH, fieldBiasX, fieldBiasY, fieldBiasZ}
 *)
-{-currBX, currBY, -currBZ} = 
+{currBX, currBY, currBZ} = 
 (convertCALTableToTrapParameters@convertTrapParametersToCALTable@{0, 0, 0, 0, 0, bx0, by0, bz0})[[6;;8]];
 (* Note the (currently anamolous) negative signs on the x and z components! I'm trying
 to track down their origin, but they are required to give the right field sign. *)
@@ -477,7 +684,7 @@ so as to use the existing functions for calculating the magnetic fields.
 {I_driver1, I_driver2, I_driver3, 
 I_transfercoils, I_MOTcoils, I_ybiascoils, I_zbiascoils, I_FFcoils}
 *)
-coilCurrents = {0, 0, 0, currBX, 0, currBY, currBZ, 0};
+coilCurrents = {0, 0, 0, -currBX, 0, currBY, -currBZ, 0};
 
 Return[MagTrapVecField[xp,yp,zp,coilCurrents,batesSpeciesTrapParameters]];
 ];
