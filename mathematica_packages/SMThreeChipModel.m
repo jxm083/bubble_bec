@@ -68,7 +68,7 @@ AspectRatio\[Rule]1,PlotRange\[Rule]All,Axes\[Rule]False]*)
 (*CAL Table values to currents and magnetic fields*)
 
 
-(* ::Subsection:: *)
+(* ::Subsection::Closed:: *)
 (*Functions to print CAL Tables, current values, and trap parameters*)
 
 
@@ -159,7 +159,7 @@ N.B. copyable->True, suppressAValues->False creates output readily incorporated 
 code.";
 
 
-(* ::Subsection:: *)
+(* ::Subsection::Closed:: *)
 (*Table values to current values*)
 
 
@@ -418,7 +418,10 @@ Iza FatXwire[x,y,z,WireWidth,ZAMainyc,ZAMainx0,ZAMainx1](* main section of ZA wi
 +Ih FatYwire[x,y,z-Hoffset,200\[Mu]m,-1.5mm,5mm,-5mm] (* first leg of H *)
 +Ih FatYwire[x,y,z-Hoffset,200\[Mu]m,1.5mm,5mm,-5mm] (* second leg of H *)
 
-+{Bx,By,Bz} + b0[x,y,z]);(* Bias fields and background field *)
+(*+{Bx,By,Bz}*)
++ biasMagVecFieldLEGACY[x,y,z,Bx,By,Bz]
+
++ b0[x,y,z]);(* Bias fields and background field *)
 Return[VecField]
 ];
 
@@ -458,7 +461,7 @@ zs[[1]]>z>zs[[2]]},{x,y,z}][[2]]
 from the center of our coordinate system. *)
 
 
-(* ::Subsubsection:: *)
+(* ::Subsubsection::Closed:: *)
 (*Trap frequencies and principle axes*)
 
 
