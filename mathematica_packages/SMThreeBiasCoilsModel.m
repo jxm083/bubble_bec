@@ -675,9 +675,7 @@ as elements of a list of trap parameters
 {currLa, currZa, currLb, currZb, currH, fieldBiasX, fieldBiasY, fieldBiasZ}
 *)
 {currBX, currBY, currBZ} = 
-(convertCALTableToTrapParameters@convertTrapParametersToCALTable@{0, 0, 0, 0, 0, bx0, by0, bz0})[[6;;8]];
-(* Note the (currently anamolous) negative signs on the x and z components! I'm trying
-to track down their origin, but they are required to give the right field sign. *)
+(convertCALTableToCurrents@convertTrapParametersToCALTable@{0, 0, 0, 0, 0, bx0, by0, bz0})[[6;;8]];
 
 (* Similarly, the currents of the bias coils are embedded in a larger list of currents
 so as to use the existing functions for calculating the magnetic fields. 
@@ -685,8 +683,10 @@ so as to use the existing functions for calculating the magnetic fields.
 I_transfercoils, I_MOTcoils, I_ybiascoils, I_zbiascoils, I_FFcoils}
 *)
 coilCurrents = {0, 0, 0, -currBX, 0, currBY, -currBZ, 0};
+(* Note the (currently anamolous) negative signs on the x and z components! I'm trying
+to track down their origin, but they are required to give the right field sign. *)
 
-Return[MagTrapVecField[xp,yp,zp,coilCurrents,batesSpeciesTrapParameters]];
+Return[MagTrapVecField[xp,yp,zp,coilCurrents,batesSpeciesTrapParameters]/Gauss];
 ];
 
 
