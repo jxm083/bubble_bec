@@ -660,6 +660,10 @@ These currents are then fed into the Mossman--Engels code for the bias coils.
 
 The values of these currents are calculated using the composite function
 convertCALTableToTrapParameters@convertTrapParametersToCALTable .
+
+N.B. the non-uniformities introduced by this function make it harder to find the minimum
+of the total magnetic field. It may be helpful and necessary to limit the range
+of the function searching for this minimum.
 *)
 
 {xp,yp,zp,
