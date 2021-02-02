@@ -461,7 +461,7 @@ zs[[1]]>z>zs[[2]]},{x,y,z}][[2]]
 from the center of our coordinate system. *)
 
 
-(* ::Subsubsection::Closed:: *)
+(* ::Subsubsection:: *)
 (*Trap frequencies and principle axes*)
 
 
@@ -478,12 +478,21 @@ DABMatrix[x_,y_,z_,Ila_,Iza_,Ilb_,Izb_,Ih_,Bx_,By_,Bz_]:=({
 });
 
 
-ChipTrapABFrequencies[Ila_,Iza_,Ilb_,Izb_,Ih_,Bx_,By_,Bz_]:= Module[
+ChipTrapABFrequencies[Ila_,Iza_,Ilb_,Izb_,Ih_,Bx_,By_,Bz_,
+OptionsPattern[
+(* Could pass minimizationRegion to the z0AB in this function. *)
+(*minimizationRegion->{{-0.4 mm,0.4 mm},{-0.4 mm,1.5 mm},{2.5 mm,20 \[Mu]m}},*)
+specifiedPosition->None]]:= Module[
 {x,y,z,DMatrixDiag,xmin,ymin,zmin,DMatrix0,e1,e2,e3},
-{xmin,ymin,zmin}=z0AB[Ila,Iza,Ilb,Izb,Ih,Bx,By,Bz];
-xmin=xmin[[2]];
-ymin=ymin[[2]];
-zmin=zmin[[2]];
+If[OptionValue[specifiedPosition]!=None,
+(* THEN: *)
+	{xmin,ymin,zmin}=z0AB[Ila,Iza,Ilb,Izb,Ih,Bx,By,Bz];
+	xmin=xmin[[2]];
+	ymin=ymin[[2]];
+	zmin=zmin[[2]],
+(* ELSE: *)
+	{xmin, ymin, zmin} = OptionValue[specifiedPosition];
+];
 DMatrix0=SchurDecomposition[DABMatrix[x,y,z,Ila,Iza,Ilb,Izb,Ih,Bx,By,Bz]/.{x->xmin,y->ymin,z->zmin}];
 DMatrixDiag=DMatrix0[[2]];
 e1=DMatrix0[[1,1]];
