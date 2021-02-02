@@ -484,7 +484,7 @@ OptionsPattern[
 (*minimizationRegion->{{-0.4 mm,0.4 mm},{-0.4 mm,1.5 mm},{2.5 mm,20 \[Mu]m}},*)
 specifiedPosition->None]]:= Module[
 {x,y,z,DMatrixDiag,xmin,ymin,zmin,DMatrix0,e1,e2,e3},
-If[OptionValue[specifiedPosition]!=None,
+If[SameQ[OptionValue[specifiedPosition],None],
 (* THEN: *)
 	{xmin,ymin,zmin}=z0AB[Ila,Iza,Ilb,Izb,Ih,Bx,By,Bz];
 	xmin=xmin[[2]];
