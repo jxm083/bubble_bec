@@ -308,7 +308,7 @@ where presently T1=T2 and X1 and X2 are left undefined.";
 (*Chip trap*)
 
 
-(* ::Subsection::Closed:: *)
+(* ::Subsection:: *)
 (*Biot-Savart functions*)
 
 
@@ -548,7 +548,7 @@ Show@MapThread[Graphics3D[{#1,Thick,#2},Axes->True,AxesLabel->{"x","y","z"}]&,{{
 ];
 
 
-(* ::Section::Closed:: *)
+(* ::Section:: *)
 (*rf loop*)
 
 
@@ -584,6 +584,9 @@ Br[z,LoopOriginZ,Sqrt[x^2+y^2],LoopRadius] x/Sqrt[x^2+y^2],
 Br[z,LoopOriginZ,Sqrt[x^2+y^2],LoopRadius] y/Sqrt[x^2+y^2] , 
 Bz[z,LoopOriginZ,Sqrt[x^2+y^2],LoopRadius]
 }/Bmag[z,LoopOriginZ,Sqrt[x^2+y^2],LoopRadius]];
+
+RFUnitVecC = Compile[{x,y,z}, Evaluate@RFUnitVec[x,y,z]];
+RFUnitVecC2[x_?NumericQ, y_?NumericQ, z_?NumericQ]:=RFUnitVecC[z,y,z];
 
 MagFrac[x_,y_,z_]:=Bmag[z,LoopOriginZ,Sqrt[x^2+y^2], LoopRadius]/Bmag[z1,LoopOriginZ,1*^-10, LoopRadius]; 
 (* Magnitude of the rf loop magnetic field at radius Sqrt[x^2+y^2] and height z, scaled by the magnitude of the same field evaluated at the trap minimum z coordinate and radius 1*^-10 (0.1 nm, effectively zero) *)
