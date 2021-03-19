@@ -57,6 +57,7 @@ ZeemanShiftC = Compile[{Field},Evaluate[ZeemanShift[Field]]];
 (* A plot to check that the energy shifts have the right form: *)
 (*Plot[{ZeemanShift[Field]/1*^6,0, gF(\[Mu]B/h/1*^6) Field,-gF(\[Mu]B/h/1*^6) Field},
 {Field,0,5000 Gauss},
+Frame\[Rule]True,
 FrameLabel\[Rule]{"B (Tesla)","MHz"},
 PlotStyle\[Rule]{Blue,Dashed,Dashed,Dashed},
 FrameTicksStyle\[Rule]Directive[Black,FontFamily\[Rule]"Century Gothic"],
@@ -68,7 +69,7 @@ AspectRatio\[Rule]1,PlotRange\[Rule]All,Axes\[Rule]False]*)
 (*CAL Table values to currents and magnetic fields*)
 
 
-(* ::Subsection::Closed:: *)
+(* ::Subsection:: *)
 (*Functions to print CAL Tables, current values, and trap parameters*)
 
 
@@ -308,7 +309,7 @@ where presently T1=T2 and X1 and X2 are left undefined.";
 (*Chip trap*)
 
 
-(* ::Subsection:: *)
+(* ::Subsection::Closed:: *)
 (*Biot-Savart functions*)
 
 
@@ -418,8 +419,9 @@ Iza FatXwire[x,y,z,WireWidth,ZAMainyc,ZAMainx0,ZAMainx1](* main section of ZA wi
 +Ih FatYwire[x,y,z-Hoffset,200\[Mu]m,-1.5mm,5mm,-5mm] (* first leg of H *)
 +Ih FatYwire[x,y,z-Hoffset,200\[Mu]m,1.5mm,5mm,-5mm] (* second leg of H *)
 
-(*+{Bx,By,Bz}*)
-+ biasMagVecFieldLEGACY[x,y,z,Bx,By,Bz]
++{Bx,By,Bz}
+(*+ biasMagVecFieldLEGACY[x,y,z,Bx,By,Bz]*) (* Uncomment this to use Mossman's bias field
+models *)
 
 + b0[x,y,z]);(* Bias fields and background field *)
 Return[VecField]

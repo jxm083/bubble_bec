@@ -37,7 +37,7 @@ upper=1,
 roundTemp=round,
 \[Delta],nr0,diff,head,foot,freqMean
 },
-If[modelForm=="SackettTanh",
+(*If[modelForm=="SackettTanh",
 model[t_]:=(\[Omega]i+\[Omega]f)/2+(\[Omega]f-\[Omega]i)/2 Tanh[5(2(t/2)^(1/4) -1)]/Tanh[5],
 (* ELSE: *)
 If[modelForm=="CorgierSin",
@@ -46,7 +46,18 @@ model[t_]:=Module[{tau=2*Pi*t},
 (* ELSE: *)
 Print["The specified modelForm has not yet been implemented. Please choose either SackettTanh or CorgierSin."];
 Return[];
-]];
+]];*)
+Which[
+modelForm=="SackettTanh",
+	model[t_]:=(\[Omega]i+\[Omega]f)/2+(\[Omega]f-\[Omega]i)/2 Tanh[5(2(t/2)^(1/4) -1)]/Tanh[5],
+modelForm=="CorgierSin",
+	model[t_]:=Module[{tau=2*Pi*t},
+\[Omega]i+((\[Omega]f-\[Omega]i)/(12*Pi))*(6*tau-8*Sin[tau]+Sin[2*tau])],
+modelForm=="SackettTanhLong",
+	model[t_]:=0.5*(\[Omega]i+\[Omega]f)+0.5*(\[Omega]f-\[Omega]i)*Tanh[5.*(2.*(t)^(1/4) -1.)]/Tanh[5.];,
+False,Print["The specified modelForm has not yet been implemented. Please choose either SackettTanh or CorgierSin or SackettTanhLong"];
+	
+];
 
 ramp:=Prepend[Table[{Sum[#[[1,i]],{i,n}],Sum[#[[2,i]],{i,n}],#[[2,n]]/#[[1,n]]},{n,nramps}]&[newramp],{0.,0.,0.}](*builds an array of (cumulative time, cumulative ramp fraction, and ramp slope)*);
 \[Delta]:=GeometricMean[SingleTrapFrequency[trap1,trap2,newramp,nramps,position+1]]-model[ramp[[position+1,1]]];
@@ -133,7 +144,9 @@ position=1,
 pointTime,
 totalTime=0.
 },
+
 {\[Omega]i,\[Omega]f}=FindTrapEndpoints[trap1,trap2];
+
 (*\[Omega]f=0.9899925293586265*\[Omega]f;*)
 While[position<points,
 {pointTime,newramp}=Timing[BinaryFreqSearch[trap1,trap2,\[Omega]i,\[Omega]f,ramp,points,position,fraction,round,modelForm][[1]]];
