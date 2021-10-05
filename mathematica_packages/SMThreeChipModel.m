@@ -1,6 +1,6 @@
 (* ::Package:: *)
 
-(* ::Section::Closed:: *)
+(* ::Section:: *)
 (*Units and constants*)
 
 
@@ -22,13 +22,13 @@ gfactor=1/2;
 gF = 1/2; (* not accurate to .0001 *) 
 gF= gJ (F(F+1)-Inuc(Inuc+1)+J(J+1))/(2F(F+1))+gI (F(F+1)+Inuc(Inuc+1)-J(J+1))/(2F(F+1)) /. {F->2,J->1/2};
 Inuc= 3/2;
-Ahfs =  3.417341305*^9;
+Ahfs =  3.417341305*^9; (* [Hz] *)
 gI= -.0009951414 ;
 gJ = 2.00233113;
 nKPerHz = 1*^9(h/kb);
 
 
-(* ::Section::Closed:: *)
+(* ::Section:: *)
 (*Atom model: Breit--Rabi Zeeman-shift formulae*)
 
 
@@ -36,13 +36,13 @@ Clear[ZeemanShift];
 
 Block[
 {
-k = ((gJ-gI)\[Mu]B/Ahfs/h/2),
+k = ((gJ-gI)\[Mu]B/Ahfs/h/2), (* aka (gJ-gI)muB/(2*Ahfs*h), so that Steck's x = h*k*B *)
 \[CapitalXi],
-Field
+Field (* [T] *)
 },
 
 \[CapitalXi][Field_]:= If[Field>= 1/k, -1,1];
-
+(* Breit-Rabi formula, see Steck Rubidium 87 D Line Data *)
 ZeemanShift[Field_]= {
 -Ahfs-2gI \[Mu]B Field/h+\[CapitalXi][Field]Ahfs Sqrt[1- 2k Field+k^2 Field^2],
 -Ahfs-gI \[Mu]B Field/h+Ahfs Sqrt[1- k Field+k^2 Field^2],
@@ -54,6 +54,20 @@ ZeemanShift[Field_]= {
 ZeemanShiftC = Compile[{Field},Evaluate[ZeemanShift[Field]]];
 ];
 
+ZeemanShift::usage = "ZeemanShift[field_] takes a magnetic field strength [T] and returns a list
+of five frequency shifts [Hz] corresponding to the Zeeman shifts experienced by the mF=-2, -1, 0, 1,
+and 2 states in the F=2 manifold.";
+
+ZeemanShiftC::usage = "ZeemanShiftC[field_] takes a magnetic field strength [T] and returns a list
+of five frequency shifts [Hz] corresponding to the Zeeman shifts experienced by the mF=-2, -1, 0, 1,
+and 2 states in the F=2 manifold. 
+It is the compiled form of ZeemanShift.";
+
+(* Previously [before 16 September 2021] 
+all of the leading -Ahfs terms were not divided by 4, meaning all of this shifts went to 0 in
+the absence of an external field. The hyperfine contribution (which appears as a non-zero
+offset) was added back in when we started talking about F=1 and F=2. *)
+
 (* A plot to check that the energy shifts have the right form: *)
 (*Plot[{ZeemanShift[Field]/1*^6,0, gF(\[Mu]B/h/1*^6) Field,-gF(\[Mu]B/h/1*^6) Field},
 {Field,0,5000 Gauss},
@@ -63,6 +77,70 @@ PlotStyle\[Rule]{Blue,Dashed,Dashed,Dashed},
 FrameTicksStyle\[Rule]Directive[Black,FontFamily\[Rule]"Century Gothic"],
 FrameStyle\[Rule]Directive[Black,15,FontFamily\[Rule]"Century Gothic"],
 AspectRatio\[Rule]1,PlotRange\[Rule]All,Axes\[Rule]False]*)
+
+Block[
+{
+k = ((gJ-gI)\[Mu]B/Ahfs/h/2), (* aka (gJ-gI)muB/(2*Ahfs*h), so that Steck's x = h*k*B *)
+\[CapitalXi],
+Field (* [T] *)
+},
+
+\[CapitalXi][Field_]:= If[Field>= 1/k, -1,1];
+(* Breit-Rabi formula, see Steck Rubidium 87 D Line Data *)
+ZeemanShiftF2[Field_]= {
+-Ahfs/4-2gI \[Mu]B Field/h+\[CapitalXi][Field]Ahfs Sqrt[1- 2k Field+k^2 Field^2],
+-Ahfs/4-gI \[Mu]B Field/h+Ahfs Sqrt[1- k Field+k^2 Field^2],
+-Ahfs/4+Ahfs Sqrt[1+k^2 Field^2],
+-Ahfs/4+ gI \[Mu]B Field/h+Ahfs Sqrt[1+k  Field+k^2 Field^2],
+-Ahfs/4+ 2 gI \[Mu]B Field/h+ Ahfs Sqrt[1+2k  Field+k^2 Field^2]
+} ;(* F=2, m= -2, -1, 0, +1, +2 *)
+
+ZeemanShiftF2C = Compile[{Field},Evaluate[ZeemanShiftF2[Field]]];
+];
+
+ZeemanShiftF2::usage = "ZeemanShift[field_] takes a magnetic field strength [T] and returns a list
+of five frequency shifts [Hz] corresponding to the Zeeman shifts experienced by the mF=-2, -1, 0, 1,
+and 2 states in the F=2 manifold plus the offset from the hyperfine interaction.";
+
+ZeemanShiftF2C::usage = "ZeemanShiftC[field_] takes a magnetic field strength [T] and returns a list
+of five frequency shifts [Hz] corresponding to the Zeeman shifts experienced by the mF=-2, -1, 0, 1,
+and 2 states in the F=2 manifold plus the offset from the hyperfine interaction. 
+It is the compiled form of ZeemanShift.";
+
+Clear[ZeemanShiftF1];
+
+Block[
+{
+x = (gJ-gI)*\[Mu]B/(2*h*Ahfs), (* N.B. this term differs from Steck because our shift is given in [Hz], not [J] *)
+field (* [T] *)
+},
+ZeemanShiftF1[field_] = {
+-Ahfs/4 + gI*\[Mu]B*(-1)*field/h - Ahfs*Sqrt[1 + (-1)*x*field + x^2*field^2],
+-Ahfs/4 - Ahfs*Sqrt[1 + x^2*field^2],
+-Ahfs/4 + gI*\[Mu]B*(1)*field/h - Ahfs*Sqrt[1 + (1)*x*field + x^2*field^2]
+}; (* [Hz] F=1; mF = -1, 0, 1 *)
+
+ZeemanShiftF1C = Compile[{field},Evaluate[ZeemanShiftF1[field]]];
+];
+
+ZeemanShiftF1::usage = "ZeemanShiftF1[field_] takes a magnetic field strength [T] and returns a list
+of three frequency shifts [Hz] corresponding to the Zeeman shifts experienced by the mF=-1, 0, and 1
+states in the F=1 manifold plus the offset from the hyperfine interaction.";
+
+ZeemanShiftF1C::usage = "ZeemanShiftF1C[field_] takes a magnetic field strength [T] and returns a list
+of three frequency shifts [Hz] corresponding to the Zeeman shifts experienced by the mF=-1, 0, and 1
+states in the F=1 manifold plus the offset from the hyperfine interaction.
+It is the compiled version of ZeemanShiftF1.";
+
+(* Another plot to check the whole manifold. cf to Steck's figure 4. *)
+
+(*
+Show[{
+Plot[ZeemanShiftF2[b*Gauss]/10^9,{b,0,15000}],
+Plot[ZeemanShiftF1[b*Gauss]/10^9,{b,0,15000}]
+},
+PlotRange->{-25,25}]
+*)
 
 
 (* ::Section:: *)
@@ -432,7 +510,7 @@ ChipTrapABField[x_,y_,z_,Ila_,Iza_,Ilb_,Izb_,Ih_,Bx_,By_,Bz_,
 OptionsPattern[backgroundBField->Null]]:=Module[
 {VecField=ChipTrapABVecField[x, y, z, Ila, Iza, Ilb, Izb, Ih, Bx, By, Bz,
 backgroundBField->OptionValue[backgroundBField]]},
-Return[Sqrt[VecField.VecField]]
+Return[Sqrt[VecField . VecField]]
 ];
 
 
@@ -538,7 +616,7 @@ trapAxesArrows[chipTrapFrequenciesOutput_]:=Module[
 {fout=chipTrapFrequenciesOutput,
 angles1,angles2,angles3,length1,length2,length3,axes,axesArrows},
 axes=defineVector[fout[[#,4]],fout[[#,2]],10^6*Sqrt[hbar/(mRb*fout[[4,#]])]]&/@{1,2,3};
-Print[MapThread[axes[[#1]].axes[[#2]]/(Norm[axes[[#1]]]*Norm[axes[[#2]]])&,{{1,1,2},{2,3,3}}]];
+Print[MapThread[axes[[#1]] . axes[[#2]]/(Norm[axes[[#1]]]*Norm[axes[[#2]]])&,{{1,1,2},{2,3,3}}]];
 axesArrows=(Arrow[{{0,0,0},axes[[#]]}]&/@{1,2,3});
 Return[axesArrows];
 ];
@@ -588,7 +666,7 @@ Bz[z,LoopOriginZ,Sqrt[x^2+y^2],LoopRadius]
 }/Bmag[z,LoopOriginZ,Sqrt[x^2+y^2],LoopRadius]];
 
 RFUnitVecC = Compile[{x,y,z}, Evaluate@RFUnitVec[x,y,z]];
-RFUnitVecC2[x_?NumericQ, y_?NumericQ, z_?NumericQ]:=RFUnitVecC[z,y,z];
+RFUnitVecC2[x_?NumericQ, y_?NumericQ, z_?NumericQ]:=RFUnitVecC[x,y,z]; (* this was RFUnitVecC[z,y,z] for no reason I can understand. Only used in notebook bubble-4a-[]'s function GermanAngle, which isn't used after it is defined. *)
 
 MagFrac[x_,y_,z_]:=Bmag[z,LoopOriginZ,Sqrt[x^2+y^2], LoopRadius]/Bmag[z1,LoopOriginZ,1*^-10, LoopRadius]; 
 (* Magnitude of the rf loop magnetic field at radius Sqrt[x^2+y^2] and height z, scaled by the magnitude of the same field evaluated at the trap minimum z coordinate and radius 1*^-10 (0.1 nm, effectively zero) *)
@@ -602,3 +680,49 @@ MagFracSimple[x_,y_,z_]:=Bmag[z,LoopOriginZ,Sqrt[x^2+y^2], LoopRadius]/Bmag[z1,L
 Btest[z_,z0_,a_]:=(\[Mu]0 (*i=*)1(**)/2) a^2/(a^2 + (z-z0)^2)^1.5;
 Plot[Bmag[z,0,1*^-10,.005]-Btest[z,0,.005],{z,0,.01},Frame\[Rule]True]
 *)
+
+
+(* These values taken from D. Aveline's presentation "Microwave loop positions across various
+CAL Science Modules" SM123_uW_loop_positions_v3r.pdf. *)
+(* Form copied from rf coil. *)
+(* CHECK NUMBER OF COILS IN BOTH RF AND UW CASE!!! *)
+mwLoopRadius = 6.25 mm; (* 5.0 default from SM2 *)
+mwLoopOriginZ = -6.1 mm;
+
+Block[
+{
+i, \[Beta], \[Alpha], \[Gamma], B, Q, d, 
+Bz, Br, 
+z, z0, a, r, x, y
+},
+(* Definition of general expressions of a current-carrying loop's magnetic field. *)
+i =1;
+\[Beta][z_,z0_,a_]:=(z-z0)/a;
+\[Alpha][r_,a_]:=r/a;
+\[Gamma][z_,z0_,r_]:=(z-z0)/r;
+B[a_]:=i*\[Mu]0/(2a);
+Q[z_,z0_,r_,a_]:=(1+\[Alpha][r,a])^2+\[Beta][z,z0,a]^2;
+d[z_,z0_,r_,a_]:=(4\[Alpha][r,a])/Q[z,z0,r,a];
+
+Bz[z_,z0_,r_,a_]:=B[a]*(1/(\[Pi]*\[Sqrt]Q[z,z0,r,a]))*((EllipticE[d[z,z0,r,a]])((1-\[Alpha][r,a]^2-\[Beta][z,z0,a]^2)/(Q[z,z0,r,a]-4\[Alpha][r,a]))+EllipticK[d[z,z0,r,a]]);
+
+Br[z_,z0_,r_,a_]:=B[a]*(\[Gamma][z,z0,r]/(\[Pi]*\[Sqrt]Q[z,z0,r,a]))*((EllipticE[d[z,z0,r,a]])*((1+\[Alpha][r,a]^2+\[Beta][z,z0,a]^2)/(Q[z,z0,r,a]-4\[Alpha][r,a]))-EllipticK[d[z,z0,r,a]]); (* When on-axis, Br=0*)
+
+(*magnitude of total magnetic field*)
+Bmagmw[z_,z0_,r_,a_]:=Evaluate[\[Sqrt]((Bz[z,z0,r,a])^2+(Br[z,z0,r,a])^2)];
+
+mwUnitVec[x_,y_,z_]:=Evaluate[{
+Br[z,mwLoopOriginZ,Sqrt[x^2+y^2],mwLoopRadius] x/Sqrt[x^2+y^2],
+Br[z,mwLoopOriginZ,Sqrt[x^2+y^2],mwLoopRadius] y/Sqrt[x^2+y^2] , 
+Bz[z,mwLoopOriginZ,Sqrt[x^2+y^2],mwLoopRadius]
+}/Bmagmw[z,mwLoopOriginZ,Sqrt[x^2+y^2],mwLoopRadius]];
+
+mwUnitVecC = Compile[{x,y,z}, Evaluate@mwUnitVec[x,y,z]];
+mwUnitVecC2[x_?NumericQ, y_?NumericQ, z_?NumericQ]:=mwUnitVecC[x,y,z];
+
+mwMagFrac[x_,y_,z_]:=Bmagmw[z,mwLoopOriginZ,Sqrt[x^2+y^2], mwLoopRadius]/Bmagmw[z1,mwLoopOriginZ,1*^-10, mwLoopRadius]; 
+(* Magnitude of the rf loop magnetic field at radius Sqrt[x^2+y^2] and height z, scaled by the magnitude of the same field evaluated at the trap minimum z coordinate and radius 1*^-10 (0.1 nm, effectively zero) *)
+mwMagFracC=Compile[{x,y,z},Evaluate[mwMagFrac[x,y,z]]];
+mwMagFracC2[x_?NumericQ,y_?NumericQ,z_?NumericQ]:=mwMagFracC[x,y,z];
+mwMagFracSimple[x_,y_,z_]:=Bmagmw[z,mwLoopOriginZ,Sqrt[x^2+y^2],mwLoopRadius]/Bmagmw[z1,mwLoopOriginZ,1*^-10,mwLoopRadius]
+];

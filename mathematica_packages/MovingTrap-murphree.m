@@ -8,7 +8,8 @@ ramplist,coordinates,joinedlist,movingBMin,freqlist
 },
 If[Total[rampin[[1]]]==1&&Total[rampin[[2]]]==1,(*the enclosing If checks that the ramp values in the time array and value array each sum to 1, and gives specific warnings if they do not*)
 ramplist=Prepend[Drop[Table[{t,Piecewise[Table[{#3-(#1[[n-1,2]]+#1[[n,3]]*(t-#1[[n-1,1]]))*#2,#1[[n-1,1]]<t<=#1[[n,1]]},{n,2,nramps+1}]&[ramp,deltatrap,trap1]]},{t,0.,1.,1./npoints}],1],{0.,trap1}];(*generates the piecewise ramp and finds the values of each parameter at every point*)
-coordinates=(z0AB@@(#[[2,All]]))[[All,2]]&/@ramplist;
+coordinates=(z0AB[#1,#2,#3,#4,#5,#6,#7,#8,minimizationRegion->{
+{-0.4 mm, 0.4mm},{-0.4mm,(*1.5*)2.1mm},{1mm,20\[Mu]m}}]&@@(#[[2,All]]))[[All,2]]&/@ramplist;(*(z0AB@@(#[[2,All]]))[[All,2]]&/@ramplist;*)
 joinedlist=Join[{coordinates},{ramplist[[All,2]]}]\[Transpose];
 movingBMin=ChipTrapABField[#[[1,1]],#[[1,2]],#[[1,3]],#[[2,1]],#[[2,2]],#[[2,3]],#[[2,4]],#[[2,5]],#[[2,6]], #[[2,7]], #[[2,8]]]&/@joinedlist;
 freqlist=(ChipTrapABFrequencies[#[[2,1]],#[[2,2]],#[[2,3]],#[[2,4]],#[[2,5]],#[[2,6]], #[[2,7]], #[[2,8]]])[[4]]&/@ramplist;
