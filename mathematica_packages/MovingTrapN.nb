@@ -1,0 +1,383 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 11.3' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     16022,        375]
+NotebookOptionsPosition[     15421,        358]
+NotebookOutlinePosition[     15780,        374]
+CellTagsIndexPosition[     15737,        371]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"MovingTrapN", "[", 
+   RowBox[{"trap1_", ",", "trap2_", ",", "rampin_", ",", "npoints_", ",", 
+    RowBox[{"nramps_:", "3"}]}], "]"}], ":=", 
+  RowBox[{"Block", "[", 
+   RowBox[{
+    RowBox[{"{", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"deltatrap", "=", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"#1", "-", "#2"}], "&"}], "[", 
+        RowBox[{"trap1", ",", "trap2"}], "]"}]}], ",", "\[IndentingNewLine]", 
+      
+      RowBox[{"ramp", "=", 
+       RowBox[{"Prepend", "[", 
+        RowBox[{
+         RowBox[{
+          RowBox[{
+           RowBox[{"Table", "[", 
+            RowBox[{
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"Sum", "[", 
+                RowBox[{
+                 RowBox[{"#", "\[LeftDoubleBracket]", 
+                  RowBox[{"1", ",", "i"}], "\[RightDoubleBracket]"}], ",", 
+                 RowBox[{"{", 
+                  RowBox[{"i", ",", "n"}], "}"}]}], "]"}], ",", 
+               RowBox[{"Sum", "[", 
+                RowBox[{
+                 RowBox[{"#", "\[LeftDoubleBracket]", 
+                  RowBox[{"2", ",", "i"}], "\[RightDoubleBracket]"}], ",", 
+                 RowBox[{"{", 
+                  RowBox[{"i", ",", "n"}], "}"}]}], "]"}], ",", 
+               RowBox[{
+                RowBox[{"#", "\[LeftDoubleBracket]", 
+                 RowBox[{"2", ",", "n"}], "\[RightDoubleBracket]"}], "/", 
+                RowBox[{"#", "\[LeftDoubleBracket]", 
+                 RowBox[{"1", ",", "n"}], "\[RightDoubleBracket]"}]}]}], 
+              "}"}], ",", 
+             RowBox[{"{", 
+              RowBox[{"n", ",", "nramps"}], "}"}]}], "]"}], "&"}], "[", 
+          "rampin", "]"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"0", ",", "0", ",", "0"}], "}"}]}], "]"}]}], ",", 
+      "\[IndentingNewLine]", "ramplist", ",", "coordinates", ",", 
+      "joinedlist", ",", "movingBMin", ",", "freqlist"}], 
+     "\[IndentingNewLine]", "}"}], ",", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"ramplist", "=", 
+      RowBox[{"Prepend", "[", 
+       RowBox[{
+        RowBox[{"Drop", "[", 
+         RowBox[{
+          RowBox[{"Table", "[", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{"t", ",", 
+              RowBox[{"Piecewise", "[", 
+               RowBox[{
+                RowBox[{
+                 RowBox[{"Table", "[", 
+                  RowBox[{
+                   RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"#3", "-", 
+                    RowBox[{
+                    RowBox[{"(", 
+                    RowBox[{
+                    RowBox[{"#1", "\[LeftDoubleBracket]", 
+                    RowBox[{
+                    RowBox[{"n", "-", "1"}], ",", "2"}], 
+                    "\[RightDoubleBracket]"}], "+", 
+                    RowBox[{
+                    RowBox[{"#1", "\[LeftDoubleBracket]", 
+                    RowBox[{"n", ",", "3"}], "\[RightDoubleBracket]"}], "*", 
+                    RowBox[{"(", 
+                    RowBox[{"t", "-", 
+                    RowBox[{"#1", "\[LeftDoubleBracket]", 
+                    RowBox[{
+                    RowBox[{"n", "-", "1"}], ",", "1"}], 
+                    "\[RightDoubleBracket]"}]}], ")"}]}]}], ")"}], "*", 
+                    "#2"}]}], ",", 
+                    RowBox[{
+                    RowBox[{"#1", "\[LeftDoubleBracket]", 
+                    RowBox[{
+                    RowBox[{"n", "-", "1"}], ",", "1"}], 
+                    "\[RightDoubleBracket]"}], "<", "t", "\[LessEqual]", 
+                    RowBox[{"#1", "\[LeftDoubleBracket]", 
+                    RowBox[{"n", ",", "1"}], "\[RightDoubleBracket]"}]}]}], 
+                    "}"}], ",", 
+                   RowBox[{"{", 
+                    RowBox[{"n", ",", "2", ",", 
+                    RowBox[{"nramps", "+", "1"}]}], "}"}]}], "]"}], "&"}], 
+                "[", 
+                RowBox[{"ramp", ",", "deltatrap", ",", "trap1"}], "]"}], 
+               "]"}]}], "}"}], ",", 
+            RowBox[{"{", 
+             RowBox[{"t", ",", "0.", ",", "1.", ",", 
+              RowBox[{"1.", "/", "npoints"}]}], "}"}]}], "]"}], ",", "1"}], 
+         "]"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"0.", ",", "trap1"}], "}"}]}], "]"}]}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"coordinates", "=", 
+      RowBox[{
+       RowBox[{
+        RowBox[{
+         RowBox[{"z0", "[", 
+          RowBox[{
+           RowBox[{"#", "\[LeftDoubleBracket]", 
+            RowBox[{"2", ",", "1"}], "\[RightDoubleBracket]"}], ",", 
+           RowBox[{"#", "\[LeftDoubleBracket]", 
+            RowBox[{"2", ",", "2"}], "\[RightDoubleBracket]"}], ",", 
+           RowBox[{"#", "\[LeftDoubleBracket]", 
+            RowBox[{"2", ",", "3"}], "\[RightDoubleBracket]"}], ",", 
+           RowBox[{"#", "\[LeftDoubleBracket]", 
+            RowBox[{"2", ",", "4"}], "\[RightDoubleBracket]"}], ",", 
+           RowBox[{"#", "\[LeftDoubleBracket]", 
+            RowBox[{"2", ",", "5"}], "\[RightDoubleBracket]"}]}], "]"}], 
+         "\[LeftDoubleBracket]", 
+         RowBox[{"All", ",", "2"}], "\[RightDoubleBracket]"}], "&"}], "/@", 
+       "ramplist"}]}], ";", "\[IndentingNewLine]", 
+     RowBox[{"joinedlist", "=", 
+      RowBox[{
+       RowBox[{"Join", "[", 
+        RowBox[{
+         RowBox[{"{", "coordinates", "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"ramplist", "\[LeftDoubleBracket]", 
+           RowBox[{"All", ",", "2"}], "\[RightDoubleBracket]"}], "}"}]}], 
+        "]"}], "\[Transpose]"}]}], ";", "\[IndentingNewLine]", 
+     RowBox[{"movingBMin", "=", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"ChipTrapField", "[", 
+         RowBox[{
+          RowBox[{"#", "\[LeftDoubleBracket]", 
+           RowBox[{"1", ",", "1"}], "\[RightDoubleBracket]"}], ",", 
+          RowBox[{"#", "\[LeftDoubleBracket]", 
+           RowBox[{"1", ",", "2"}], "\[RightDoubleBracket]"}], ",", 
+          RowBox[{"#", "\[LeftDoubleBracket]", 
+           RowBox[{"1", ",", "3"}], "\[RightDoubleBracket]"}], ",", 
+          RowBox[{"#", "\[LeftDoubleBracket]", 
+           RowBox[{"2", ",", "1"}], "\[RightDoubleBracket]"}], ",", 
+          RowBox[{"#", "\[LeftDoubleBracket]", 
+           RowBox[{"2", ",", "2"}], "\[RightDoubleBracket]"}], ",", 
+          RowBox[{"#", "\[LeftDoubleBracket]", 
+           RowBox[{"2", ",", "3"}], "\[RightDoubleBracket]"}], ",", 
+          RowBox[{"#", "\[LeftDoubleBracket]", 
+           RowBox[{"2", ",", "4"}], "\[RightDoubleBracket]"}], ",", 
+          RowBox[{"#", "\[LeftDoubleBracket]", 
+           RowBox[{"2", ",", "5"}], "\[RightDoubleBracket]"}]}], "]"}], "&"}],
+        "/@", "joinedlist"}]}], ";", "\[IndentingNewLine]", 
+     RowBox[{"freqlist", "=", 
+      RowBox[{
+       RowBox[{
+        RowBox[{
+         RowBox[{"ChipTrapFrequencies", "[", 
+          RowBox[{
+           RowBox[{"#", "\[LeftDoubleBracket]", 
+            RowBox[{"2", ",", "1"}], "\[RightDoubleBracket]"}], ",", 
+           RowBox[{"#", "\[LeftDoubleBracket]", 
+            RowBox[{"2", ",", "2"}], "\[RightDoubleBracket]"}], ",", 
+           RowBox[{"#", "\[LeftDoubleBracket]", 
+            RowBox[{"2", ",", "3"}], "\[RightDoubleBracket]"}], ",", 
+           RowBox[{"#", "\[LeftDoubleBracket]", 
+            RowBox[{"2", ",", "4"}], "\[RightDoubleBracket]"}], ",", 
+           RowBox[{"#", "\[LeftDoubleBracket]", 
+            RowBox[{"2", ",", "5"}], "\[RightDoubleBracket]"}]}], "]"}], 
+         "\[LeftDoubleBracket]", "4", "\[RightDoubleBracket]"}], "&"}], "/@", 
+       "ramplist"}]}], ";", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"coordinates", ",", "freqlist", ",", "movingBMin"}], "}"}], 
+      "\[Transpose]"}]}]}], "\[IndentingNewLine]", "]"}]}]], "Input",
+ CellChangeTimes->{{3.748807107729681*^9, 3.7488071901188393`*^9}, {
+   3.748807226736899*^9, 3.748807249775741*^9}, {3.748807319481949*^9, 
+   3.7488075713372793`*^9}, {3.7488080395556507`*^9, 3.748808050443174*^9}, {
+   3.748809110591136*^9, 3.7488091417625227`*^9}, {3.748809176038539*^9, 
+   3.7488091826205873`*^9}, {3.7488092522389793`*^9, 
+   3.7488092712016897`*^9}, {3.748809367186952*^9, 3.748809379934964*^9}, {
+   3.748952233874752*^9, 3.748952265891952*^9}, {3.748952304142825*^9, 
+   3.748952304714946*^9}, {3.748952348003179*^9, 3.7489523509423647`*^9}, {
+   3.7510383823225517`*^9, 3.751038406384506*^9}, 3.7510551031255093`*^9, {
+   3.751055327716247*^9, 3.7510553566407423`*^9}, 3.751055433462183*^9, {
+   3.75112328038704*^9, 3.751123282658111*^9}},
+ CellLabel->
+  "In[180]:=",ExpressionUUID->"2960af09-613e-469e-bcb2-3d1826ee5c99"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"MovingTrap", "::", "usage"}], "=", "\[IndentingNewLine]", 
+   "\"\<MovingTrap[trap1_,trap2_,rampin_,npoints_,nramps_(optional)] takes \
+two trap configurations (trap1, trap2) in the form {CLg1,CLd1,Bx1,By1,Bz1}, a \
+ramp (rampin) in the form \
+{{1st_time_fraction,2nd_time_fraction,3rd_time_fraction},{1st_ramp_fraction,\
+2nd_ramp_fraction,3rd_ramp_fraction}} (e.g. {{.2,.6,.2},{0.1,0.8,0.1}}), and \
+a number of sample points (npoints). A number of ramp segments (nramps) is \
+optional and will default to 3 if no parameter is given. It will output an \
+array of {{{x1,y1,z1},{\[Omega]11,\[Omega]21,\[Omega]31},BMin1},{{x2,y2,z2},{\
+\[Omega]12,\[Omega]22,\[Omega]32},BMin2},...}\>\""}], ";"}]], "Input",
+ CellChangeTimes->{{3.7488094020734253`*^9, 3.748809696723113*^9}, {
+  3.748952356272194*^9, 3.748952418397573*^9}, {3.7511233215537167`*^9, 
+  3.751123366747532*^9}},ExpressionUUID->"3f01f65c-6308-4837-9024-\
+4841f463d444"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"RampList", "[", 
+   RowBox[{"trap1_", ",", "trap2_", ",", "rampin_", ",", "npoints_", ",", 
+    RowBox[{"nramps_:", "3"}]}], "]"}], ":=", 
+  RowBox[{"Block", "[", 
+   RowBox[{
+    RowBox[{"{", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"deltatrap", "=", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"#1", "-", "#2"}], "&"}], "[", 
+        RowBox[{"trap1", ",", "trap2"}], "]"}]}], ",", "\[IndentingNewLine]", 
+      
+      RowBox[{"ramp", "=", 
+       RowBox[{"Prepend", "[", 
+        RowBox[{
+         RowBox[{
+          RowBox[{
+           RowBox[{"Table", "[", 
+            RowBox[{
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"Sum", "[", 
+                RowBox[{
+                 RowBox[{"#", "\[LeftDoubleBracket]", 
+                  RowBox[{"1", ",", "i"}], "\[RightDoubleBracket]"}], ",", 
+                 RowBox[{"{", 
+                  RowBox[{"i", ",", "n"}], "}"}]}], "]"}], ",", 
+               RowBox[{"Sum", "[", 
+                RowBox[{
+                 RowBox[{"#", "\[LeftDoubleBracket]", 
+                  RowBox[{"2", ",", "i"}], "\[RightDoubleBracket]"}], ",", 
+                 RowBox[{"{", 
+                  RowBox[{"i", ",", "n"}], "}"}]}], "]"}], ",", 
+               RowBox[{
+                RowBox[{"#", "\[LeftDoubleBracket]", 
+                 RowBox[{"2", ",", "n"}], "\[RightDoubleBracket]"}], "/", 
+                RowBox[{"#", "\[LeftDoubleBracket]", 
+                 RowBox[{"1", ",", "n"}], "\[RightDoubleBracket]"}]}]}], 
+              "}"}], ",", 
+             RowBox[{"{", 
+              RowBox[{"n", ",", 
+               RowBox[{"OptionValue", "[", "nramps", "]"}]}], "}"}]}], "]"}], 
+           "&"}], "[", "rampin", "]"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"0", ",", "0", ",", "0"}], "}"}]}], "]"}]}], ",", 
+      "\[IndentingNewLine]", "ramplist", ",", "coordinates", ",", 
+      "joinedlist", ",", "movingBMin", ",", "freqlist"}], 
+     "\[IndentingNewLine]", "}"}], ",", "\[IndentingNewLine]", 
+    RowBox[{"ramplist", "=", 
+     RowBox[{"Prepend", "[", 
+      RowBox[{
+       RowBox[{"Drop", "[", 
+        RowBox[{
+         RowBox[{"Table", "[", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{"t", ",", 
+             RowBox[{"Piecewise", "[", 
+              RowBox[{
+               RowBox[{
+                RowBox[{"Table", "[", 
+                 RowBox[{
+                  RowBox[{"{", 
+                   RowBox[{
+                    RowBox[{"#3", "-", 
+                    RowBox[{
+                    RowBox[{"(", 
+                    RowBox[{
+                    RowBox[{"#1", "\[LeftDoubleBracket]", 
+                    RowBox[{
+                    RowBox[{"n", "-", "1"}], ",", "2"}], 
+                    "\[RightDoubleBracket]"}], "+", 
+                    RowBox[{
+                    RowBox[{"#", "\[LeftDoubleBracket]", 
+                    RowBox[{
+                    RowBox[{"1", "n"}], ",", "3"}], "\[RightDoubleBracket]"}],
+                     "*", 
+                    RowBox[{"(", 
+                    RowBox[{"t", "-", 
+                    RowBox[{"#1", "\[LeftDoubleBracket]", 
+                    RowBox[{
+                    RowBox[{"n", "-", "1"}], ",", "1"}], 
+                    "\[RightDoubleBracket]"}]}], ")"}]}]}], ")"}], "*", 
+                    "#2"}]}], ",", 
+                    RowBox[{
+                    RowBox[{"#1", "\[LeftDoubleBracket]", 
+                    RowBox[{
+                    RowBox[{"n", "-", "1"}], ",", "1"}], 
+                    "\[RightDoubleBracket]"}], "<", "t", "\[LessEqual]", 
+                    RowBox[{"#", "\[LeftDoubleBracket]", 
+                    RowBox[{
+                    RowBox[{"1", "n"}], ",", "1"}], 
+                    "\[RightDoubleBracket]"}]}]}], "}"}], ",", 
+                  RowBox[{"{", 
+                   RowBox[{"n", ",", "2", ",", 
+                    RowBox[{
+                    RowBox[{"OptionValue", "[", "nramps", "]"}], "+", "1"}]}],
+                    "}"}]}], "]"}], "&"}], "[", 
+               RowBox[{"ramp", ",", "deltatrap", ",", "trap1"}], "]"}], 
+              "]"}]}], "}"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"t", ",", "0.", ",", "1", ",", 
+             RowBox[{"1", "/", "npoints"}]}], "}"}]}], "]"}], ",", "1"}], 
+        "]"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"0.", ",", "trap1"}], "}"}]}], "]"}]}]}], 
+   "\[IndentingNewLine]", "]"}]}]], "Input",
+ CellChangeTimes->{{3.749209854218562*^9, 3.749209864320126*^9}, 
+   3.7492102839347057`*^9, {3.751055381683527*^9, 3.7510554009676237`*^9}, 
+   3.751123387351931*^9},ExpressionUUID->"05add785-8b44-4ede-bdb6-\
+db4921e8040b"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"RampList", "::", "usage"}], "=", "\[IndentingNewLine]", 
+  "\"\<RampList[trap1_,trap2_,rampin_,npoints_,nramps(optional)] takes the \
+same inputs as MovingTrap and provides the trap physical value parameters at \
+each time step. Time is given as a fraction of the total ramp time. The \
+output format is {{t1,{trap_params1}},{t2,{trap_params2},...}.\>\""}]], \
+"Input",
+ CellChangeTimes->{{3.749210377860565*^9, 3.749210476721156*^9}, {
+  3.749210532683354*^9, 3.749210543718639*^9}, {3.751123393735215*^9, 
+  3.751123399883172*^9}},ExpressionUUID->"e28d9d35-52d0-4dce-b4c3-\
+c7d5a8ec6881"]
+},
+WindowSize->{945, 551},
+WindowMargins->{{Automatic, -1867}, {Automatic, -466}},
+FrontEndVersion->"11.3 for Mac OS X x86 (32-bit, 64-bit Kernel) (March 5, \
+2018)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 8570, 190, 430, "Input",ExpressionUUID->"2960af09-613e-469e-bcb2-3d1826ee5c99"],
+Cell[9131, 212, 976, 16, 178, "Input",ExpressionUUID->"3f01f65c-6308-4837-9024-4841f463d444"],
+Cell[10110, 230, 4679, 113, 346, "Input",ExpressionUUID->"05add785-8b44-4ede-bdb6-db4921e8040b"],
+Cell[14792, 345, 625, 11, 94, "Input",ExpressionUUID->"e28d9d35-52d0-4dce-b4c3-c7d5a8ec6881"]
+}
+]
+*)
+
