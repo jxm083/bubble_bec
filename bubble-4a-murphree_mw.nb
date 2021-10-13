@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[    231711,       5105]
-NotebookOptionsPosition[    225069,       5016]
-NotebookOutlinePosition[    225532,       5033]
-CellTagsIndexPosition[    225489,       5030]
+NotebookDataLength[    236901,       5274]
+NotebookOptionsPosition[    230154,       5184]
+NotebookOutlinePosition[    230617,       5201]
+CellTagsIndexPosition[    230574,       5198]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -1683,6 +1683,174 @@ Cell["Definition of adiabatic potentials; rotating-frame + RWA", "Subsection",
    3.843135595553668*^9, 
    3.8431355961776915`*^9}},ExpressionUUID->"33b6d0e8-49ea-4584-bed8-\
 a42e5cfacbe1"],
+
+Cell[TextData[{
+ "Begin by defining the Hamiltonian in the rotating frame and after taking \
+the rotating wave approximation\n\n",
+ Cell[BoxData[{
+  FormBox[
+   RowBox[{
+    SubscriptBox["H", "rwa"], "=", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"(", 
+       RowBox[{
+        SubscriptBox["A", "hfs"], "/", 
+        SuperscriptBox["\[HBar]", "2"]}], ")"}], 
+      RowBox[{
+       StyleBox["I",
+        FontWeight->"Bold"], 
+       StyleBox[".",
+        FontWeight->"Plain"], 
+       StyleBox["J",
+        FontWeight->"Bold"]}]}], 
+     StyleBox["+",
+      FontWeight->"Plain"], 
+     RowBox[{
+      RowBox[{
+       StyleBox["(",
+        FontWeight->"Plain"], 
+       RowBox[{
+        SubscriptBox[
+         StyleBox["\[Mu]",
+          FontWeight->"Plain"], "B"], 
+        RowBox[{
+         SubscriptBox["B", "static"], "/", "\[HBar]"}]}], ")"}], 
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{
+         SubscriptBox["g", "J"], 
+         SubscriptBox["J", "z"]}], "+", 
+        RowBox[{
+         SubscriptBox["g", "I"], 
+         SubscriptBox["I", "z"]}]}], ")"}]}], "-", 
+     RowBox[{"\[Omega]", " ", 
+      SubscriptBox["F", "z"]}], "+", 
+     RowBox[{
+      RowBox[{"(", 
+       RowBox[{"\[CapitalOmega]", "/", 
+        RowBox[{"Sqrt", "[", "2", "]"}]}], ")"}], 
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"-", 
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{
+            SubscriptBox["g", "J"], 
+            SubscriptBox["J", "1"]}], "+", 
+           RowBox[{
+            SubscriptBox["g", "I"], " ", 
+            SubscriptBox["I", "1"]}]}], ")"}]}], "+", 
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{
+           SubscriptBox["g", "J"], 
+           SubscriptBox["J", 
+            RowBox[{"-", "1"}]]}], "+", 
+          RowBox[{
+           SubscriptBox["g", "I"], 
+           SubscriptBox["I", 
+            RowBox[{"-", "1"}]]}]}], ")"}]}], ")"}]}]}]}], 
+   TraditionalForm], "\[IndentingNewLine]", 
+  FormBox[
+   RowBox[{
+    RowBox[{"=", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"(", 
+        RowBox[{
+         SubscriptBox["A", "hfs"], "/", 
+         SuperscriptBox["\[HBar]", "2"]}], ")"}], 
+       RowBox[{
+        StyleBox["I",
+         FontWeight->"Bold"], 
+        StyleBox[".",
+         FontWeight->"Plain"], 
+        StyleBox["J",
+         FontWeight->"Bold"]}]}], 
+      StyleBox["+",
+       FontWeight->"Plain"], 
+      RowBox[{
+       RowBox[{
+        StyleBox["(",
+         FontWeight->"Plain"], 
+        RowBox[{
+         SubscriptBox[
+          StyleBox["\[Mu]",
+           FontWeight->"Plain"], "B"], 
+         RowBox[{
+          SubscriptBox["B", "static"], "/", "\[HBar]"}]}], ")"}], 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{
+          SubscriptBox["g", "J"], 
+          SubscriptBox["J", "z"]}], "+", 
+         RowBox[{
+          SubscriptBox["g", "I"], 
+          SubscriptBox["I", "z"]}]}], ")"}]}], "-", 
+      RowBox[{"\[Omega]", " ", 
+       SubscriptBox["F", "z"]}], "+", 
+      RowBox[{"\[CapitalOmega]", "(", 
+       RowBox[{
+        RowBox[{
+         SubscriptBox["g", "J"], 
+         SubscriptBox["J", "x"]}], "+", 
+        RowBox[{
+         SubscriptBox["g", "I"], 
+         SubscriptBox["I", "x"]}]}], ")"}]}]}], ","}], TraditionalForm]}],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "81dc0558-0ee7-4b30-a840-20cf472215eb"],
+ "\nwhere ",
+ StyleBox["I",
+  FontWeight->"Bold"],
+ ", ",
+ StyleBox["J",
+  FontWeight->"Bold"],
+ ", and ",
+ StyleBox["F",
+  FontWeight->"Bold"],
+ " are the nuclear and net electronic spin, and net atomic spin operators; ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["B", "static"], TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "3d8c7729-af9c-4dd1-966d-5f474dea7d70"],
+ " is the spatially varying, static magnetic field from the chip; ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"\[CapitalOmega]", "=", 
+    RowBox[{
+     SubscriptBox["\[Mu]", "B"], 
+     RowBox[{
+      SubscriptBox["B", "rad"], "/", "2"}], "\[HBar]"}]}], TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "b8a69c05-76ac-4b51-9746-b0fbf78270a8"],
+ " is the Rabi frequency, given the magnitude of the total (not just ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["\[Sigma]", "+"], TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "5887d024-310a-4de3-bacb-ef3d230f7e1b"],
+ " or ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["\[Sigma]", "-"], TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "db016942-5d67-429a-829e-560f2c052d5c"],
+ " polarization components, nor just the positive or negative frequency \
+component) of the radiating magnetic field ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["B", "rad"], TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "de056f98-e407-46f9-8640-98cd78d700ee"],
+ ". "
+}], "Text",
+ CellChangeTimes->{{3.843135800805482*^9, 3.8431360265622387`*^9}, {
+  3.8431360728993435`*^9, 3.8431361377150545`*^9}, {3.8431361779053135`*^9, 
+  3.8431364214891553`*^9}, {3.8431368082070065`*^9, 
+  3.8431368201283236`*^9}},ExpressionUUID->"6520ec8f-2e65-4bbc-9f2f-\
+74995cc074dd"],
 
 Cell[BoxData[{
  RowBox[{"Clear", "[", 
@@ -5062,49 +5230,50 @@ Cell[69921, 1609, 2366, 63, 105, "Input",ExpressionUUID->"a7023a03-177c-418c-b69
 }, Closed]],
 Cell[CellGroupData[{
 Cell[72324, 1677, 483, 7, 38, "Subsection",ExpressionUUID->"33b6d0e8-49ea-4584-bed8-a42e5cfacbe1"],
-Cell[72810, 1686, 8179, 176, 221, "Input",ExpressionUUID->"0202afd9-09c1-4635-ab0e-8137580f802b"],
-Cell[80992, 1864, 315, 7, 28, "Input",ExpressionUUID->"552b16aa-f3d4-4503-baf5-8e02130cac21"],
-Cell[81310, 1873, 10077, 219, 561, "Input",ExpressionUUID->"1d66c291-96ea-4559-9a60-f07f5fe61e56"],
-Cell[91390, 2094, 2489, 66, 87, "Input",ExpressionUUID->"68867794-d410-4821-99ca-59abe6ba9931"]
+Cell[72810, 1686, 5082, 166, 149, "Text",ExpressionUUID->"6520ec8f-2e65-4bbc-9f2f-74995cc074dd"],
+Cell[77895, 1854, 8179, 176, 221, "Input",ExpressionUUID->"0202afd9-09c1-4635-ab0e-8137580f802b"],
+Cell[86077, 2032, 315, 7, 28, "Input",ExpressionUUID->"552b16aa-f3d4-4503-baf5-8e02130cac21"],
+Cell[86395, 2041, 10077, 219, 561, "Input",ExpressionUUID->"1d66c291-96ea-4559-9a60-f07f5fe61e56"],
+Cell[96475, 2262, 2489, 66, 87, "Input",ExpressionUUID->"68867794-d410-4821-99ca-59abe6ba9931"]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[93928, 2166, 221, 4, 67, "Section",ExpressionUUID->"5616458f-9688-45a5-bfa8-854aebe48e7f"],
-Cell[94152, 2172, 405, 9, 81, "Text",ExpressionUUID->"096075a9-bc0b-4037-960c-cbddee538f47"],
-Cell[94560, 2183, 919, 23, 28, "Input",ExpressionUUID->"9d933784-d5c0-4892-b41f-e0599f08a30b"],
-Cell[95482, 2208, 261, 5, 28, "Input",ExpressionUUID->"7e052b31-5bc1-4d4a-a448-dd404fd18726"],
-Cell[95746, 2215, 679, 20, 48, "Input",ExpressionUUID->"cc70afc7-d0af-4d87-abe7-66b17b47ba71"],
-Cell[96428, 2237, 1567, 44, 86, "Input",ExpressionUUID->"378fe6c6-b0da-4a4f-a32f-9942ed673d25"],
-Cell[97998, 2283, 337, 9, 28, "Input",ExpressionUUID->"511aae42-219b-4102-a1d4-3d2eb4495262"],
-Cell[98338, 2294, 239, 7, 28, "Input",ExpressionUUID->"43f82217-4095-4c61-b606-1064298bbdd1"],
-Cell[98580, 2303, 294, 6, 28, "Input",ExpressionUUID->"2b0a6c38-9fc3-412d-ab31-d9ab7431b935"],
-Cell[98877, 2311, 29873, 494, 295, "Input",ExpressionUUID->"a4fe0ffb-11e6-4ac9-be85-9b2980599a64"],
-Cell[128753, 2807, 3581, 83, 219, "Input",ExpressionUUID->"a71f2022-36c4-48be-9d32-2aa2bc18e695"],
-Cell[132337, 2892, 241, 5, 28, "Input",ExpressionUUID->"2c07f660-1039-40ce-aa6b-6e842fcf16d2"],
-Cell[132581, 2899, 191, 3, 28, "Input",ExpressionUUID->"b9fab761-6942-4db2-a979-6fc51f4d9609"],
-Cell[132775, 2904, 563, 16, 28, "Input",ExpressionUUID->"605ed7ba-f4e6-457d-b4e4-4d2c10270ffa"],
-Cell[133341, 2922, 2732, 60, 67, "Input",ExpressionUUID->"84168587-74b8-4a66-991a-036de30dd695"],
-Cell[136076, 2984, 3517, 82, 67, "Input",ExpressionUUID->"36fa7b1f-19ef-4dc9-964d-1e53d4158c5d"],
-Cell[139596, 3068, 874, 24, 28, "Input",ExpressionUUID->"a62e39ba-4d28-4799-bd7a-e81a8645743f"],
-Cell[140473, 3094, 875, 26, 28, "Input",ExpressionUUID->"3c47cac4-c7ca-44a8-b17a-eaac9875ee04"],
-Cell[141351, 3122, 1137, 33, 28, "Input",ExpressionUUID->"60e50102-6984-47fb-8b9c-16c3921bffb9"],
-Cell[142491, 3157, 797, 23, 28, "Input",ExpressionUUID->"3b4529d4-a830-4b38-bf69-e507e320e531"],
-Cell[143291, 3182, 799, 23, 28, "Input",ExpressionUUID->"cdbff258-8824-452b-b842-e714e0933de7"],
-Cell[144093, 3207, 9486, 258, 390, "Input",ExpressionUUID->"9cef4f20-fa5e-44a9-bb23-b1457ea94a33"],
-Cell[153582, 3467, 3541, 54, 28, "Input",ExpressionUUID->"3048c764-0b8c-4f5b-9929-f699f737339f"],
-Cell[157126, 3523, 19387, 352, 695, "Input",ExpressionUUID->"253d1f8f-832f-4ebf-816e-833bb3974847"],
-Cell[176516, 3877, 1104, 27, 28, "Input",ExpressionUUID->"02bd703d-2c41-49ba-9fb4-f1dc92dd57c7"],
-Cell[177623, 3906, 1220, 35, 67, "Input",ExpressionUUID->"5d363d0e-9f8c-4d34-925a-c68f3e66ca6c"],
-Cell[178846, 3943, 4289, 99, 200, "Input",ExpressionUUID->"e21f9ce8-567a-4156-893b-4d826eebdcd2"],
-Cell[183138, 4044, 6097, 139, 181, "Input",ExpressionUUID->"30208c3e-4784-4a6d-8dde-e80cc3874995"],
-Cell[189238, 4185, 3562, 105, 181, "Input",ExpressionUUID->"a4c80dc0-3e96-495f-aa03-1c81af8f34b5"],
-Cell[192803, 4292, 4240, 112, 162, "Input",ExpressionUUID->"acae901d-0f8e-4891-80ed-2aa501f3a108"],
-Cell[197046, 4406, 4096, 110, 162, "Input",ExpressionUUID->"07721733-9c86-4a78-b0c9-cf907281f2ad"],
-Cell[201145, 4518, 308, 8, 48, "Input",ExpressionUUID->"7d5cd7d8-c551-4c04-af21-f8cf5ec5b8e5"],
-Cell[201456, 4528, 8477, 169, 238, "Input",ExpressionUUID->"d9e9450f-f0b4-4d33-b3a8-d879b8eafde9"],
-Cell[209936, 4699, 9945, 193, 200, "Input",ExpressionUUID->"ec1eb142-1949-4bb2-8b4f-36a881b68b89"],
-Cell[219884, 4894, 4979, 113, 181, "Input",ExpressionUUID->"bc5d1d0b-ef0f-4f75-9cd7-298b4585cdf0"],
-Cell[224866, 5009, 175, 3, 28, "Input",ExpressionUUID->"d1562100-db9d-41cc-8de7-0c6cc15a205d"]
+Cell[99013, 2334, 221, 4, 67, "Section",ExpressionUUID->"5616458f-9688-45a5-bfa8-854aebe48e7f"],
+Cell[99237, 2340, 405, 9, 81, "Text",ExpressionUUID->"096075a9-bc0b-4037-960c-cbddee538f47"],
+Cell[99645, 2351, 919, 23, 28, "Input",ExpressionUUID->"9d933784-d5c0-4892-b41f-e0599f08a30b"],
+Cell[100567, 2376, 261, 5, 28, "Input",ExpressionUUID->"7e052b31-5bc1-4d4a-a448-dd404fd18726"],
+Cell[100831, 2383, 679, 20, 48, "Input",ExpressionUUID->"cc70afc7-d0af-4d87-abe7-66b17b47ba71"],
+Cell[101513, 2405, 1567, 44, 86, "Input",ExpressionUUID->"378fe6c6-b0da-4a4f-a32f-9942ed673d25"],
+Cell[103083, 2451, 337, 9, 28, "Input",ExpressionUUID->"511aae42-219b-4102-a1d4-3d2eb4495262"],
+Cell[103423, 2462, 239, 7, 28, "Input",ExpressionUUID->"43f82217-4095-4c61-b606-1064298bbdd1"],
+Cell[103665, 2471, 294, 6, 28, "Input",ExpressionUUID->"2b0a6c38-9fc3-412d-ab31-d9ab7431b935"],
+Cell[103962, 2479, 29873, 494, 295, "Input",ExpressionUUID->"a4fe0ffb-11e6-4ac9-be85-9b2980599a64"],
+Cell[133838, 2975, 3581, 83, 219, "Input",ExpressionUUID->"a71f2022-36c4-48be-9d32-2aa2bc18e695"],
+Cell[137422, 3060, 241, 5, 28, "Input",ExpressionUUID->"2c07f660-1039-40ce-aa6b-6e842fcf16d2"],
+Cell[137666, 3067, 191, 3, 28, "Input",ExpressionUUID->"b9fab761-6942-4db2-a979-6fc51f4d9609"],
+Cell[137860, 3072, 563, 16, 28, "Input",ExpressionUUID->"605ed7ba-f4e6-457d-b4e4-4d2c10270ffa"],
+Cell[138426, 3090, 2732, 60, 67, "Input",ExpressionUUID->"84168587-74b8-4a66-991a-036de30dd695"],
+Cell[141161, 3152, 3517, 82, 67, "Input",ExpressionUUID->"36fa7b1f-19ef-4dc9-964d-1e53d4158c5d"],
+Cell[144681, 3236, 874, 24, 28, "Input",ExpressionUUID->"a62e39ba-4d28-4799-bd7a-e81a8645743f"],
+Cell[145558, 3262, 875, 26, 28, "Input",ExpressionUUID->"3c47cac4-c7ca-44a8-b17a-eaac9875ee04"],
+Cell[146436, 3290, 1137, 33, 28, "Input",ExpressionUUID->"60e50102-6984-47fb-8b9c-16c3921bffb9"],
+Cell[147576, 3325, 797, 23, 28, "Input",ExpressionUUID->"3b4529d4-a830-4b38-bf69-e507e320e531"],
+Cell[148376, 3350, 799, 23, 28, "Input",ExpressionUUID->"cdbff258-8824-452b-b842-e714e0933de7"],
+Cell[149178, 3375, 9486, 258, 390, "Input",ExpressionUUID->"9cef4f20-fa5e-44a9-bb23-b1457ea94a33"],
+Cell[158667, 3635, 3541, 54, 28, "Input",ExpressionUUID->"3048c764-0b8c-4f5b-9929-f699f737339f"],
+Cell[162211, 3691, 19387, 352, 695, "Input",ExpressionUUID->"253d1f8f-832f-4ebf-816e-833bb3974847"],
+Cell[181601, 4045, 1104, 27, 28, "Input",ExpressionUUID->"02bd703d-2c41-49ba-9fb4-f1dc92dd57c7"],
+Cell[182708, 4074, 1220, 35, 67, "Input",ExpressionUUID->"5d363d0e-9f8c-4d34-925a-c68f3e66ca6c"],
+Cell[183931, 4111, 4289, 99, 200, "Input",ExpressionUUID->"e21f9ce8-567a-4156-893b-4d826eebdcd2"],
+Cell[188223, 4212, 6097, 139, 181, "Input",ExpressionUUID->"30208c3e-4784-4a6d-8dde-e80cc3874995"],
+Cell[194323, 4353, 3562, 105, 181, "Input",ExpressionUUID->"a4c80dc0-3e96-495f-aa03-1c81af8f34b5"],
+Cell[197888, 4460, 4240, 112, 162, "Input",ExpressionUUID->"acae901d-0f8e-4891-80ed-2aa501f3a108"],
+Cell[202131, 4574, 4096, 110, 162, "Input",ExpressionUUID->"07721733-9c86-4a78-b0c9-cf907281f2ad"],
+Cell[206230, 4686, 308, 8, 48, "Input",ExpressionUUID->"7d5cd7d8-c551-4c04-af21-f8cf5ec5b8e5"],
+Cell[206541, 4696, 8477, 169, 238, "Input",ExpressionUUID->"d9e9450f-f0b4-4d33-b3a8-d879b8eafde9"],
+Cell[215021, 4867, 9945, 193, 200, "Input",ExpressionUUID->"ec1eb142-1949-4bb2-8b4f-36a881b68b89"],
+Cell[224969, 5062, 4979, 113, 181, "Input",ExpressionUUID->"bc5d1d0b-ef0f-4f75-9cd7-298b4585cdf0"],
+Cell[229951, 5177, 175, 3, 28, "Input",ExpressionUUID->"d1562100-db9d-41cc-8de7-0c6cc15a205d"]
 }, Open  ]]
 }, Open  ]]
 }
