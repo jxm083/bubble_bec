@@ -639,8 +639,8 @@ Show@MapThread[Graphics3D[{#1,Thick,#2},Axes->True,AxesLabel->{"x","y","z"}]&,{{
 
 (* These values taken from D. Aveline's presentation "Microwave loop positions across various
 CAL Science Modules" SM123_uW_loop_positions_v3r.pdf. *)
-LoopRadius = 7.0 mm; (* 5.0 default from SM2 *)
-LoopOriginZ = -2.4 mm;
+rfLoopRadius = 7.0 mm; (* 5.0 default from SM2 *)
+rfLoopOriginZ = -2.4 mm;
 
 Block[
 {
@@ -662,28 +662,28 @@ Bz[z_,z0_,r_,a_]:=B[a]*(1/(\[Pi]*\[Sqrt]Q[z,z0,r,a]))*((EllipticE[d[z,z0,r,a]])(
 Br[z_,z0_,r_,a_]:=B[a]*(\[Gamma][z,z0,r]/(\[Pi]*\[Sqrt]Q[z,z0,r,a]))*((EllipticE[d[z,z0,r,a]])*((1+\[Alpha][r,a]^2+\[Beta][z,z0,a]^2)/(Q[z,z0,r,a]-4\[Alpha][r,a]))-EllipticK[d[z,z0,r,a]]); (* When on-axis, Br=0*)
 
 (*magnitude of total magnetic field*)
-Bmag[z_,z0_,r_,a_]:=Evaluate[\[Sqrt]((Bz[z,z0,r,a])^2+(Br[z,z0,r,a])^2)];
+BmagRF[z_,z0_,r_,a_]:=Evaluate[\[Sqrt]((Bz[z,z0,r,a])^2+(Br[z,z0,r,a])^2)];
 
-RFUnitVec[x_,y_,z_]:=Evaluate[{
-Br[z,LoopOriginZ,Sqrt[x^2+y^2],LoopRadius] x/Sqrt[x^2+y^2],
-Br[z,LoopOriginZ,Sqrt[x^2+y^2],LoopRadius] y/Sqrt[x^2+y^2] , 
-Bz[z,LoopOriginZ,Sqrt[x^2+y^2],LoopRadius]
-}/Bmag[z,LoopOriginZ,Sqrt[x^2+y^2],LoopRadius]];
+rfUnitVec[x_,y_,z_]:=Evaluate[{
+Br[z,rfLoopOriginZ,Sqrt[x^2+y^2],rfLoopRadius] x/Sqrt[x^2+y^2],
+Br[z,rfLoopOriginZ,Sqrt[x^2+y^2],rfLoopRadius] y/Sqrt[x^2+y^2] , 
+Bz[z,rfLoopOriginZ,Sqrt[x^2+y^2],rfLoopRadius]
+}/BmagRF[z,rfLoopOriginZ,Sqrt[x^2+y^2],rfLoopRadius]];
 
 RFUnitVecC = Compile[{x,y,z}, Evaluate@RFUnitVec[x,y,z]];
 RFUnitVecC2[x_?NumericQ, y_?NumericQ, z_?NumericQ]:=RFUnitVecC[x,y,z]; (* this was RFUnitVecC[z,y,z] for no reason I can understand. Only used in notebook bubble-4a-[]'s function GermanAngle, which isn't used after it is defined. *)
 
-MagFrac[x_,y_,z_]:=Bmag[z,LoopOriginZ,Sqrt[x^2+y^2], LoopRadius]/Bmag[z1,LoopOriginZ,1*^-10, LoopRadius]; 
+rfMagFrac[x_,y_,z_]:=BmagRF[z,rfLoopOriginZ,Sqrt[x^2+y^2], rfLoopRadius]/BmagRF[z1,rfLoopOriginZ,1*^-10, rfLoopRadius]; 
 (* Magnitude of the rf loop magnetic field at radius Sqrt[x^2+y^2] and height z, scaled by the magnitude of the same field evaluated at the trap minimum z coordinate and radius 1*^-10 (0.1 nm, effectively zero) *)
-MagFracC=Compile[{x,y,z},Evaluate[MagFrac[x,y,z]]];
-MagFracC2[x_?NumericQ,y_?NumericQ,z_?NumericQ]:=MagFracC[x,y,z];
-MagFracSimple[x_,y_,z_]:=Bmag[z,LoopOriginZ,Sqrt[x^2+y^2], LoopRadius]/Bmag[z1,LoopOriginZ,1*^-10, LoopRadius]
+rfMagFracC=Compile[{x,y,z},Evaluate[rfMagFrac[x,y,z]]];
+rfMagFracC2[x_?NumericQ,y_?NumericQ,z_?NumericQ]:=rfMagFracC[x,y,z];
+rfMagFracSimple[x_,y_,z_]:=BmagRF[z,rfLoopOriginZ,Sqrt[x^2+y^2], rfLoopRadius]/BmagRF[z1,rfLoopOriginZ,1*^-10, rfLoopRadius]
 ];
 
 (*
-(* Check Bmag against a simpler analytic form of the potential in a limiting case. *)
+(* Check BmagRF against a simpler analytic form of the potential in a limiting case. *)
 Btest[z_,z0_,a_]:=(mu0 (*i=*)1(**)/2) a^2/(a^2 + (z-z0)^2)^1.5;
-Plot[Bmag[z,0,1*^-10,.005]-Btest[z,0,.005],{z,0,.01},Frame\[Rule]True]
+Plot[BmagRF[z,0,1*^-10,.005]-Btest[z,0,.005],{z,0,.01},Frame\[Rule]True]
 *)
 
 
